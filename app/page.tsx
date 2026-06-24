@@ -98,17 +98,53 @@ const TESTIMONIALS: Testimonial[] = [
     name: "David L.",
     role: "President, Apex Real Estate",
   },
+  {
+    quote:
+      "We had no IT strategy — just chaos. Fornida came in, audited everything, and had us on a real managed plan within two weeks. Night and day.",
+    name: "Sarah T.",
+    role: "Operations Director, NorthStar Staffing",
+  },
+  {
+    quote:
+      "Our old MSP took days to respond to tickets. Fornida resolves most issues same-day. The SLA is real, not just a number on paper.",
+    name: "Kevin M.",
+    role: "CEO, Cornerstone Title Group",
+  },
+  {
+    quote:
+      "They trained our entire team on Copilot in one afternoon. We're actually using AI now instead of just talking about it.",
+    name: "Priya N.",
+    role: "VP of Finance, Meridian Healthcare Group",
+  },
+  {
+    quote:
+      "Fornida caught a phishing attempt before any of our staff even noticed. SentinelOne flagged it, they contained it, and I got a full report by end of day.",
+    name: "Carlos V.",
+    role: "Managing Partner, V&A Law Firm",
+  },
+  {
+    quote:
+      "We scaled from 12 to 40 employees in six months. Fornida handled every new device, account, and onboarding without a single hiccup.",
+    name: "Amanda B.",
+    role: "COO, BlueRidge Logistics",
+  },
+  {
+    quote:
+      "The free automation assessment alone was worth the call. They found two workflows we didn't even know could be automated and built them the same week.",
+    name: "Tom H.",
+    role: "President, Hartwell Distribution",
+  },
 ];
 
 const PARTNERS = [
-  "Microsoft Copilot",
-  "Claude",
-  "OpenAI",
-  "SentinelOne",
-  "Azure",
-  "AWS",
-  "SonicWall",
-  "Dell",
+  { name: "Microsoft Copilot", summary: "AI assistant built into Microsoft 365. Fornida deploys & governs it across your org — drafting, summarizing, and automating inside the tools your team already uses." },
+  { name: "Claude", summary: "Anthropic's AI model known for safety and long-context reasoning. We integrate Claude into workflows requiring nuanced analysis, policy drafting, and document processing." },
+  { name: "OpenAI", summary: "Powers ChatGPT and GPT-4. Fornida uses OpenAI APIs to build custom automations — from AP processing to employee onboarding — tailored to your business." },
+  { name: "SentinelOne", summary: "AI-driven endpoint detection & response (EDR). Deployed across all your devices, it detects threats in real time and auto-rolls back malicious changes before damage spreads." },
+  { name: "Azure", summary: "Microsoft's cloud platform. Fornida runs infrastructure, identity (Entra ID), backup, and AI workloads on Azure — giving you enterprise-grade cloud without enterprise complexity." },
+  { name: "AWS", summary: "Amazon Web Services — cloud compute, storage, and AI services. We architect and manage AWS environments for clients who need scalability with full cost visibility." },
+  { name: "SonicWall", summary: "Next-gen firewall and network security. Fornida deploys SonicWall to protect your perimeter, block threats at the gateway, and enforce zero-trust network access policies." },
+  { name: "Dell", summary: "Workstations, servers, and networking gear. Fornida is a Dell partner — we procure, image, and deploy Dell hardware, and manage the full device lifecycle for your team." },
 ];
 
 // ─── Hooks ─────────────────────────────────────────────────────────────────
@@ -161,8 +197,8 @@ function StatBlock({ stat, active }: { stat: StatItem; active: boolean }) {
       : `${stat.prefix ?? ""}${active ? count : "—"}${stat.suffix ?? ""}`;
 
   return (
-    <div className="flex-1 text-center border-r border-white/5 last:border-r-0 py-8 px-4">
-      <div className="text-3xl font-black text-cyan-400 tabular-nums tracking-tight">
+    <div className="flex-1 text-center border-r border-gray-200 last:border-r-0 py-8 px-4">
+      <div className="text-3xl font-black text-cyan-600 tabular-nums tracking-tight">
         {display}
       </div>
       <div className="text-xs text-zinc-500 uppercase tracking-widest mt-2">
@@ -172,9 +208,105 @@ function StatBlock({ stat, active }: { stat: StatItem; active: boolean }) {
   );
 }
 
+// ─── Testimonials Carousel ─────────────────────────────────────────────────
+const TESTI_AGES = ["1 month ago","2 months ago","3 months ago","4 months ago","2 months ago","1 month ago","3 months ago","5 months ago","2 months ago"];
+
+function TestimonialsCarousel({ visible }: { visible: boolean }) {
+  const [idx, setIdx] = useState(0);
+  const [dir, setDir] = useState<"left"|"right">("right");
+  const [animating, setAnimating] = useState(false);
+
+  const go = (next: number, direction: "left"|"right") => {
+    if (animating) return;
+    setDir(direction);
+    setAnimating(true);
+    setTimeout(() => { setIdx(next); setAnimating(false); }, 280);
+  };
+
+  const prev = () => go((idx - 1 + TESTIMONIALS.length) % TESTIMONIALS.length, "left");
+  const next = () => go((idx + 1) % TESTIMONIALS.length, "right");
+
+  const t = TESTIMONIALS[idx];
+  const initials = t.name.split(" ").map((w) => w[0]).join("").slice(0, 2);
+  const avatarColors = ["bg-cyan-600","bg-purple-600","bg-amber-500","bg-emerald-600","bg-rose-500","bg-blue-600","bg-orange-500","bg-teal-600","bg-indigo-600"];
+  const accentColors = ["border-cyan-400","border-purple-400","border-amber-400","border-emerald-400","border-rose-400","border-blue-400","border-orange-400","border-teal-400","border-indigo-400"];
+
+  return (
+    <div className={`transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
+      {/* Card */}
+      <div className="relative overflow-hidden">
+        <div
+          className={`relative bg-white rounded-3xl shadow-xl border-t-4 ${accentColors[idx % accentColors.length]} p-10 transition-all duration-280`}
+          style={{
+            opacity: animating ? 0 : 1,
+            transform: animating
+              ? `translateX(${dir === "right" ? "-40px" : "40px"})`
+              : "translateX(0)",
+          }}
+        >
+          {/* Big quote mark */}
+          <span className="absolute top-4 right-7 text-8xl font-serif text-amber-300/50 leading-none select-none">&rdquo;</span>
+
+          {/* Stars */}
+          <div className="text-amber-400 text-xl tracking-widest mb-5">★★★★★</div>
+
+          {/* Quote */}
+          <p className="text-zinc-800 text-lg leading-relaxed mb-8 font-medium">{t.quote}</p>
+
+          {/* Divider */}
+          <div className="border-t border-gray-100 mb-6" />
+
+          {/* Attribution */}
+          <div className="flex items-center gap-4">
+            <div className={`w-12 h-12 rounded-full flex items-center justify-center text-white font-black text-base flex-shrink-0 shadow-md ${avatarColors[idx % avatarColors.length]}`}>
+              {initials}
+            </div>
+            <div>
+              <div className="font-black text-zinc-900">{t.name}</div>
+              <div className="text-zinc-400 text-xs mt-0.5">{t.role}</div>
+              <div className="text-zinc-400 text-[10px] uppercase tracking-widest mt-0.5">{TESTI_AGES[idx]}</div>
+            </div>
+            <div className="ml-auto flex items-center gap-1.5 bg-gray-50 border border-gray-200 rounded-full px-3 py-1.5">
+              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+              </svg>
+              <span className="text-[10px] font-bold text-zinc-500 uppercase tracking-wide">Google</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Counter + Controls */}
+      <div className="flex items-center justify-between mt-8 px-1">
+        <span className="text-xs font-bold text-zinc-400 tabular-nums">{idx + 1} / {TESTIMONIALS.length}</span>
+
+        <div className="flex gap-1.5">
+          {TESTIMONIALS.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => go(i, i > idx ? "right" : "left")}
+              className={`rounded-full transition-all duration-300 ${i === idx ? "bg-cyan-500 w-6 h-2.5" : "bg-gray-300 hover:bg-gray-400 w-2.5 h-2.5"}`}
+            />
+          ))}
+        </div>
+
+        <div className="flex gap-2">
+          <button onClick={prev} className="w-10 h-10 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center text-zinc-600 hover:bg-cyan-50 hover:border-cyan-300 hover:text-cyan-600 transition-all font-bold">←</button>
+          <button onClick={next} className="w-10 h-10 rounded-full bg-cyan-500 flex items-center justify-center text-white hover:bg-cyan-600 transition-all font-bold shadow-md">→</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ─── Page ──────────────────────────────────────────────────────────────────
 export default function HomePage() {
   const [scrolled, setScrolled] = useState(false);
+  const [activePill, setActivePill] = useState<string | null>(null);
+  const [hoveredPill, setHoveredPill] = useState<string | null>(null);
   const { ref: statsRef, inView: statsVisible } = useInView(0.5);
   const { ref: problemRef, inView: problemVisible } = useInView(0.1);
   const { ref: serviceRef, inView: serviceVisible } = useInView(0.1);
@@ -187,30 +319,31 @@ export default function HomePage() {
   }, []);
 
   return (
-    <main className="bg-[#07070f] text-white min-h-screen overflow-x-hidden">
+    <main className="bg-slate-300 text-zinc-900 min-h-screen overflow-x-hidden" onClick={(e) => { if (!(e.target as HTMLElement).closest('button[class*="border-cyan"]') && !(e.target as HTMLElement).closest('button[class*="border-gray"]')) setActivePill(null); }}>
 
       {/* ── NAVIGATION ──────────────────────────────────── */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-[#07070f]/80 backdrop-blur-md border-b border-white/5"
+            ? "bg-slate-300/90 backdrop-blur-md border-b border-gray-300 shadow-sm"
             : "bg-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <span className="text-cyan-400 text-xl font-black tracking-tight">
-            FORNIDA
-          </span>
+          <a href="/" className="flex items-center gap-2">
+            <img src="/fornida-mark.png" alt="Fornida" className="h-8 w-auto" />
+            <span className="text-cyan-600 text-xl font-black tracking-tight">FORNIDA</span>
+          </a>
           <div className="hidden md:flex items-center gap-8">
-            <a href="/services" className="text-sm text-zinc-400 hover:text-white transition-colors">Services</a>
-            {["Case Studies", "Insights", "About"].map((l) => (
-              <a key={l} href="#" className="text-sm text-zinc-400 hover:text-white transition-colors">{l}</a>
-            ))}
-            <a href="/shop" className="text-sm text-zinc-400 hover:text-white transition-colors">Shop</a>
+            <a href="/services" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Services</a>
+            <a href="#" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Case Studies</a>
+            <a href="/insights" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Insights</a>
+            <a href="#" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">About</a>
+            <a href="/shop" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Shop</a>
           </div>
           <a
             href="#assessment"
-            className="bg-cyan-400 text-black text-sm font-bold px-5 py-2.5 rounded-lg hover:bg-cyan-300 transition-colors"
+            className="bg-cyan-500 text-white text-sm font-bold px-5 py-2.5 rounded-lg hover:bg-cyan-600 transition-colors"
           >
             Book Assessment →
           </a>
@@ -218,26 +351,35 @@ export default function HomePage() {
       </nav>
 
       {/* ── HERO ────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex items-center justify-center text-center px-6 overflow-hidden">
-        {/* Mesh gradients */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(0,212,255,0.12),transparent)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_40%_40%_at_80%_60%,rgba(124,58,237,0.08),transparent)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_40%_30%_at_20%_70%,rgba(0,212,255,0.05),transparent)]" />
+      <section className="relative min-h-screen flex items-center justify-center text-center px-6 overflow-hidden bg-gradient-to-br from-slate-300 via-slate-200 to-cyan-200">
+        {/* Hero team photo — subtle */}
+        <img
+          src="https://fornida.com/assets/fornida_hero_image.jpg"
+          alt=""
+          aria-hidden
+          className="absolute inset-0 w-full h-full object-cover object-center opacity-30"
+        />
+        {/* Light overlays */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-300/80 via-slate-200/40 to-slate-100/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-100 via-transparent to-slate-200/50" />
+        {/* Subtle mesh accents */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(6,182,212,0.08),transparent)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_40%_40%_at_80%_60%,rgba(124,58,237,0.04),transparent)]" />
 
         <div className="relative max-w-4xl mx-auto pt-20 animate-fade-up">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 border border-cyan-400/20 text-cyan-400 text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+          <div className="inline-flex items-center gap-2 border border-cyan-500/30 text-cyan-600 text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full mb-8 bg-cyan-50">
+            <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 animate-pulse" />
             Texas-based MSP · Est. 2012
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-black tracking-tight leading-[1.05] mb-6">
+          <h1 className="text-5xl md:text-7xl font-black tracking-tight leading-[1.05] mb-6 text-zinc-900">
             Secure AI Adoption
             <br />
-            <span className="text-cyan-400">for Growing Businesses</span>
+            <span className="text-cyan-600">for Growing Businesses</span>
           </h1>
 
-          <p className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+          <p className="text-lg md:text-xl text-zinc-500 max-w-2xl mx-auto mb-10 leading-relaxed">
             One team for IT, security, and automation. Enterprise-grade defense
             built for the SMB reality — with AI baked in from day one.
           </p>
@@ -245,31 +387,62 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="#assessment"
-              className="bg-cyan-400 text-black font-bold text-base px-8 py-4 rounded-xl hover:bg-cyan-300 transition-all hover:scale-[1.02] active:scale-[0.98]"
+              className="bg-cyan-500 text-white font-bold text-base px-8 py-4 rounded-xl hover:bg-cyan-600 transition-all hover:scale-[1.02] active:scale-[0.98]"
             >
               Book AI Optimization Assessment →
             </a>
             <a
               href="#quick-win"
-              className="border border-white/10 text-white font-semibold text-base px-8 py-4 rounded-xl hover:bg-white/5 transition-all"
+              className="border border-gray-300 text-zinc-700 font-semibold text-base px-8 py-4 rounded-xl hover:bg-gray-50 transition-all"
             >
               Claim Your Free Quick Win
             </a>
           </div>
 
           {/* Partner pills */}
-          <div className="mt-16 flex items-center justify-center gap-3 flex-wrap">
-            <span className="text-xs text-zinc-600 uppercase tracking-widest mr-2">
-              Works with
-            </span>
-            {PARTNERS.map((p) => (
-              <span
-                key={p}
-                className="text-xs text-zinc-500 border border-white/5 px-3 py-1.5 rounded-md hover:border-white/15 hover:text-zinc-300 transition-all cursor-default"
-              >
-                {p}
-              </span>
-            ))}
+          <div className="mt-16">
+            <div className="flex items-center justify-center gap-3 flex-wrap">
+              <span className="text-xs text-zinc-400 uppercase tracking-widest mr-2">Works with</span>
+              {PARTNERS.map((p) => (
+                <button
+                  key={p.name}
+                  onClick={() => setActivePill(activePill === p.name ? null : p.name)}
+                  onMouseEnter={() => setHoveredPill(p.name)}
+                  onMouseLeave={() => setHoveredPill(null)}
+                  className={`text-xs px-3 py-1.5 rounded-md border transition-all cursor-pointer ${
+                    activePill === p.name
+                      ? "border-cyan-500/50 text-cyan-700 bg-cyan-50"
+                      : hoveredPill === p.name
+                      ? "border-gray-300 text-zinc-700 bg-gray-50"
+                      : "border-gray-200 text-zinc-500"
+                  }`}
+                >
+                  {p.name}
+                </button>
+              ))}
+            </div>
+            <div className="mt-4 max-w-lg mx-auto h-32 relative">
+              {PARTNERS.map((partner) => {
+                const visible = (activePill ?? hoveredPill) === partner.name;
+                return (
+                  <div
+                    key={partner.name}
+                    className={`absolute inset-0 bg-white rounded-xl px-5 py-4 text-left transition-opacity duration-150 overflow-auto shadow-lg border border-gray-100 ${visible ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+                  >
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-xs font-bold text-cyan-600 uppercase tracking-widest">
+                        {partner.name}
+                        {activePill === partner.name && <span className="ml-2 text-zinc-400 font-normal normal-case tracking-normal">· pinned</span>}
+                      </span>
+                      {activePill === partner.name && (
+                        <button onClick={(e) => { e.stopPropagation(); setActivePill(null); }} className="text-zinc-400 hover:text-zinc-600 text-lg leading-none">×</button>
+                      )}
+                    </div>
+                    <p className="text-sm text-zinc-600 leading-relaxed">{partner.summary}</p>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
@@ -277,9 +450,9 @@ export default function HomePage() {
       {/* ── STATS BAR ───────────────────────────────────── */}
       <div
         ref={statsRef}
-        className="border-y border-white/5 bg-black/40 backdrop-blur-sm"
+        className="border-y border-gray-300 bg-slate-300"
       >
-        <div className="max-w-5xl mx-auto flex divide-x divide-white/5">
+        <div className="max-w-5xl mx-auto flex divide-x divide-gray-200">
           {STATS.map((s) => (
             <StatBlock key={s.label} stat={s} active={statsVisible} />
           ))}
@@ -292,15 +465,15 @@ export default function HomePage() {
         className="py-24 px-6 max-w-7xl mx-auto"
       >
         <div className="mb-12">
-          <p className="text-cyan-400 text-xs font-bold uppercase tracking-widest mb-3">
+          <p className="text-cyan-600 text-xs font-bold uppercase tracking-widest mb-3">
             The Problem
           </p>
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4">
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4 text-zinc-900">
             Four threats slowing
             <br />
             your business down
           </h2>
-          <p className="text-zinc-400 text-lg max-w-xl leading-relaxed">
+          <p className="text-zinc-500 text-lg max-w-xl leading-relaxed">
             Most SMBs face these invisible drags every day — and don't know
             where to start fixing them.
           </p>
@@ -310,7 +483,7 @@ export default function HomePage() {
           {PROBLEMS.map((p, i) => (
             <div
               key={p.title}
-              className={`group border border-white/5 rounded-2xl p-8 hover:border-cyan-400/30 hover:-translate-y-1 transition-all duration-300 bg-white/[0.02] ${
+              className={`group border border-gray-200 rounded-2xl p-8 hover:border-cyan-400/50 hover:-translate-y-1 transition-all duration-300 bg-white shadow-sm ${
                 problemVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-4"
@@ -318,7 +491,7 @@ export default function HomePage() {
               style={{ transitionDelay: `${i * 80}ms` }}
             >
               <div className="text-3xl mb-4">{p.icon}</div>
-              <h3 className="text-xl font-bold mb-2 group-hover:text-cyan-400 transition-colors">
+              <h3 className="text-xl font-bold mb-2 text-zinc-900 group-hover:text-cyan-600 transition-colors">
                 {p.title}
               </h3>
               <p className="text-zinc-500 leading-relaxed">{p.desc}</p>
@@ -328,18 +501,26 @@ export default function HomePage() {
       </section>
 
       {/* ── SERVICES ────────────────────────────────────── */}
-      <section ref={serviceRef} className="py-24 px-6 bg-black/30">
-        <div className="max-w-7xl mx-auto">
+      <section ref={serviceRef} className="relative py-24 px-6 overflow-hidden bg-slate-300">
+        <img
+          src="https://fornida.com/assets/facility/noc-dashboard.jpg"
+          alt=""
+          aria-hidden
+          className="absolute inset-0 w-full h-full object-cover object-center opacity-20"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-300 via-slate-200/40 to-slate-200" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-300/70 via-transparent to-slate-200/70" />
+        <div className="relative z-10 max-w-7xl mx-auto">
           <div className="mb-12">
-            <p className="text-cyan-400 text-xs font-bold uppercase tracking-widest mb-3">
+            <p className="text-cyan-600 text-xs font-bold uppercase tracking-widest mb-3">
               What We Deliver
             </p>
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4">
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4 text-zinc-900">
               IT + Security + AI.
               <br />
               One team. No gaps.
             </h2>
-            <p className="text-zinc-400 text-lg max-w-xl leading-relaxed">
+            <p className="text-zinc-500 text-lg max-w-xl leading-relaxed">
               No juggling three vendors. One accountable partner covering all
               three layers — with full context on your environment.
             </p>
@@ -349,27 +530,23 @@ export default function HomePage() {
             {SERVICES.map((s, i) => (
               <div
                 key={s.num}
-                className={`relative border rounded-2xl p-8 transition-all duration-500 ${
-                  s.highlight
-                    ? "border-cyan-400/30 bg-cyan-400/[0.03]"
-                    : "border-white/5 bg-white/[0.01] hover:border-white/10"
-                } ${
+                className={`relative rounded-2xl p-8 transition-all duration-500 bg-white shadow-xl hover:-translate-y-1 border border-gray-100 ${
                   serviceVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-6"
                 }`}
                 style={{ transitionDelay: `${i * 120}ms` }}
               >
-                <div className="text-6xl font-black text-white/5 mb-4 select-none leading-none">
+                <div className="text-6xl font-black text-black/5 mb-4 select-none leading-none">
                   {s.num}
                 </div>
-                <h3 className="text-xl font-bold mb-3">{s.title}</h3>
+                <h3 className="text-xl font-bold mb-3 text-zinc-900">{s.title}</h3>
                 <p className="text-zinc-500 leading-relaxed text-sm mb-6">
                   {s.desc}
                 </p>
                 <a
                   href="#"
-                  className="text-cyan-400 text-sm font-semibold hover:text-cyan-300 transition-colors"
+                  className="text-cyan-600 text-sm font-semibold hover:text-cyan-700 transition-colors"
                 >
                   Learn more →
                 </a>
@@ -380,29 +557,35 @@ export default function HomePage() {
       </section>
 
       {/* ── ORIGIN STORY ────────────────────────────────── */}
-      <section className="py-24 px-6 max-w-7xl mx-auto">
+      <section className="relative py-24 px-6 overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1400&q=80&fit=crop')" }}
+        />
+        <div className="absolute inset-0 bg-slate-300/85" />
+        <div className="relative z-10 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div>
-            <p className="text-cyan-400 text-xs font-bold uppercase tracking-widest mb-3">
+            <p className="text-cyan-600 text-xs font-bold uppercase tracking-widest mb-3">
               Our Story
             </p>
-            <h2 className="text-4xl font-black tracking-tight mb-6">
+            <h2 className="text-4xl font-black tracking-tight mb-6 text-zinc-900">
               We learned the hard way.
               <br />
-              <span className="text-zinc-500">So you don't have to.</span>
+              <span className="text-zinc-400">So you don't have to.</span>
             </h2>
-            <p className="text-zinc-400 leading-relaxed mb-4">
+            <p className="text-zinc-500 leading-relaxed mb-4">
               In 2018, a wire fraud incident changed everything. We pivoted from
               telecom infrastructure to become the MSP we wished existed — one
               that treats security as a first principle, not an afterthought.
             </p>
-            <p className="text-zinc-400 leading-relaxed mb-8">
+            <p className="text-zinc-500 leading-relaxed mb-8">
               In 2024, we rebuilt our entire internal ops platform using AI in
               just 3 months. Now we bring that same capability to our clients.
             </p>
             <a
               href="/about"
-              className="text-cyan-400 font-semibold hover:text-cyan-300 transition-colors"
+              className="text-cyan-600 font-semibold hover:text-cyan-700 transition-colors"
             >
               Read the full story →
             </a>
@@ -416,9 +599,9 @@ export default function HomePage() {
             ].map((item) => (
               <div
                 key={item.year}
-                className="border border-white/5 rounded-xl p-6 bg-white/[0.02] text-center"
+                className="border border-gray-200 rounded-xl p-6 bg-white shadow-sm text-center"
               >
-                <div className="text-2xl font-black text-cyan-400 mb-2">
+                <div className="text-2xl font-black text-cyan-600 mb-2">
                   {item.year}
                 </div>
                 <div className="text-xs text-zinc-500 leading-relaxed">
@@ -428,144 +611,241 @@ export default function HomePage() {
             ))}
           </div>
         </div>
+        </div>
       </section>
 
       {/* ── SOCIAL PROOF ────────────────────────────────── */}
-      <section ref={testiRef} className="py-24 px-6 bg-black/30">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-12">
-            <p className="text-cyan-400 text-xs font-bold uppercase tracking-widest mb-3">
-              Client Results
-            </p>
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight">
-              Trusted by Texas businesses
+      <section ref={testiRef} className="relative py-24 px-6 overflow-hidden bg-slate-300">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_50%,rgba(6,182,212,0.07),transparent)]" />
+        <div className="relative z-10 max-w-3xl mx-auto">
+          <div className="mb-12 text-center">
+            <p className="text-cyan-600 text-xs font-bold uppercase tracking-widest mb-4">⭐ Client Results · Google Reviews</p>
+            <h2 className="text-4xl md:text-6xl font-black tracking-tight text-zinc-900 leading-tight">
+              Reviews from operators
+              <br />
+              <span className="text-zinc-500 font-black">who run the business.</span>
             </h2>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {TESTIMONIALS.map((t, i) => (
-              <div
-                key={t.name}
-                className={`border border-white/5 rounded-2xl p-8 bg-white/[0.02] transition-all duration-500 ${
-                  testiVisible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-4"
-                }`}
-                style={{ transitionDelay: `${i * 100}ms` }}
-              >
-                <div className="text-yellow-400 text-sm mb-4 tracking-widest">
-                  ★★★★★
-                </div>
-                <p className="text-zinc-400 text-sm leading-relaxed mb-6 italic">
-                  &ldquo;{t.quote}&rdquo;
-                </p>
-                <div>
-                  <div className="font-bold text-sm">{t.name}</div>
-                  <div className="text-zinc-600 text-xs mt-0.5">{t.role}</div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <TestimonialsCarousel visible={testiVisible} />
         </div>
       </section>
 
       {/* ── FINAL CTA ───────────────────────────────────── */}
       <section
         id="assessment"
-        className="py-24 px-6 relative overflow-hidden"
+        className="py-24 px-6 relative overflow-hidden bg-gradient-to-br from-cyan-100 via-slate-200 to-blue-100"
       >
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_50%,rgba(0,50,100,0.5),transparent)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_50%,rgba(6,182,212,0.08),transparent)]" />
         <div className="relative max-w-3xl mx-auto text-center">
-          <p className="text-cyan-400 text-xs font-bold uppercase tracking-widest mb-4">
+          <p className="text-cyan-600 text-xs font-bold uppercase tracking-widest mb-4">
             Free Assessment
           </p>
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4">
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4 text-zinc-900">
             Get your free AI optimization assessment
           </h2>
-          <p className="text-zinc-400 text-lg mb-10 leading-relaxed">
+          <p className="text-zinc-500 text-lg mb-10 leading-relaxed">
             No commitment. One conversation to find your biggest quick win — on
             us. Response within one business day.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="https://fornida.com/assessment"
-              className="bg-cyan-400 text-black font-bold text-base px-8 py-4 rounded-xl hover:bg-cyan-300 transition-all hover:scale-[1.02] active:scale-[0.98]"
+              className="bg-cyan-500 text-white font-bold text-base px-8 py-4 rounded-xl hover:bg-cyan-600 transition-all hover:scale-[1.02] active:scale-[0.98]"
             >
               Book in 60 seconds →
             </a>
             <a
               href="https://fornida.com/contact"
-              className="border border-white/10 text-white font-semibold text-base px-8 py-4 rounded-xl hover:bg-white/5 transition-all"
+              className="border border-gray-300 text-zinc-700 font-semibold text-base px-8 py-4 rounded-xl hover:bg-gray-50 transition-all"
             >
               Talk to an engineer instead
             </a>
           </div>
-          <p className="text-zinc-600 text-xs mt-6">
+          <p className="text-zinc-400 text-xs mt-6">
             📍 2609 Technology Dr, Suite 300, Plano, TX 75074 · +1-949-722-1222
           </p>
         </div>
       </section>
 
-      {/* ── FOOTER ──────────────────────────────────────── */}
-      <footer className="border-t border-white/5 bg-black/60 px-6 py-16">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
-          <div className="col-span-2 md:col-span-1">
-            <div className="text-cyan-400 text-lg font-black mb-3 tracking-tight">
-              FORNIDA
-            </div>
-            <p className="text-zinc-600 text-sm leading-relaxed">
-              Secure AI adoption for growing businesses. Plano, TX. Est. 2012.
-            </p>
-          </div>
-          {[
-            {
-              title: "Services",
-              links: ["Help Desk", "Cybersecurity", "AI Advantage", "Hardware Shop"],
-            },
-            {
-              title: "Company",
-              links: ["About", "Case Studies", "Insights", "Contact"],
-            },
-            {
-              title: "Contact",
-              links: [
-                "+1-949-722-1222",
-                "info@fornida.com",
-                "2609 Technology Dr",
-                "Plano, TX 75074",
-              ],
-            },
-          ].map((col) => (
-            <div key={col.title}>
-              <div className="text-white text-xs font-bold uppercase tracking-widest mb-4">
-                {col.title}
-              </div>
-              {col.links.map((l) => (
-                <a
-                  key={l}
-                  href="#"
-                  className="block text-zinc-600 text-sm mb-2 hover:text-zinc-400 transition-colors"
-                >
-                  {l}
-                </a>
-              ))}
-            </div>
-          ))}
+      {/* ── PARTNER ECOSYSTEM BAR ───────────────────────── */}
+      <section className="relative border-t border-b border-gray-300 py-12 overflow-hidden bg-slate-300">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 left-1/4 w-64 h-32 bg-cyan-500/5 rounded-full blur-3xl" />
+          <div className="absolute top-0 left-1/2 w-48 h-24 bg-purple-500/5 rounded-full blur-3xl" />
+          <div className="absolute top-0 right-1/4 w-64 h-32 bg-orange-500/5 rounded-full blur-3xl" />
         </div>
-        <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between gap-4">
-          <span className="text-zinc-700 text-xs">
-            © 2026 Fornida LLC. All rights reserved.
-          </span>
-          <div className="flex gap-6">
-            {["Privacy Policy", "Terms of Use", "MSA"].map((l) => (
-              <a
-                key={l}
-                href="#"
-                className="text-zinc-700 text-xs hover:text-zinc-500 transition-colors"
+
+        <p className="relative text-center text-[10px] font-bold uppercase tracking-widest text-zinc-400 mb-10">
+          Partner Ecosystem · Tools We Support · Vendors We Ship
+        </p>
+
+        {/* Marquee track */}
+        <div className="relative flex"
+          style={{ maskImage: "linear-gradient(to right, transparent 0%, black 18%, black 82%, transparent 100%)", WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 18%, black 82%, transparent 100%)" }}>
+          <style>{`
+            @keyframes marquee {
+              0%   { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+            .marquee-track {
+              display: flex;
+              width: max-content;
+              animation: marquee 30s linear infinite;
+            }
+            .marquee-track:hover {
+              animation-play-state: paused;
+            }
+          `}</style>
+          <div className="marquee-track">
+            {[
+              { name: "Claude", src: "https://fornida.com/assets/partners/claude.svg", glow: "rgba(210,140,90,0.5)" },
+              { name: "OpenAI", src: "https://fornida.com/assets/partners/openai.svg", glow: "rgba(0,0,0,0.3)" },
+              { name: "Grok", src: "https://fornida.com/assets/partners/xai.svg", glow: "rgba(0,0,0,0.3)" },
+              { name: "Microsoft Copilot", src: "https://fornida.com/assets/partners/microsoft-copilot.svg", glow: "rgba(100,160,255,0.5)" },
+              { name: "AWS", src: "https://fornida.com/assets/partners/aws.svg", glow: "rgba(255,153,0,0.5)" },
+              { name: "Microsoft Azure", src: "https://fornida.com/assets/partners/azure.svg", glow: "rgba(0,120,215,0.5)" },
+              { name: "Google Workspace", src: "https://fornida.com/assets/partners/google-workspace.svg", glow: "rgba(66,133,244,0.5)" },
+              { name: "Microsoft 365", src: "https://fornida.com/assets/partners/microsoft-365.svg", glow: "rgba(220,80,50,0.5)" },
+              { name: "Aruba", src: "https://fornida.com/assets/partners/aruba.svg", glow: "rgba(255,140,0,0.5)" },
+              { name: "SentinelOne", src: "https://fornida.com/assets/partners/sentinelone.svg", glow: "rgba(130,80,255,0.5)" },
+              { name: "SonicWall", src: "https://fornida.com/assets/partners/sonicwall.png", glow: "rgba(255,100,50,0.5)" },
+              { name: "Check Point", src: "https://fornida.com/assets/partners/checkpoint.svg", glow: "rgba(220,40,40,0.5)" },
+              { name: "Ubiquiti", src: "https://fornida.com/assets/partners/ubiquiti.svg", glow: "rgba(0,180,255,0.5)" },
+              { name: "Dell", src: "https://fornida.com/assets/partners/dell.svg", glow: "rgba(0,120,215,0.5)" },
+              { name: "HPE", src: "https://fornida.com/assets/partners/hpe.svg", glow: "rgba(0,190,100,0.5)" },
+              { name: "Lenovo", src: "https://fornida.com/assets/partners/lenovo.svg", glow: "rgba(220,30,30,0.5)" },
+              /* duplicate for seamless loop */
+              { name: "Claude2", src: "https://fornida.com/assets/partners/claude.svg", glow: "rgba(210,140,90,0.5)" },
+              { name: "OpenAI2", src: "https://fornida.com/assets/partners/openai.svg", glow: "rgba(0,0,0,0.3)" },
+              { name: "Grok2", src: "https://fornida.com/assets/partners/xai.svg", glow: "rgba(0,0,0,0.3)" },
+              { name: "Microsoft Copilot2", src: "https://fornida.com/assets/partners/microsoft-copilot.svg", glow: "rgba(100,160,255,0.5)" },
+              { name: "AWS2", src: "https://fornida.com/assets/partners/aws.svg", glow: "rgba(255,153,0,0.5)" },
+              { name: "Microsoft Azure2", src: "https://fornida.com/assets/partners/azure.svg", glow: "rgba(0,120,215,0.5)" },
+              { name: "Google Workspace2", src: "https://fornida.com/assets/partners/google-workspace.svg", glow: "rgba(66,133,244,0.5)" },
+              { name: "Microsoft 3652", src: "https://fornida.com/assets/partners/microsoft-365.svg", glow: "rgba(220,80,50,0.5)" },
+              { name: "Aruba2", src: "https://fornida.com/assets/partners/aruba.svg", glow: "rgba(255,140,0,0.5)" },
+              { name: "SentinelOne2", src: "https://fornida.com/assets/partners/sentinelone.svg", glow: "rgba(130,80,255,0.5)" },
+              { name: "SonicWall2", src: "https://fornida.com/assets/partners/sonicwall.png", glow: "rgba(255,100,50,0.5)" },
+              { name: "Check Point2", src: "https://fornida.com/assets/partners/checkpoint.svg", glow: "rgba(220,40,40,0.5)" },
+              { name: "Ubiquiti2", src: "https://fornida.com/assets/partners/ubiquiti.svg", glow: "rgba(0,180,255,0.5)" },
+              { name: "Dell2", src: "https://fornida.com/assets/partners/dell.svg", glow: "rgba(0,120,215,0.5)" },
+              { name: "HPE2", src: "https://fornida.com/assets/partners/hpe.svg", glow: "rgba(0,190,100,0.5)" },
+              { name: "Lenovo2", src: "https://fornida.com/assets/partners/lenovo.svg", glow: "rgba(220,30,30,0.5)" },
+            ].map((p) => (
+              <div
+                key={p.name}
+                className="group flex items-center justify-center mx-10 flex-shrink-0"
+                style={{ filter: `drop-shadow(0 0 3px ${p.glow.replace("0.5","0.1")})`, transition: "filter 0.3s ease" }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.filter = `drop-shadow(0 0 10px ${p.glow}) drop-shadow(0 0 20px ${p.glow})`; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.filter = `drop-shadow(0 0 3px ${p.glow.replace("0.5","0.1")})`; }}
               >
-                {l}
-              </a>
+                <img
+                  src={p.src}
+                  alt={p.name.replace(/\d$/, "")}
+                  className="h-8 w-auto object-contain opacity-50 group-hover:opacity-90 transition-opacity duration-300"
+                />
+              </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── FOOTER ──────────────────────────────────────── */}
+      <footer className="bg-zinc-900 border-t border-zinc-800 px-6 pt-14 pb-8">
+        <div className="max-w-7xl mx-auto">
+
+          {/* Top grid */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10 mb-12">
+
+            {/* Brand col */}
+            <div className="col-span-2 md:col-span-3 lg:col-span-1">
+              <div className="text-white text-lg font-black mb-3 tracking-tight">Fornida</div>
+              <p className="text-zinc-400 text-sm leading-relaxed mb-5">
+                The managed-services partner for the AI era. Secure IT, practical automation, and operational support for growing businesses.
+              </p>
+              <div className="flex gap-3">
+                {[
+                  { label: "LinkedIn", href: "https://www.linkedin.com/company/fornida", svg: <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z M4 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" /> },
+                  { label: "Instagram", href: "https://www.instagram.com/fornidallc", svg: <><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></> },
+                  { label: "X", href: "https://x.com/fornidallc", svg: <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /> },
+                  { label: "YouTube", href: "https://www.youtube.com/@fornida", svg: <><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></> },
+                  { label: "Facebook", href: "https://www.facebook.com/fornidallc", svg: <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /> },
+                ].map((s) => (
+                  <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}
+                    className="w-8 h-8 flex items-center justify-center rounded-full border border-zinc-700 text-zinc-500 hover:text-white hover:border-zinc-500 transition-all">
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                      {s.svg}
+                    </svg>
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Link columns */}
+            {[
+              {
+                title: "Company",
+                links: [
+                  { label: "About", href: "#" },
+                  { label: "Facility", href: "#" },
+                  { label: "Contact", href: "#" },
+                ],
+              },
+              {
+                title: "Services",
+                links: [
+                  { label: "Help Desk", href: "/services#help-desk" },
+                  { label: "Cybersecurity", href: "/services#cybersecurity" },
+                  { label: "AI Advantage", href: "/services#ai-advantage" },
+                ],
+              },
+              {
+                title: "Resources",
+                links: [
+                  { label: "Insights", href: "/insights" },
+                  { label: "Case Studies", href: "#" },
+                  { label: "Point of View", href: "#" },
+                ],
+              },
+              {
+                title: "Direct",
+                links: [
+                  { label: "Book Assessment", href: "/#assessment" },
+                  { label: "Shop Hardware", href: "/shop" },
+                ],
+              },
+              {
+                title: "Legal",
+                links: [
+                  { label: "Privacy Policy", href: "#" },
+                  { label: "Terms of Use", href: "#" },
+                  { label: "Master Services Agreement", href: "#" },
+                  { label: "Managed IT Terms", href: "#" },
+                  { label: "Hosted Cloud Terms", href: "#" },
+                  { label: "Hosted Cloud SLA", href: "#" },
+                ],
+              },
+            ].map((col) => (
+              <div key={col.title}>
+                <div className="text-zinc-300 text-[10px] font-bold uppercase tracking-widest mb-4">{col.title}</div>
+                {col.links.map((l) => (
+                  <a key={l.label} href={l.href}
+                    className="block text-zinc-500 text-sm mb-2.5 hover:text-zinc-300 transition-colors">
+                    {l.label}
+                  </a>
+                ))}
+              </div>
+            ))}
+          </div>
+
+          {/* Bottom bar */}
+          <div className="border-t border-zinc-800 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-zinc-600">
+            <span>© 2026 FORNIDA, LLC · 2609 TECHNOLOGY DR · SUITE 300 · PLANO, TX 75074</span>
+            <div className="flex gap-6">
+              <a href="tel:+19497221222" className="hover:text-zinc-400 transition-colors">+19497221222</a>
+              <a href="mailto:info@fornida.com" className="hover:text-zinc-400 transition-colors">info@fornida.com</a>
+              <span>v · 26.04</span>
+            </div>
           </div>
         </div>
       </footer>
