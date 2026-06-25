@@ -198,7 +198,7 @@ function StatBlock({ stat, active }: { stat: StatItem; active: boolean }) {
 
   return (
     <div className="flex-1 text-center border-r border-gray-200 last:border-r-0 py-8 px-4">
-      <div className="text-3xl font-black text-cyan-600 tabular-nums tracking-tight">
+      <div className="text-3xl font-black text-zinc-900 tabular-nums tracking-tight">
         {display}
       </div>
       <div className="text-xs text-zinc-500 uppercase tracking-widest mt-2">
@@ -245,10 +245,10 @@ function TestimonialsCarousel({ visible }: { visible: boolean }) {
           }}
         >
           {/* Big quote mark */}
-          <span className="absolute top-4 right-7 text-8xl font-serif text-amber-300/50 leading-none select-none">&rdquo;</span>
+          <span className="absolute top-4 right-7 text-8xl font-serif text-gray-400/50 leading-none select-none">&rdquo;</span>
 
           {/* Stars */}
-          <div className="text-amber-400 text-xl tracking-widest mb-5">★★★★★</div>
+          <div className="text-gray-400 text-xl tracking-widest mb-5">★★★★★</div>
 
           {/* Quote */}
           <p className="text-zinc-800 text-lg leading-relaxed mb-8 font-medium">{t.quote}</p>
@@ -294,7 +294,7 @@ function TestimonialsCarousel({ visible }: { visible: boolean }) {
         </div>
 
         <div className="flex gap-2">
-          <button onClick={prev} className="w-10 h-10 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center text-zinc-600 hover:bg-cyan-50 hover:border-cyan-300 hover:text-cyan-600 transition-all font-bold">←</button>
+          <button onClick={prev} className="w-10 h-10 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center text-zinc-600 hover:bg-cyan-50 hover:border-cyan-300 hover:text-zinc-900 transition-all font-bold">←</button>
           <button onClick={next} className="w-10 h-10 rounded-full bg-cyan-500 flex items-center justify-center text-white hover:bg-cyan-600 transition-all font-bold shadow-md">→</button>
         </div>
       </div>
@@ -332,7 +332,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <a href="/" className="flex items-center gap-2">
             <img src="/fornida-mark.png" alt="Fornida" className="h-8 w-auto" />
-            <span className="text-cyan-600 text-xl font-black tracking-tight">FORNIDA</span>
+            <span className="text-zinc-900 text-xl font-black tracking-tight">FORNIDA</span>
           </a>
           <div className="hidden md:flex items-center gap-8">
             <a href="/services" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Services</a>
@@ -368,7 +368,7 @@ export default function HomePage() {
 
         <div className="relative max-w-4xl mx-auto pt-20 animate-fade-up">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 border border-cyan-500/30 text-cyan-600 text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full mb-8 bg-cyan-50">
+          <div className="inline-flex items-center gap-2 border border-cyan-500/30 text-zinc-900 text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full mb-8 bg-cyan-50">
             <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 animate-pulse" />
             Texas-based MSP · Est. 2012
           </div>
@@ -376,7 +376,7 @@ export default function HomePage() {
           <h1 className="text-5xl md:text-7xl font-black tracking-tight leading-[1.05] mb-6 text-zinc-900">
             Secure AI Adoption
             <br />
-            <span className="text-cyan-600">for Growing Businesses</span>
+            <span className="text-zinc-900">for Growing Businesses</span>
           </h1>
 
           <p className="text-lg md:text-xl text-zinc-500 max-w-2xl mx-auto mb-10 leading-relaxed">
@@ -411,7 +411,7 @@ export default function HomePage() {
                   onMouseLeave={() => setHoveredPill(null)}
                   className={`text-xs px-3 py-1.5 rounded-md border transition-all cursor-pointer ${
                     activePill === p.name
-                      ? "border-cyan-500/50 text-cyan-700 bg-cyan-50"
+                      ? "border-cyan-500/50 text-zinc-700 bg-cyan-50"
                       : hoveredPill === p.name
                       ? "border-gray-300 text-zinc-700 bg-gray-50"
                       : "border-gray-200 text-zinc-500"
@@ -430,7 +430,7 @@ export default function HomePage() {
                     className={`absolute inset-0 bg-white rounded-xl px-5 py-4 text-left transition-opacity duration-150 overflow-auto shadow-lg border border-gray-100 ${visible ? "opacity-100" : "opacity-0 pointer-events-none"}`}
                   >
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-xs font-bold text-cyan-600 uppercase tracking-widest">
+                      <span className="text-xs font-bold text-zinc-900 uppercase tracking-widest">
                         {partner.name}
                         {activePill === partner.name && <span className="ml-2 text-zinc-400 font-normal normal-case tracking-normal">· pinned</span>}
                       </span>
@@ -465,7 +465,7 @@ export default function HomePage() {
         className="py-24 px-6 max-w-7xl mx-auto"
       >
         <div className="mb-12">
-          <p className="text-cyan-600 text-xs font-bold uppercase tracking-widest mb-3">
+          <p className="text-zinc-900 text-xs font-bold uppercase tracking-widest mb-3">
             The Problem
           </p>
           <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4 text-zinc-900">
@@ -491,7 +491,7 @@ export default function HomePage() {
               style={{ transitionDelay: `${i * 80}ms` }}
             >
               <div className="text-3xl mb-4">{p.icon}</div>
-              <h3 className="text-xl font-bold mb-2 text-zinc-900 group-hover:text-cyan-600 transition-colors">
+              <h3 className="text-xl font-bold mb-2 text-zinc-900 group-hover:text-zinc-900 transition-colors">
                 {p.title}
               </h3>
               <p className="text-zinc-500 leading-relaxed">{p.desc}</p>
@@ -512,7 +512,7 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-r from-slate-300/70 via-transparent to-slate-200/70" />
         <div className="relative z-10 max-w-7xl mx-auto">
           <div className="mb-12">
-            <p className="text-cyan-600 text-xs font-bold uppercase tracking-widest mb-3">
+            <p className="text-zinc-900 text-xs font-bold uppercase tracking-widest mb-3">
               What We Deliver
             </p>
             <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4 text-zinc-900">
@@ -546,7 +546,7 @@ export default function HomePage() {
                 </p>
                 <a
                   href="#"
-                  className="text-cyan-600 text-sm font-semibold hover:text-cyan-700 transition-colors"
+                  className="text-zinc-900 text-sm font-semibold hover:text-zinc-700 transition-colors"
                 >
                   Learn more →
                 </a>
@@ -566,7 +566,7 @@ export default function HomePage() {
         <div className="relative z-10 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div>
-            <p className="text-cyan-600 text-xs font-bold uppercase tracking-widest mb-3">
+            <p className="text-zinc-900 text-xs font-bold uppercase tracking-widest mb-3">
               Our Story
             </p>
             <h2 className="text-4xl font-black tracking-tight mb-6 text-zinc-900">
@@ -585,7 +585,7 @@ export default function HomePage() {
             </p>
             <a
               href="/about"
-              className="text-cyan-600 font-semibold hover:text-cyan-700 transition-colors"
+              className="text-zinc-900 font-semibold hover:text-zinc-700 transition-colors"
             >
               Read the full story →
             </a>
@@ -601,7 +601,7 @@ export default function HomePage() {
                 key={item.year}
                 className="border border-gray-200 rounded-xl p-6 bg-white shadow-sm text-center"
               >
-                <div className="text-2xl font-black text-cyan-600 mb-2">
+                <div className="text-2xl font-black text-zinc-900 mb-2">
                   {item.year}
                 </div>
                 <div className="text-xs text-zinc-500 leading-relaxed">
@@ -619,7 +619,7 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_50%,rgba(6,182,212,0.07),transparent)]" />
         <div className="relative z-10 max-w-3xl mx-auto">
           <div className="mb-12 text-center">
-            <p className="text-cyan-600 text-xs font-bold uppercase tracking-widest mb-4">⭐ Client Results · Google Reviews</p>
+            <p className="text-zinc-900 text-xs font-bold uppercase tracking-widest mb-4">⭐ Client Results · Google Reviews</p>
             <h2 className="text-4xl md:text-6xl font-black tracking-tight text-zinc-900 leading-tight">
               Reviews from operators
               <br />
@@ -637,7 +637,7 @@ export default function HomePage() {
       >
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_50%,rgba(6,182,212,0.08),transparent)]" />
         <div className="relative max-w-3xl mx-auto text-center">
-          <p className="text-cyan-600 text-xs font-bold uppercase tracking-widest mb-4">
+          <p className="text-zinc-900 text-xs font-bold uppercase tracking-widest mb-4">
             Free Assessment
           </p>
           <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4 text-zinc-900">

@@ -99,8 +99,8 @@ const CATEGORIES = [
 ];
 
 const BADGE_STYLES: Record<string, string> = {
-  Sale: "bg-red-100 text-red-600 border-red-200",
-  Popular: "bg-cyan-50 text-cyan-700 border-cyan-200",
+  Sale: "bg-red-100 text-zinc-700 border-red-200",
+  Popular: "bg-cyan-50 text-zinc-900 border-cyan-200",
 };
 
 function ProductCard({
@@ -146,7 +146,7 @@ function ProductCard({
             </span>
           )}
           {discount !== null && discount >= 30 && (
-            <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-green-100 text-green-700 border border-green-200">
+            <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-green-100 text-zinc-700 border border-green-200">
               -{discount}%
             </span>
           )}
@@ -172,7 +172,7 @@ function ProductCard({
         <div className="flex items-end justify-between mt-auto gap-2">
           <div className="flex items-baseline gap-2">
             {product.price === 0 ? (
-              <span className="text-sm font-bold text-cyan-600">Price on request</span>
+              <span className="text-sm font-bold text-zinc-900">Price on request</span>
             ) : (
               <>
                 <span className="text-xl font-black text-zinc-900">${product.price.toLocaleString()}</span>
@@ -254,7 +254,7 @@ export default function ShopPage() {
       {/* Nav */}
       <nav className="sticky top-0 z-50 bg-slate-300/90 backdrop-blur-md border-b border-gray-300 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <a href="/" className="text-cyan-600 text-xl font-black tracking-tight">FORNIDA</a>
+          <a href="/" className="text-zinc-900 text-xl font-black tracking-tight">FORNIDA</a>
           <div className="hidden md:flex items-center gap-8">
             <a href="/services" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Services</a>
             <a href="#" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Case Studies</a>
@@ -289,10 +289,10 @@ export default function ShopPage() {
           🖥️ Enterprise Hardware &nbsp;·&nbsp; Certified Refurbished &nbsp;·&nbsp; Ships Nationwide
         </h2>
         <div className="flex flex-wrap justify-center gap-4 text-sm text-zinc-600">
-          <span className="flex items-center gap-1.5"><span className="text-green-600 font-bold">✓</span> Free Shipping $500+</span>
-          <span className="flex items-center gap-1.5"><span className="text-green-600 font-bold">✓</span> 30-Day Returns</span>
-          <span className="flex items-center gap-1.5"><span className="text-green-600 font-bold">✓</span> Secure Checkout</span>
-          <span className="flex items-center gap-1.5"><span className="text-green-600 font-bold">✓</span> MSP-Backed Support</span>
+          <span className="flex items-center gap-1.5"><span className="text-zinc-700 font-bold">✓</span> Free Shipping $500+</span>
+          <span className="flex items-center gap-1.5"><span className="text-zinc-700 font-bold">✓</span> 30-Day Returns</span>
+          <span className="flex items-center gap-1.5"><span className="text-zinc-700 font-bold">✓</span> Secure Checkout</span>
+          <span className="flex items-center gap-1.5"><span className="text-zinc-700 font-bold">✓</span> MSP-Backed Support</span>
         </div>
       </div>
 
@@ -340,7 +340,7 @@ export default function ShopPage() {
                     }`}
                   >
                     <span>{cat}</span>
-                    <span className={`text-xs ${isActive ? "text-cyan-100" : "text-zinc-400"}`}>
+                    <span className={`text-xs ${isActive ? "text-zinc-900" : "text-zinc-400"}`}>
                       {count}
                     </span>
                   </button>
@@ -403,7 +403,7 @@ export default function ShopPage() {
           <div className="text-xs text-zinc-500 mb-5">
             Showing <span className="text-zinc-700 font-semibold">{filtered.length}</span> products
             {filtered.length !== inStockCount && (
-              <span> · <span className="text-green-600 font-semibold">{inStockCount} in stock</span></span>
+              <span> · <span className="text-zinc-700 font-semibold">{inStockCount} in stock</span></span>
             )}
             {search && <span> for <span className="text-zinc-700">&ldquo;{search}&rdquo;</span></span>}
           </div>
@@ -415,7 +415,7 @@ export default function ShopPage() {
               <div className="text-zinc-500 text-sm">Try a different search or category</div>
               <button
                 onClick={() => { setSearch(""); setActiveCategory("All Products"); }}
-                className="mt-4 text-cyan-500 text-sm hover:text-cyan-700 transition-colors"
+                className="mt-4 text-zinc-900 text-sm hover:text-zinc-900 transition-colors"
               >
                 Clear filters
               </button>

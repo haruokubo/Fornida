@@ -54,11 +54,11 @@ const INSIGHTS = [
 ];
 
 const TAG_COLORS: Record<string, string> = {
-  Cybersecurity: "text-red-600 bg-red-50 border-red-200",
-  "AI Automation": "text-yellow-600 bg-yellow-50 border-yellow-200",
-  "Incident Response": "text-orange-600 bg-orange-50 border-orange-200",
-  "AI Strategy": "text-purple-600 bg-purple-50 border-purple-200",
-  "IT Management": "text-cyan-600 bg-cyan-50 border-cyan-200",
+  Cybersecurity: "text-zinc-700 bg-red-50 border-red-200",
+  "AI Automation": "text-zinc-600 bg-yellow-50 border-yellow-200",
+  "Incident Response": "text-zinc-600 bg-orange-50 border-orange-200",
+  "AI Strategy": "text-zinc-700 bg-purple-50 border-purple-200",
+  "IT Management": "text-zinc-900 bg-cyan-50 border-cyan-200",
 };
 
 export default function InsightsPage() {
@@ -68,7 +68,7 @@ export default function InsightsPage() {
       {/* NAV */}
       <nav className="sticky top-0 z-50 bg-slate-300/90 backdrop-blur-md border-b border-gray-300 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <a href="/" className="text-cyan-600 text-xl font-black tracking-tight">FORNIDA</a>
+          <a href="/" className="text-zinc-900 text-xl font-black tracking-tight">FORNIDA</a>
           <div className="hidden md:flex items-center gap-8">
             <a href="/services" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Services</a>
             <a href="#" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Case Studies</a>
@@ -85,7 +85,7 @@ export default function InsightsPage() {
       {/* HEADER */}
       <div className="border-b border-gray-200 bg-white">
         <div className="max-w-7xl mx-auto px-6 py-16">
-          <p className="text-cyan-600 text-xs font-bold uppercase tracking-widest mb-3">Insights</p>
+          <p className="text-zinc-900 text-xs font-bold uppercase tracking-widest mb-3">Insights</p>
           <h1 className="text-5xl md:text-6xl font-black tracking-tight mb-4 text-zinc-900">
             Ideas worth<br />
             <span className="text-zinc-500">acting on.</span>
@@ -100,7 +100,7 @@ export default function InsightsPage() {
 
         {/* FEATURED VIDEO */}
         <div className="mb-16">
-          <p className="text-cyan-600 text-xs font-bold uppercase tracking-widest mb-6">Featured Video</p>
+          <p className="text-zinc-900 text-xs font-bold uppercase tracking-widest mb-6">Featured Video</p>
 
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
             {/* Video embed */}
@@ -118,7 +118,7 @@ export default function InsightsPage() {
 
             {/* Video info */}
             <div className="lg:col-span-2 flex flex-col justify-center">
-              <span className="inline-block text-xs font-bold text-cyan-600 bg-cyan-50 border border-cyan-200 px-3 py-1 rounded-full mb-4">
+              <span className="inline-block text-xs font-bold text-zinc-900 bg-cyan-50 border border-cyan-200 px-3 py-1 rounded-full mb-4">
                 {FEATURED_VIDEO.category}
               </span>
               <h2 className="text-2xl font-black tracking-tight mb-4 leading-snug text-zinc-900">
@@ -133,7 +133,7 @@ export default function InsightsPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm text-zinc-500 hover:text-zinc-900 transition-colors"
               >
-                <svg className="w-4 h-4 text-red-500" viewBox="0 0 24 24" fill="currentColor">
+                <svg className="w-4 h-4 text-zinc-700" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.38.55A3.02 3.02 0 0 0 .5 6.19C0 8.04 0 12 0 12s0 3.96.5 5.81a3.02 3.02 0 0 0 2.12 2.14C4.46 20.5 12 20.5 12 20.5s7.54 0 9.38-.55a3.02 3.02 0 0 0 2.12-2.14C24 15.96 24 12 24 12s0-3.96-.5-5.81zM9.75 15.02V8.98L15.5 12l-5.75 3.02z" />
                 </svg>
                 Watch on YouTube
@@ -147,7 +147,7 @@ export default function InsightsPage() {
 
         {/* ARTICLE GRID */}
         <div>
-          <p className="text-cyan-600 text-xs font-bold uppercase tracking-widest mb-8">Latest Articles</p>
+          <p className="text-zinc-900 text-xs font-bold uppercase tracking-widest mb-8">Latest Articles</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {INSIGHTS.map((item) => (
               <article
@@ -160,7 +160,7 @@ export default function InsightsPage() {
                   </span>
                   <span className="text-[10px] text-zinc-500">{item.readTime}</span>
                 </div>
-                <h3 className="text-base font-bold leading-snug mb-3 text-zinc-900 group-hover:text-cyan-600 transition-colors flex-1">
+                <h3 className="text-base font-bold leading-snug mb-3 text-zinc-900 group-hover:text-zinc-900 transition-colors flex-1">
                   {item.title}
                 </h3>
                 <p className="text-zinc-500 text-sm leading-relaxed mb-5">

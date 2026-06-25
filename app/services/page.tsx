@@ -156,7 +156,7 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <a href="/" className="flex items-center gap-2">
             <img src="/fornida-mark.png" alt="Fornida" className="h-8 w-auto" />
-            <span className="text-cyan-600 text-xl font-black tracking-tight">FORNIDA</span>
+            <span className="text-zinc-900 text-xl font-black tracking-tight">FORNIDA</span>
           </a>
           <div className="hidden md:flex items-center gap-8">
             <a href="/services" className="text-sm text-zinc-900 font-semibold border-b border-cyan-500 pb-0.5">Services</a>
@@ -175,7 +175,7 @@ export default function ServicesPage() {
       <div className="relative overflow-hidden border-b border-gray-200 bg-white">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(6,182,212,0.08),transparent)]" />
         <div className="relative max-w-7xl mx-auto px-6 py-20">
-          <p className="text-cyan-600 text-xs font-bold uppercase tracking-widest mb-4">What We Deliver</p>
+          <p className="text-zinc-900 text-xs font-bold uppercase tracking-widest mb-4">What We Deliver</p>
           <h1 className="text-5xl md:text-6xl font-black tracking-tight mb-5 text-zinc-900">
             IT. Security. AI.<br />
             <span className="text-zinc-500">One team. No gaps.</span>
@@ -210,10 +210,10 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="text-cyan-600 text-xs font-bold uppercase tracking-widest mb-4">Free Offer</p>
+              <p className="text-zinc-900 text-xs font-bold uppercase tracking-widest mb-4">Free Offer</p>
               <h2 className="text-4xl font-black tracking-tight mb-4 text-zinc-900">
                 The 2-hour rule:<br />
-                <span className="text-amber-500">one automation, on us.</span>
+                <span className="text-gray-500">one automation, on us.</span>
               </h2>
               <p className="text-zinc-500 text-lg leading-relaxed mb-8">
                 We'll identify your biggest manual bottleneck and build the first automation in under 2 hours — free, no commitment. If it saves you time, we talk about what's next.
@@ -269,7 +269,7 @@ export default function ServicesPage() {
       {/* ── FOOTER ────────────────────────────────────── */}
       <footer className="border-t border-zinc-800 bg-zinc-900 px-6 py-10">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-4">
-          <span className="text-cyan-400 font-black">FORNIDA</span>
+          <span className="text-zinc-900 font-black">FORNIDA</span>
           <span className="text-zinc-500 text-xs">© 2026 Fornida LLC · 2609 Technology Dr, Suite 300, Plano, TX 75074</span>
           <div className="flex gap-6">
             {["Privacy Policy", "Terms of Use", "MSA"].map((l) => (
