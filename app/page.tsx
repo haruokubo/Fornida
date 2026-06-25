@@ -343,7 +343,7 @@ export default function HomePage() {
           </div>
           <a
             href="#assessment"
-            className="bg-cyan-500 text-white text-sm font-bold px-5 py-2.5 rounded-lg hover:bg-cyan-600 transition-colors"
+            className="bg-zinc-700 text-white text-sm font-bold px-5 py-2.5 rounded-lg hover:bg-zinc-800 transition-colors"
           >
             Book Assessment →
           </a>
@@ -387,7 +387,7 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="#assessment"
-              className="bg-cyan-500 text-white font-bold text-base px-8 py-4 rounded-xl hover:bg-cyan-600 transition-all hover:scale-[1.02] active:scale-[0.98]"
+              className="bg-zinc-700 text-white font-bold text-base px-8 py-4 rounded-xl hover:bg-zinc-800 transition-all hover:scale-[1.02] active:scale-[0.98]"
             >
               Book AI Optimization Assessment →
             </a>
