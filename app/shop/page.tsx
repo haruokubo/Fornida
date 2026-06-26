@@ -209,10 +209,17 @@ export default function ShopPage() {
   const [activeCategory, setActiveCategory] = useState("All Products");
   const [search, setSearch] = useState("");
   const [sortBy, setSortBy] = useState<"default" | "price-asc" | "price-desc" | "savings">("default");
-  const [cart, setCart] = useState<{ [sku: string]: number }>({});
+  const [cart, setCart] = useState<{ [sku: string]: number }>(() => {
+    if (typeof window === "undefined") return {};
+    try { return JSON.parse(localStorage.getItem("fornida-cart") ?? "{}"); } catch { return {}; }
+  });
 
   const addToCart = (sku: string) => {
-    setCart((prev) => ({ ...prev, [sku]: (prev[sku] ?? 0) + 1 }));
+    setCart((prev) => {
+      const next = { ...prev, [sku]: (prev[sku] ?? 0) + 1 };
+      localStorage.setItem("fornida-cart", JSON.stringify(next));
+      return next;
+    });
   };
 
   const cartItemCount = Object.values(cart).reduce((a, b) => a + b, 0);
