@@ -348,18 +348,19 @@ export default function HomePage() {
       </nav>
 
       {/* ── HERO ────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex flex-col justify-end px-6 pb-16 overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center text-center px-6 overflow-hidden">
         <img
           src="https://fornida.com/assets/fornida_hero_image.jpg"
           alt=""
           aria-hidden
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-zinc-950/75" />
-        <div className="relative max-w-3xl pt-32">
-          <div className="flex items-center gap-4 mb-8">
+        <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/90 via-zinc-950/60 to-zinc-950/90" />
+        <div className="relative max-w-4xl mx-auto pt-20">
+          <div className="flex items-center justify-center gap-4 mb-8">
             <div className="w-8 h-px bg-zinc-500" />
             <span className="text-zinc-400 text-xs font-bold uppercase tracking-widest">The Fornida Thesis</span>
+            <div className="w-8 h-px bg-zinc-500" />
           </div>
           <h1 className="text-5xl md:text-7xl font-black tracking-tight leading-[1.05] mb-6 text-white">
             Secure{" "}
@@ -367,17 +368,17 @@ export default function HomePage() {
             <br />
             for growing businesses.
           </h1>
-          <p className="text-lg text-zinc-300 max-w-xl mb-10 leading-relaxed">
+          <p className="text-lg text-zinc-300 max-w-2xl mx-auto mb-10 leading-relaxed">
             Fornida helps small and mid-sized businesses manage IT, strengthen cybersecurity, and automate workflows safely — delivered by one team.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="#assessment"
-              className="border border-white text-white font-bold text-base px-8 py-4 rounded-xl hover:bg-zinc-900 hover:text-zinc-950 transition-all"
+              className="border border-white text-white font-bold text-base px-8 py-4 rounded-xl hover:bg-white hover:text-zinc-950 transition-all"
             >
               Book AI Optimization Assessment →
             </a>
-            <a
+            <
               href="#quick-win"
               className="border border-zinc-600 text-zinc-300 font-semibold text-base px-8 py-4 rounded-xl hover:border-white hover:text-white transition-all"
             >
