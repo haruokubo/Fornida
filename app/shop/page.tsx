@@ -100,7 +100,7 @@ const CATEGORIES = [
 
 const BADGE_STYLES: Record<string, string> = {
   Sale: "bg-red-100 text-zinc-700 border-red-200",
-  Popular: "bg-cyan-50 text-zinc-900 border-cyan-200",
+  Popular: "bg-gray-100 text-zinc-900 border-gray-300",
 };
 
 function ProductCard({
@@ -156,7 +156,7 @@ function ProductCard({
           <div className="absolute inset-0 bg-white/80 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center">
             <button
               onClick={() => onAddToCart(product.sku)}
-              className="bg-cyan-500 text-white text-xs font-bold px-4 py-2 rounded-lg shadow hover:bg-cyan-600 transition-colors"
+              className="bg-zinc-700 text-white text-xs font-bold px-4 py-2 rounded-lg shadow hover:bg-zinc-800 transition-colors"
             >
               Quick add +
             </button>
@@ -183,7 +183,7 @@ function ProductCard({
             )}
           </div>
           {product.price === 0 ? (
-            <a href="/quote" className="text-xs font-bold px-4 py-2 rounded-lg bg-cyan-500 text-white hover:bg-cyan-600 transition-all whitespace-nowrap">
+            <a href="/quote" className="text-xs font-bold px-4 py-2 rounded-lg bg-zinc-700 text-white hover:bg-zinc-800 transition-all whitespace-nowrap">
               Get Quote →
             </a>
           ) : (
@@ -192,7 +192,7 @@ function ProductCard({
               onClick={() => product.inStock && onAddToCart(product.sku)}
               className={`text-xs font-bold px-4 py-2 rounded-lg transition-all whitespace-nowrap ${
                 product.inStock
-                  ? "bg-cyan-500 text-white hover:bg-cyan-600 active:scale-95"
+                  ? "bg-zinc-700 text-white hover:bg-zinc-800 active:scale-95"
                   : "bg-gray-100 text-zinc-400 cursor-not-allowed"
               }`}
             >
@@ -267,7 +267,7 @@ export default function ShopPage() {
             <a href="#" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Case Studies</a>
             <a href="/insights" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Insights</a>
             <a href="#" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">About</a>
-            <a href="/shop" className="text-sm text-zinc-900 font-semibold border-b border-cyan-500 pb-0.5">Shop</a>
+            <a href="/shop" className="text-sm text-zinc-900 font-semibold border-b border-zinc-700 pb-0.5">Shop</a>
           </div>
           <div className="flex items-center gap-3">
             {/* Cart badge */}
@@ -277,13 +277,13 @@ export default function ShopPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
                 {cartItemCount > 0 && (
-                  <span className="absolute -top-1 -right-1 w-4 h-4 bg-cyan-500 text-white text-[9px] font-bold rounded-full flex items-center justify-center">
+                  <span className="absolute -top-1 -right-1 w-4 h-4 bg-zinc-700 text-white text-[9px] font-bold rounded-full flex items-center justify-center">
                     {cartItemCount}
                   </span>
                 )}
               </button>
             </div>
-            <a href="/#assessment" className="bg-cyan-500 text-white text-sm font-bold px-5 py-2.5 rounded-lg hover:bg-cyan-600 transition-colors">
+            <a href="/#assessment" className="bg-zinc-700 text-white text-sm font-bold px-5 py-2.5 rounded-lg hover:bg-zinc-800 transition-colors">
               Book Assessment →
             </a>
           </div>
@@ -342,7 +342,7 @@ export default function ShopPage() {
                     onClick={() => setActiveCategory(cat)}
                     className={`w-full text-left px-3 py-2 rounded-lg text-sm flex items-center justify-between transition-all border ${
                       isActive
-                        ? "bg-cyan-500 text-white border-cyan-500 font-semibold"
+                        ? "bg-zinc-700 text-white border-zinc-700 font-semibold"
                         : "bg-white border-gray-200 text-zinc-600 hover:text-zinc-900 hover:border-gray-300"
                     }`}
                   >
@@ -371,13 +371,13 @@ export default function ShopPage() {
                 placeholder="Search by name or SKU..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full bg-white border border-gray-300 text-zinc-900 rounded-xl pl-9 pr-4 py-2.5 text-sm placeholder-zinc-400 focus:outline-none focus:border-cyan-400 transition-all"
+                className="w-full bg-white border border-gray-300 text-zinc-900 rounded-xl pl-9 pr-4 py-2.5 text-sm placeholder-zinc-400 focus:outline-none focus:border-zinc-400 transition-all"
               />
             </div>
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
-              className="bg-white border border-gray-300 text-zinc-900 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-cyan-400 transition-all appearance-none cursor-pointer"
+              className="bg-white border border-gray-300 text-zinc-900 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-zinc-400 transition-all appearance-none cursor-pointer"
             >
               <option value="default">Sort: Default</option>
               <option value="price-asc">Price: Low to High</option>
@@ -397,7 +397,7 @@ export default function ShopPage() {
                   onClick={() => setActiveCategory(cat)}
                   className={`text-xs font-semibold px-3 py-1.5 rounded-full border transition-all ${
                     isActive
-                      ? "bg-cyan-500 text-white border-cyan-500"
+                      ? "bg-zinc-700 text-white border-zinc-700"
                       : "bg-white border-gray-200 text-zinc-600 hover:border-gray-400 hover:text-zinc-900"
                   }`}
                 >
@@ -447,7 +447,7 @@ export default function ShopPage() {
             </p>
             <a
               href="/quote"
-              className="inline-block bg-cyan-500 text-white font-bold text-sm px-6 py-3 rounded-xl hover:bg-cyan-600 transition-all"
+              className="inline-block bg-zinc-700 text-white font-bold text-sm px-6 py-3 rounded-xl hover:bg-zinc-800 transition-all"
             >
               Request a Quote →
             </a>
@@ -466,7 +466,7 @@ export default function ShopPage() {
         <div className="fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-gray-200 shadow-lg px-6 py-4">
           <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-cyan-500 rounded-full flex items-center justify-center text-white text-sm font-bold">
+              <div className="w-8 h-8 bg-zinc-700 rounded-full flex items-center justify-center text-white text-sm font-bold">
                 {cartItemCount}
               </div>
               <div>
@@ -480,7 +480,7 @@ export default function ShopPage() {
             </div>
             <a
               href="/cart"
-              className="bg-cyan-500 text-white font-bold text-sm px-6 py-2.5 rounded-xl hover:bg-cyan-600 transition-all"
+              className="bg-zinc-700 text-white font-bold text-sm px-6 py-2.5 rounded-xl hover:bg-zinc-800 transition-all"
             >
               View Cart →
             </a>

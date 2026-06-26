@@ -54,11 +54,11 @@ const INSIGHTS = [
 ];
 
 const TAG_COLORS: Record<string, string> = {
-  Cybersecurity: "text-zinc-700 bg-red-50 border-red-200",
-  "AI Automation": "text-zinc-600 bg-yellow-50 border-yellow-200",
-  "Incident Response": "text-zinc-600 bg-orange-50 border-orange-200",
-  "AI Strategy": "text-zinc-700 bg-purple-50 border-purple-200",
-  "IT Management": "text-zinc-900 bg-cyan-50 border-cyan-200",
+  Cybersecurity: "text-zinc-700 bg-gray-100 border-gray-300",
+  "AI Automation": "text-zinc-600 bg-gray-100 border-gray-300",
+  "Incident Response": "text-zinc-600 bg-gray-100 border-gray-300",
+  "AI Strategy": "text-zinc-700 bg-gray-100 border-gray-300",
+  "IT Management": "text-zinc-900 bg-gray-100 border-gray-300",
 };
 
 export default function InsightsPage() {
@@ -72,11 +72,11 @@ export default function InsightsPage() {
           <div className="hidden md:flex items-center gap-8">
             <a href="/services" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Services</a>
             <a href="#" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Case Studies</a>
-            <a href="/insights" className="text-sm text-zinc-900 font-semibold border-b border-cyan-500 pb-0.5">Insights</a>
+            <a href="/insights" className="text-sm text-zinc-900 font-semibold border-b border-zinc-700 pb-0.5">Insights</a>
             <a href="#" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">About</a>
             <a href="/shop" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Shop</a>
           </div>
-          <a href="/#assessment" className="bg-cyan-500 text-white text-sm font-bold px-5 py-2.5 rounded-lg hover:bg-cyan-600 transition-colors">
+          <a href="/#assessment" className="bg-zinc-700 text-white text-sm font-bold px-5 py-2.5 rounded-lg hover:bg-zinc-800 transition-colors">
             Book Assessment →
           </a>
         </div>
@@ -118,7 +118,7 @@ export default function InsightsPage() {
 
             {/* Video info */}
             <div className="lg:col-span-2 flex flex-col justify-center">
-              <span className="inline-block text-xs font-bold text-zinc-900 bg-cyan-50 border border-cyan-200 px-3 py-1 rounded-full mb-4">
+              <span className="inline-block text-xs font-bold text-zinc-900 bg-gray-100 border border-gray-300 px-3 py-1 rounded-full mb-4">
                 {FEATURED_VIDEO.category}
               </span>
               <h2 className="text-2xl font-black tracking-tight mb-4 leading-snug text-zinc-900">
@@ -152,7 +152,7 @@ export default function InsightsPage() {
             {INSIGHTS.map((item) => (
               <article
                 key={item.title}
-                className="group bg-white border border-gray-200 shadow-sm rounded-2xl p-7 hover:border-cyan-400/50 hover:-translate-y-1 transition-all duration-300 flex flex-col cursor-pointer"
+                className="group bg-white border border-gray-200 shadow-sm rounded-2xl p-7 hover:border-zinc-300/50 hover:-translate-y-1 transition-all duration-300 flex flex-col cursor-pointer"
               >
                 <div className="flex items-center justify-between mb-5">
                   <span className={`text-[10px] font-bold px-2.5 py-1 rounded-full border ${TAG_COLORS[item.tag] ?? "text-zinc-600 bg-gray-100 border-gray-200"}`}>
@@ -166,7 +166,7 @@ export default function InsightsPage() {
                 <p className="text-zinc-500 text-sm leading-relaxed mb-5">
                   {item.desc}
                 </p>
-                <span className="text-cyan-600 text-xs font-semibold transition-colors">
+                <span className="text-zinc-900 text-xs font-semibold transition-colors">
                   Read article →
                 </span>
               </article>
@@ -176,7 +176,7 @@ export default function InsightsPage() {
 
         {/* NEWSLETTER CTA */}
         <div className="mt-20 bg-white border border-gray-200 rounded-2xl p-10 text-center">
-          <p className="text-cyan-600 text-xs font-bold uppercase tracking-widest mb-3">Stay Sharp</p>
+          <p className="text-zinc-900 text-xs font-bold uppercase tracking-widest mb-3">Stay Sharp</p>
           <h2 className="text-3xl font-black tracking-tight mb-3 text-zinc-900">Get insights in your inbox</h2>
           <p className="text-zinc-500 text-base mb-8 max-w-md mx-auto">
             Practical IT and AI thinking — no fluff. One email when something worth reading goes live.
@@ -185,9 +185,9 @@ export default function InsightsPage() {
             <input
               type="email"
               placeholder="you@company.com"
-              className="bg-gray-50 border border-gray-200 rounded-xl px-5 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-cyan-400 transition-all w-72"
+              className="bg-gray-50 border border-gray-200 rounded-xl px-5 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-zinc-400 transition-all w-72"
             />
-            <button className="bg-cyan-500 text-white font-bold text-sm px-6 py-3 rounded-xl hover:bg-cyan-600 transition-all">
+            <button className="bg-zinc-700 text-white font-bold text-sm px-6 py-3 rounded-xl hover:bg-zinc-800 transition-all">
               Subscribe →
             </button>
           </div>
@@ -197,7 +197,7 @@ export default function InsightsPage() {
       {/* FOOTER */}
       <footer className="border-t border-zinc-800 bg-zinc-900 px-6 py-10 mt-8">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-4">
-          <span className="text-cyan-400 font-black">FORNIDA</span>
+          <span className="text-zinc-500 font-black">FORNIDA</span>
           <span className="text-zinc-500 text-xs">© 2026 Fornida LLC · 2609 Technology Dr, Suite 300, Plano, TX 75074</span>
           <div className="flex gap-6">
             {["Privacy Policy", "Terms of Use", "MSA"].map((l) => (

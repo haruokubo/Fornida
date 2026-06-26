@@ -20,9 +20,9 @@ const SERVICES = [
       { title: "Device Lifecycle", desc: "Procurement, imaging, deployment, and decommission handled end-to-end." },
       { title: "24/7 Emergency Line", desc: "Critical issues don't wait for business hours. Neither do we." },
     ],
-    accent: "#00d4ff",
-    accentBg: "rgba(0,212,255,0.08)",
-    accentBorder: "rgba(0,212,255,0.35)",
+    accent: "#52525b",
+    accentBg: "rgba(82,82,91,0.08)",
+    accentBorder: "rgba(82,82,91,0.35)",
   },
   {
     id: "cybersecurity",
@@ -40,9 +40,9 @@ const SERVICES = [
       { title: "AI Governance", desc: "Policy framework for AI tool usage — preventing shadow AI data leakage before it happens." },
       { title: "Incident Response", desc: "Containment, forensics, remediation, and post-incident reporting. We've been there." },
     ],
-    accent: "#7c3aed",
-    accentBg: "rgba(124,58,237,0.06)",
-    accentBorder: "rgba(124,58,237,0.25)",
+    accent: "#52525b",
+    accentBg: "rgba(82,82,91,0.08)",
+    accentBorder: "rgba(82,82,91,0.35)",
   },
   {
     id: "ai-advantage",
@@ -60,9 +60,9 @@ const SERVICES = [
       { title: "Employee Onboarding", desc: "Automated provisioning, document collection, and system access from day one." },
       { title: "Operations Reporting", desc: "KPI dashboards and automated alerts replacing manual spreadsheet pulls." },
     ],
-    accent: "#f59e0b",
-    accentBg: "rgba(245,158,11,0.06)",
-    accentBorder: "rgba(245,158,11,0.25)",
+    accent: "#52525b",
+    accentBg: "rgba(82,82,91,0.08)",
+    accentBorder: "rgba(82,82,91,0.35)",
   },
 ];
 
@@ -104,7 +104,7 @@ function ServiceSection({ svc, index }: { svc: typeof SERVICES[0]; index: number
 
             <a
               href="/#assessment"
-              className="inline-block bg-cyan-500 text-white font-bold text-sm px-6 py-3 rounded-xl transition-all hover:bg-cyan-600 hover:scale-[1.02] active:scale-[0.98]"
+              className="inline-block bg-zinc-700 text-white font-bold text-sm px-6 py-3 rounded-xl transition-all hover:bg-zinc-800 hover:scale-[1.02] active:scale-[0.98]"
             >
               Book a free assessment →
             </a>
@@ -159,13 +159,13 @@ export default function ServicesPage() {
             <span className="text-zinc-900 text-xl font-black tracking-tight">FORNIDA</span>
           </a>
           <div className="hidden md:flex items-center gap-8">
-            <a href="/services" className="text-sm text-zinc-900 font-semibold border-b border-cyan-500 pb-0.5">Services</a>
+            <a href="/services" className="text-sm text-zinc-900 font-semibold border-b border-zinc-700 pb-0.5">Services</a>
             <a href="#" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Case Studies</a>
             <a href="/insights" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Insights</a>
             <a href="#" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">About</a>
             <a href="/shop" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Shop</a>
           </div>
-          <a href="/#assessment" className="bg-cyan-500 text-white text-sm font-bold px-5 py-2.5 rounded-lg hover:bg-cyan-600 transition-colors">
+          <a href="/#assessment" className="bg-zinc-700 text-white text-sm font-bold px-5 py-2.5 rounded-lg hover:bg-zinc-800 transition-colors">
             Book Assessment →
           </a>
         </div>
@@ -173,7 +173,7 @@ export default function ServicesPage() {
 
       {/* ── HEADER ────────────────────────────────────── */}
       <div className="relative overflow-hidden border-b border-gray-200 bg-white">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(6,182,212,0.08),transparent)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(82,82,91,0.08),transparent)]" />
         <div className="relative max-w-7xl mx-auto px-6 py-20">
           <p className="text-zinc-900 text-xs font-bold uppercase tracking-widest mb-4">What We Deliver</p>
           <h1 className="text-5xl md:text-6xl font-black tracking-tight mb-5 text-zinc-900">
@@ -190,7 +190,7 @@ export default function ServicesPage() {
               <a
                 key={s.id}
                 href={`#${s.id}`}
-                className="flex items-center gap-2 border border-gray-200 text-sm text-zinc-600 px-4 py-2 rounded-lg hover:border-cyan-400/50 hover:text-zinc-900 transition-all bg-white shadow-sm"
+                className="flex items-center gap-2 border border-gray-200 text-sm text-zinc-600 px-4 py-2 rounded-lg hover:border-zinc-300/50 hover:text-zinc-900 transition-all bg-white shadow-sm"
               >
                 <span>{s.icon}</span>
                 <span>{s.title}</span>
@@ -220,7 +220,7 @@ export default function ServicesPage() {
               </p>
               <a
                 href="/#assessment"
-                className="inline-block bg-cyan-500 text-white font-bold text-base px-8 py-4 rounded-xl hover:bg-cyan-600 transition-all hover:scale-[1.02]"
+                className="inline-block bg-zinc-700 text-white font-bold text-base px-8 py-4 rounded-xl hover:bg-zinc-800 transition-all hover:scale-[1.02]"
               >
                 Claim your free quick win →
               </a>
@@ -230,7 +230,7 @@ export default function ServicesPage() {
               {QUICK_WINS.map((q) => (
                 <div
                   key={q.label}
-                  className="border border-gray-200 rounded-xl p-6 bg-white shadow-sm text-center hover:border-cyan-400/50 hover:-translate-y-1 transition-all"
+                  className="border border-gray-200 rounded-xl p-6 bg-white shadow-sm text-center hover:border-zinc-300/50 hover:-translate-y-1 transition-all"
                 >
                   <div className="text-3xl mb-3">{q.icon}</div>
                   <div className="text-sm font-semibold text-zinc-700">{q.label}</div>
@@ -242,8 +242,8 @@ export default function ServicesPage() {
       </section>
 
       {/* ── FINAL CTA ─────────────────────────────────── */}
-      <section className="py-20 px-6 relative overflow-hidden bg-gradient-to-br from-cyan-50 via-slate-100 to-slate-300">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_50%,rgba(6,182,212,0.12),transparent)]" />
+      <section className="py-20 px-6 relative overflow-hidden bg-gradient-to-br from-slate-100 via-slate-100 to-slate-300">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_50%,rgba(82,82,91,0.08),transparent)]" />
         <div className="relative max-w-3xl mx-auto text-center">
           <h2 className="text-4xl font-black tracking-tight mb-4 text-zinc-900">Ready to consolidate your IT?</h2>
           <p className="text-zinc-600 text-lg mb-10">
@@ -252,7 +252,7 @@ export default function ServicesPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="/#assessment"
-              className="bg-cyan-500 text-white font-bold text-base px-8 py-4 rounded-xl hover:bg-cyan-600 transition-all hover:scale-[1.02]"
+              className="bg-zinc-700 text-white font-bold text-base px-8 py-4 rounded-xl hover:bg-zinc-800 transition-all hover:scale-[1.02]"
             >
               Book free assessment →
             </a>

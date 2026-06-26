@@ -228,8 +228,8 @@ function TestimonialsCarousel({ visible }: { visible: boolean }) {
 
   const t = TESTIMONIALS[idx];
   const initials = t.name.split(" ").map((w) => w[0]).join("").slice(0, 2);
-  const avatarColors = ["bg-cyan-600","bg-purple-600","bg-amber-500","bg-emerald-600","bg-rose-500","bg-blue-600","bg-orange-500","bg-teal-600","bg-indigo-600"];
-  const accentColors = ["border-cyan-400","border-purple-400","border-amber-400","border-emerald-400","border-rose-400","border-blue-400","border-orange-400","border-teal-400","border-indigo-400"];
+  const avatarColors = ["bg-zinc-600","bg-zinc-600","bg-zinc-500","bg-zinc-600","bg-zinc-500","bg-zinc-600","bg-zinc-500","bg-zinc-600","bg-zinc-600"];
+  const accentColors = ["border-zinc-400","border-zinc-400","border-zinc-400","border-zinc-400","border-zinc-400","border-zinc-400","border-zinc-400","border-zinc-400","border-zinc-400"];
 
   return (
     <div className={`transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
@@ -288,14 +288,14 @@ function TestimonialsCarousel({ visible }: { visible: boolean }) {
             <button
               key={i}
               onClick={() => go(i, i > idx ? "right" : "left")}
-              className={`rounded-full transition-all duration-300 ${i === idx ? "bg-cyan-500 w-6 h-2.5" : "bg-gray-300 hover:bg-gray-400 w-2.5 h-2.5"}`}
+              className={`rounded-full transition-all duration-300 ${i === idx ? "bg-zinc-700 w-6 h-2.5" : "bg-gray-300 hover:bg-gray-400 w-2.5 h-2.5"}`}
             />
           ))}
         </div>
 
         <div className="flex gap-2">
-          <button onClick={prev} className="w-10 h-10 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center text-zinc-600 hover:bg-cyan-50 hover:border-cyan-300 hover:text-zinc-900 transition-all font-bold">←</button>
-          <button onClick={next} className="w-10 h-10 rounded-full bg-cyan-500 flex items-center justify-center text-white hover:bg-cyan-600 transition-all font-bold shadow-md">→</button>
+          <button onClick={prev} className="w-10 h-10 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center text-zinc-600 hover:bg-gray-100 hover:border-zinc-300 hover:text-zinc-900 transition-all font-bold">←</button>
+          <button onClick={next} className="w-10 h-10 rounded-full bg-zinc-700 flex items-center justify-center text-white hover:bg-zinc-800 transition-all font-bold shadow-md">→</button>
         </div>
       </div>
     </div>
@@ -319,7 +319,7 @@ export default function HomePage() {
   }, []);
 
   return (
-    <main className="bg-slate-300 text-zinc-900 min-h-screen overflow-x-hidden" onClick={(e) => { if (!(e.target as HTMLElement).closest('button[class*="border-cyan"]') && !(e.target as HTMLElement).closest('button[class*="border-gray"]')) setActivePill(null); }}>
+    <main className="bg-slate-300 text-zinc-900 min-h-screen overflow-x-hidden" onClick={(e) => { if (!(e.target as HTMLElement).closest('button[class*="border-zinc"]') && !(e.target as HTMLElement).closest('button[class*="border-gray"]')) setActivePill(null); }}>
 
       {/* ── NAVIGATION ──────────────────────────────────── */}
       <nav
@@ -351,7 +351,7 @@ export default function HomePage() {
       </nav>
 
       {/* ── HERO ────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex items-center justify-center text-center px-6 overflow-hidden bg-gradient-to-br from-slate-300 via-slate-200 to-cyan-200">
+      <section className="relative min-h-screen flex items-center justify-center text-center px-6 overflow-hidden bg-gradient-to-br from-slate-300 via-slate-200 to-slate-300">
         {/* Hero team photo — subtle */}
         <img
           src="https://fornida.com/assets/fornida_hero_image.jpg"
@@ -368,8 +368,8 @@ export default function HomePage() {
 
         <div className="relative max-w-4xl mx-auto pt-20 animate-fade-up">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 border border-cyan-500/30 text-zinc-900 text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full mb-8 bg-cyan-50">
-            <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 animate-pulse" />
+          <div className="inline-flex items-center gap-2 border border-zinc-400/30 text-zinc-900 text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full mb-8 bg-gray-100">
+            <span className="w-1.5 h-1.5 rounded-full bg-zinc-500 animate-pulse" />
             Texas-based MSP · Est. 2012
           </div>
 
@@ -411,7 +411,7 @@ export default function HomePage() {
                   onMouseLeave={() => setHoveredPill(null)}
                   className={`text-xs px-3 py-1.5 rounded-md border transition-all cursor-pointer ${
                     activePill === p.name
-                      ? "border-cyan-500/50 text-zinc-700 bg-cyan-50"
+                      ? "border-zinc-400/50 text-zinc-700 bg-gray-100"
                       : hoveredPill === p.name
                       ? "border-gray-300 text-zinc-700 bg-gray-50"
                       : "border-gray-200 text-zinc-500"
@@ -483,7 +483,7 @@ export default function HomePage() {
           {PROBLEMS.map((p, i) => (
             <div
               key={p.title}
-              className={`group border border-gray-200 rounded-2xl p-8 hover:border-cyan-400/50 hover:-translate-y-1 transition-all duration-300 bg-white shadow-sm ${
+              className={`group border border-gray-200 rounded-2xl p-8 hover:border-zinc-300/50 hover:-translate-y-1 transition-all duration-300 bg-white shadow-sm ${
                 problemVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-4"
@@ -633,7 +633,7 @@ export default function HomePage() {
       {/* ── FINAL CTA ───────────────────────────────────── */}
       <section
         id="assessment"
-        className="py-24 px-6 relative overflow-hidden bg-gradient-to-br from-cyan-100 via-slate-200 to-blue-100"
+        className="py-24 px-6 relative overflow-hidden bg-gradient-to-br from-slate-200 via-slate-200 to-slate-200"
       >
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_50%,rgba(6,182,212,0.08),transparent)]" />
         <div className="relative max-w-3xl mx-auto text-center">
@@ -650,7 +650,7 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="https://fornida.com/assessment"
-              className="bg-cyan-500 text-white font-bold text-base px-8 py-4 rounded-xl hover:bg-cyan-600 transition-all hover:scale-[1.02] active:scale-[0.98]"
+              className="bg-zinc-700 text-white font-bold text-base px-8 py-4 rounded-xl hover:bg-zinc-800 transition-all hover:scale-[1.02] active:scale-[0.98]"
             >
               Book in 60 seconds →
             </a>
@@ -670,9 +670,9 @@ export default function HomePage() {
       {/* ── PARTNER ECOSYSTEM BAR ───────────────────────── */}
       <section className="relative border-t border-b border-gray-300 py-12 overflow-hidden bg-slate-300">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-1/4 w-64 h-32 bg-cyan-500/5 rounded-full blur-3xl" />
-          <div className="absolute top-0 left-1/2 w-48 h-24 bg-purple-500/5 rounded-full blur-3xl" />
-          <div className="absolute top-0 right-1/4 w-64 h-32 bg-orange-500/5 rounded-full blur-3xl" />
+          <div className="absolute top-0 left-1/4 w-64 h-32 bg-zinc-900/5 rounded-full blur-3xl" />
+          <div className="absolute top-0 left-1/2 w-48 h-24 bg-zinc-900/5 rounded-full blur-3xl" />
+          <div className="absolute top-0 right-1/4 w-64 h-32 bg-zinc-900/5 rounded-full blur-3xl" />
         </div>
 
         <p className="relative text-center text-[10px] font-bold uppercase tracking-widest text-zinc-400 mb-10">

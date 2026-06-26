@@ -15,7 +15,7 @@ export default function QuotePage() {
   };
 
   const inputClass =
-    "w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all";
+    "w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-zinc-400 focus:ring-2 focus:ring-zinc-400/20 transition-all";
   const labelClass = "block text-sm font-semibold text-zinc-700 mb-2";
   const fieldClass = "mb-6";
 
@@ -24,7 +24,7 @@ export default function QuotePage() {
       {/* Nav */}
       <nav className="sticky top-0 z-50 bg-slate-300/90 backdrop-blur-md border-b border-gray-300 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <a href="/" className="text-cyan-600 text-xl font-black tracking-tight">FORNIDA</a>
+          <a href="/" className="text-zinc-900 text-xl font-black tracking-tight">FORNIDA</a>
           <div className="hidden md:flex items-center gap-8">
             <a href="/services" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Services</a>
             <a href="#" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Case Studies</a>
@@ -34,7 +34,7 @@ export default function QuotePage() {
           </div>
           <a
             href="/#assessment"
-            className="bg-cyan-500 text-white text-sm font-bold px-5 py-2.5 rounded-lg hover:bg-cyan-600 transition-colors"
+            className="bg-zinc-700 text-white text-sm font-bold px-5 py-2.5 rounded-lg hover:bg-zinc-800 transition-colors"
           >
             Book Assessment →
           </a>
@@ -43,7 +43,7 @@ export default function QuotePage() {
 
       {/* Header */}
       <div className="bg-white border-b border-gray-200 py-16 px-6 text-center">
-        <div className="text-cyan-600 text-xs font-bold uppercase tracking-widest mb-3">Get a Quote</div>
+        <div className="text-zinc-900 text-xs font-bold uppercase tracking-widest mb-3">Get a Quote</div>
         <h1 className="text-4xl font-black text-zinc-900 mb-4">Tell us what you need.</h1>
         <p className="text-zinc-500 text-lg max-w-xl mx-auto leading-relaxed">
           Bulk orders, custom configs, hard-to-find hardware — we source it. Fill out the form and a Fornida engineer will respond within one business day.
@@ -68,7 +68,7 @@ export default function QuotePage() {
             </p>
             <a
               href="/shop"
-              className="inline-block bg-cyan-500 text-white font-bold px-6 py-3 rounded-xl hover:bg-cyan-600 transition-all"
+              className="inline-block bg-zinc-700 text-white font-bold px-6 py-3 rounded-xl hover:bg-zinc-800 transition-all"
             >
               Return to shop →
             </a>
@@ -189,7 +189,7 @@ export default function QuotePage() {
 
                   <button
                     type="submit"
-                    className="w-full bg-cyan-500 text-white font-bold text-base py-4 rounded-xl hover:bg-cyan-600 transition-all"
+                    className="w-full bg-zinc-700 text-white font-bold text-base py-4 rounded-xl hover:bg-zinc-800 transition-all"
                   >
                     Submit Quote Request →
                   </button>
@@ -211,7 +211,7 @@ export default function QuotePage() {
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2.5 text-sm text-zinc-600">
                       <svg
-                        className="w-4 h-4 text-cyan-500 mt-0.5 flex-shrink-0"
+                        className="w-4 h-4 text-zinc-700 mt-0.5 flex-shrink-0"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -228,14 +228,14 @@ export default function QuotePage() {
                   <div className="text-sm text-zinc-700 font-semibold mb-1">Call us:</div>
                   <a
                     href="tel:+19497221222"
-                    className="text-cyan-600 font-bold text-sm hover:text-cyan-700 transition-colors block mb-3"
+                    className="text-zinc-900 font-bold text-sm hover:text-zinc-900 transition-colors block mb-3"
                   >
                     +1-949-722-1222
                   </a>
                   <div className="text-sm text-zinc-700 font-semibold mb-1">Email:</div>
                   <a
                     href="mailto:info@fornida.com"
-                    className="text-cyan-600 font-bold text-sm hover:text-cyan-700 transition-colors"
+                    className="text-zinc-900 font-bold text-sm hover:text-zinc-900 transition-colors"
                   >
                     info@fornida.com
                   </a>
