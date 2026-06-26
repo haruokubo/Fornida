@@ -378,7 +378,7 @@ export default function HomePage() {
             >
               Book AI Optimization Assessment →
             </a>
-            <
+            <a
               href="#quick-win"
               className="border border-zinc-600 text-zinc-300 font-semibold text-base px-8 py-4 rounded-xl hover:border-white hover:text-white transition-all"
             >
