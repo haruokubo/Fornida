@@ -219,7 +219,7 @@ export default function CartPage() {
                 </div>
 
                 <a
-                  href="/quote"
+                  href="/checkout"
                   className="block w-full text-center bg-zinc-700 text-white font-bold text-sm py-3.5 rounded-xl hover:bg-zinc-800 transition-all mb-3"
                 >
                   Proceed to Checkout →
