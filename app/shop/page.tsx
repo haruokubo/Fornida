@@ -99,8 +99,8 @@ const CATEGORIES = [
 ];
 
 const BADGE_STYLES: Record<string, string> = {
-  Sale: "bg-red-100 text-zinc-700 border-red-200",
-  Popular: "bg-stone-50 text-zinc-900 border-stone-300",
+  Sale: "bg-red-900/30 text-red-300 border-red-800",
+  Popular: "bg-zinc-800 text-white border-zinc-600",
 };
 
 function ProductCard({
@@ -117,7 +117,7 @@ function ProductCard({
     : null;
 
   return (
-    <div className="group relative border border-stone-200 shadow-sm rounded-2xl bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col">
+    <div className="group relative border border-zinc-800 shadow-sm rounded-2xl bg-zinc-900 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col">
       {/* Cart-in indicator */}
       {cartQty > 0 && (
         <div className="absolute top-3 right-3 z-10 w-6 h-6 rounded-full bg-green-500 text-white flex items-center justify-center text-[10px] font-bold shadow">
@@ -125,7 +125,7 @@ function ProductCard({
         </div>
       )}
 
-      <div className="aspect-square bg-white flex items-center justify-center p-4 relative overflow-hidden border-b border-gray-100">
+      <div className="aspect-square bg-zinc-900 flex items-center justify-center p-4 relative overflow-hidden border-b border-zinc-800">
         <img
           src={product.image}
           alt={product.name}

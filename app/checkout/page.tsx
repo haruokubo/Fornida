@@ -104,13 +104,13 @@ export default function CheckoutPage() {
   };
 
   if (placed) return (
-    <main className="min-h-screen bg-stone-100 flex items-center justify-center px-6">
-      <div className="bg-white rounded-3xl border border-stone-200 shadow-sm p-12 max-w-md w-full text-center">
+    <main className="min-h-screen bg-zinc-950 flex items-center justify-center px-6">
+      <div className="bg-zinc-900 rounded-3xl border border-zinc-800 shadow-sm p-12 max-w-md w-full text-center">
         <div className="w-16 h-16 bg-green-50 border-2 border-green-200 rounded-full flex items-center justify-center text-3xl mx-auto mb-6">✓</div>
-        <h1 className="text-2xl font-black text-zinc-900 mb-3">Order Placed!</h1>
+        <h1 className="text-2xl font-black text-white mb-3">Order Placed!</h1>
         <p className="text-zinc-500 mb-2">Thank you for your order. A Fornida engineer will confirm and process your shipment within one business day.</p>
-        <p className="text-zinc-400 text-sm mb-8">Confirmation will be sent to <strong>{form.email}</strong></p>
-        <a href="/shop" className="inline-block bg-zinc-900 text-white font-bold px-8 py-3 rounded-xl hover:bg-zinc-900 transition-all">
+        <p className="text-zinc-400 text-sm mb-8">Confirmation will be sent to <strong className="text-zinc-200">{form.email}</strong></p>
+        <a href="/shop" className="inline-block bg-white text-zinc-950 font-bold px-8 py-3 rounded-xl hover:bg-zinc-100 transition-all">
           Back to Shop
         </a>
       </div>
@@ -118,7 +118,7 @@ export default function CheckoutPage() {
   );
 
   return (
-    <main className="min-h-screen bg-stone-100 text-zinc-900">
+    <main className="min-h-screen bg-zinc-950 text-white">
 
       {/* NAV */}
       <nav className="sticky top-0 z-50 bg-stone-100/90 backdrop-blur-md border-b border-stone-300 shadow-sm">

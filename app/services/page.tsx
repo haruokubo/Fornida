@@ -81,7 +81,7 @@ function ServiceSection({ svc, index }: { svc: typeof SERVICES[0]; index: number
   return (
     <section
       id={svc.id}
-      className={`py-20 px-6 border-b border-stone-200 ${isEven ? "bg-white" : "bg-stone-100"}`}
+      className={`py-20 px-6 border-b border-zinc-800 ${isEven ? "bg-zinc-900" : "bg-zinc-950"}`}
     >
       <div className="max-w-7xl mx-auto">
         <div className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-start ${!isEven ? "lg:flex lg:flex-row-reverse" : ""}`}>
@@ -98,7 +98,7 @@ function ServiceSection({ svc, index }: { svc: typeof SERVICES[0]; index: number
               <span className="text-2xl">{svc.icon}</span>
             </div>
 
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-3 text-zinc-900">{svc.title}</h2>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-3 text-white">{svc.title}</h2>
             <p className="font-semibold mb-5" style={{ color: svc.accent }}>{svc.tagline}</p>
             <p className="text-stone-500 text-lg leading-relaxed mb-8">{svc.description}</p>
 

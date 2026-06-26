@@ -105,7 +105,7 @@ export default function CartPage() {
   const total = subtotal + shipping;
 
   return (
-    <main className="min-h-screen bg-stone-100 text-zinc-900">
+    <main className="min-h-screen bg-zinc-950 text-white">
 
       {/* NAV */}
       <nav className="sticky top-0 z-50 bg-stone-100/90 backdrop-blur-md border-b border-stone-300 shadow-sm">

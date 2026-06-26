@@ -15,12 +15,12 @@ export default function QuotePage() {
   };
 
   const inputClass =
-    "w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-stone-400 focus:ring-2 focus:ring-stone-400/20 transition-all";
-  const labelClass = "block text-sm font-semibold text-zinc-700 mb-2";
+    "w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-white placeholder:text-zinc-600 focus:outline-none focus:border-zinc-500 focus:ring-2 focus:ring-zinc-500/20 transition-all";
+  const labelClass = "block text-sm font-semibold text-zinc-300 mb-2";
   const fieldClass = "mb-6";
 
   return (
-    <main className="min-h-screen bg-stone-100 text-zinc-900">
+    <main className="min-h-screen bg-zinc-950 text-white">
       {/* Nav */}
       <nav className="sticky top-0 z-50 bg-stone-100/90 backdrop-blur-md border-b border-stone-300 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">

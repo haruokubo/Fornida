@@ -197,11 +197,11 @@ function StatBlock({ stat, active }: { stat: StatItem; active: boolean }) {
       : `${stat.prefix ?? ""}${active ? count : "—"}${stat.suffix ?? ""}`;
 
   return (
-    <div className="flex-1 text-center border-r border-stone-200 last:border-r-0 py-8 px-4">
-      <div className="text-3xl font-black text-zinc-900 tabular-nums tracking-tight">
+    <div className="flex-1 text-center border-r border-zinc-800 last:border-r-0 py-8 px-4">
+      <div className="text-3xl font-black text-white tabular-nums tracking-tight">
         {display}
       </div>
-      <div className="text-xs text-zinc-500 uppercase tracking-widest mt-2">
+      <div className="text-xs text-zinc-400 uppercase tracking-widest mt-2">
         {stat.label}
       </div>
     </div>
@@ -236,7 +236,7 @@ function TestimonialsCarousel({ visible }: { visible: boolean }) {
       {/* Card */}
       <div className="relative overflow-hidden">
         <div
-          className={`relative bg-white rounded-3xl shadow-xl border-t-4 ${accentColors[idx % accentColors.length]} p-10 transition-all duration-280`}
+          className={`relative bg-zinc-900 rounded-3xl shadow-xl border-t-4 ${accentColors[idx % accentColors.length]} p-10 transition-all duration-280`}
           style={{
             opacity: animating ? 0 : 1,
             transform: animating
@@ -245,16 +245,16 @@ function TestimonialsCarousel({ visible }: { visible: boolean }) {
           }}
         >
           {/* Big quote mark */}
-          <span className="absolute top-4 right-7 text-8xl font-serif text-stone-300/60 leading-none select-none">&rdquo;</span>
+          <span className="absolute top-4 right-7 text-8xl font-serif text-zinc-700/60 leading-none select-none">&rdquo;</span>
 
           {/* Stars */}
-          <div className="text-stone-400 text-xl tracking-widest mb-5">★★★★★</div>
+          <div className="text-zinc-500 text-xl tracking-widest mb-5">★★★★★</div>
 
           {/* Quote */}
-          <p className="text-zinc-800 text-lg leading-relaxed mb-8 font-medium">{t.quote}</p>
+          <p className="text-zinc-200 text-lg leading-relaxed mb-8 font-medium">{t.quote}</p>
 
           {/* Divider */}
-          <div className="border-t border-stone-100 mb-6" />
+          <div className="border-t border-zinc-800 mb-6" />
 
           {/* Attribution */}
           <div className="flex items-center gap-4">
@@ -262,7 +262,7 @@ function TestimonialsCarousel({ visible }: { visible: boolean }) {
               {initials}
             </div>
             <div>
-              <div className="font-black text-zinc-900">{t.name}</div>
+              <div className="font-black text-white">{t.name}</div>
               <div className="text-zinc-400 text-xs mt-0.5">{t.role}</div>
               <div className="text-zinc-400 text-[10px] uppercase tracking-widest mt-0.5">{TESTI_AGES[idx]}</div>
             </div>
@@ -288,14 +288,14 @@ function TestimonialsCarousel({ visible }: { visible: boolean }) {
             <button
               key={i}
               onClick={() => go(i, i > idx ? "right" : "left")}
-              className={`rounded-full transition-all duration-300 ${i === idx ? "bg-zinc-900 w-6 h-2.5" : "bg-stone-300 hover:bg-stone-400 w-2.5 h-2.5"}`}
+              className={`rounded-full transition-all duration-300 ${i === idx ? "bg-white w-6 h-2.5" : "bg-zinc-700 hover:bg-zinc-600 w-2.5 h-2.5"}`}
             />
           ))}
         </div>
 
         <div className="flex gap-2">
-          <button onClick={prev} className="w-10 h-10 rounded-full bg-white border border-stone-200 shadow-sm flex items-center justify-center text-stone-600 hover:bg-stone-100 hover:border-stone-300 hover:text-zinc-900 transition-all font-bold">←</button>
-          <button onClick={next} className="w-10 h-10 rounded-full bg-zinc-900 flex items-center justify-center text-white hover:bg-zinc-900 transition-all font-bold shadow-md">→</button>
+          <button onClick={prev} className="w-10 h-10 rounded-full border border-zinc-700 shadow-sm flex items-center justify-center text-white hover:bg-zinc-800 hover:border-zinc-600 transition-all font-bold">←</button>
+          <button onClick={next} className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-zinc-950 hover:bg-zinc-100 transition-all font-bold shadow-md">→</button>
         </div>
       </div>
     </div>
@@ -319,130 +319,61 @@ export default function HomePage() {
   }, []);
 
   return (
-    <main className="bg-stone-100 text-zinc-900 min-h-screen overflow-x-hidden" onClick={(e) => { if (!(e.target as HTMLElement).closest('button[class*="border-zinc"]') && !(e.target as HTMLElement).closest('button[class*="border-gray"]')) setActivePill(null); }}>
+    <main className="bg-zinc-950 text-white min-h-screen overflow-x-hidden" onClick={(e) => { if (!(e.target as HTMLElement).closest('button[class*="border-zinc"]') && !(e.target as HTMLElement).closest('button[class*="border-gray"]')) setActivePill(null); }}>
 
       {/* ── NAVIGATION ──────────────────────────────────── */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-stone-100/90 backdrop-blur-md border-b border-stone-300 shadow-sm"
+            ? "bg-zinc-950/90 backdrop-blur-md border-b border-zinc-800"
             : "bg-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <a href="/" className="flex items-center gap-2">
             <img src="/fornida-mark.png" alt="Fornida" className="h-8 w-auto" />
-            <span className="text-zinc-900 text-xl font-black tracking-tight">FORNIDA</span>
+            <span className="text-white text-xl font-black tracking-tight">FORNIDA</span>
           </a>
-          <div className="hidden md:flex items-center gap-8">
-            <a href="/services" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Services</a>
-            <a href="#" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Case Studies</a>
-            <a href="/insights" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Insights</a>
-            <a href="#" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">About</a>
-            <a href="/shop" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Shop</a>
-          </div>
-          <a
-            href="#assessment"
-            className="bg-zinc-900 text-white text-sm font-bold px-5 py-2.5 rounded-lg hover:bg-zinc-900 transition-colors"
-          >
-            Book Assessment →
-          </a>
+          <button className="text-white p-2"><svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" /></svg></button>
         </div>
       </nav>
 
       {/* ── HERO ────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex items-center justify-center text-center px-6 overflow-hidden bg-gradient-to-br from-stone-100 via-stone-100 to-stone-200">
-        {/* Hero team photo — subtle */}
+      <section className="relative min-h-screen flex flex-col justify-end px-6 pb-16 overflow-hidden">
         <img
           src="https://fornida.com/assets/fornida_hero_image.jpg"
           alt=""
           aria-hidden
-          className="absolute inset-0 w-full h-full object-cover object-center opacity-30"
+          className="absolute inset-0 w-full h-full object-cover object-center"
         />
-        {/* Light overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-stone-100/80 via-stone-100/40 to-stone-100/20" />
-        <div className="absolute inset-0 bg-gradient-to-t from-stone-100 via-transparent to-stone-100/50" />
-        {/* Subtle mesh accents */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(6,182,212,0.08),transparent)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_40%_40%_at_80%_60%,rgba(124,58,237,0.04),transparent)]" />
-
-        <div className="relative max-w-4xl mx-auto pt-20 animate-fade-up">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 border border-zinc-400/30 text-zinc-900 text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full mb-8 bg-stone-50">
-            <span className="w-1.5 h-1.5 rounded-full bg-zinc-500 animate-pulse" />
-            Texas-based MSP · Est. 2012
+        <div className="absolute inset-0 bg-zinc-950/75" />
+        <div className="relative max-w-3xl pt-32">
+          <div className="flex items-center gap-4 mb-8">
+            <div className="w-8 h-px bg-zinc-500" />
+            <span className="text-zinc-400 text-xs font-bold uppercase tracking-widest">The Fornida Thesis</span>
           </div>
-
-          <h1 className="text-5xl md:text-7xl font-black tracking-tight leading-[1.05] mb-6 text-zinc-900">
-            Secure AI Adoption
+          <h1 className="text-5xl md:text-7xl font-black tracking-tight leading-[1.05] mb-6 text-white">
+            Secure{" "}
+            <span className="italic text-amber-400">AI adoption</span>
             <br />
-            <span className="text-zinc-900">for Growing Businesses</span>
+            for growing businesses.
           </h1>
-
-          <p className="text-lg md:text-xl text-zinc-500 max-w-2xl mx-auto mb-10 leading-relaxed">
-            One team for IT, security, and automation. Enterprise-grade defense
-            built for the SMB reality — with AI baked in from day one.
+          <p className="text-lg text-zinc-300 max-w-xl mb-10 leading-relaxed">
+            Fornida helps small and mid-sized businesses manage IT, strengthen cybersecurity, and automate workflows safely — delivered by one team.
           </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4">
             <a
               href="#assessment"
-              className="bg-zinc-900 text-white font-bold text-base px-8 py-4 rounded-xl hover:bg-zinc-900 transition-all hover:scale-[1.02] active:scale-[0.98]"
+              className="border border-white text-white font-bold text-base px-8 py-4 rounded-xl hover:bg-white hover:text-zinc-950 transition-all"
             >
               Book AI Optimization Assessment →
             </a>
             <a
               href="#quick-win"
-              className="border border-stone-300 text-zinc-700 font-semibold text-base px-8 py-4 rounded-xl hover:bg-stone-50 transition-all"
+              className="border border-zinc-600 text-zinc-300 font-semibold text-base px-8 py-4 rounded-xl hover:border-white hover:text-white transition-all"
             >
-              Claim Your Free Quick Win
+              See How It Works
             </a>
-          </div>
-
-          {/* Partner pills */}
-          <div className="mt-16">
-            <div className="flex items-center justify-center gap-3 flex-wrap">
-              <span className="text-xs text-zinc-400 uppercase tracking-widest mr-2">Works with</span>
-              {PARTNERS.map((p) => (
-                <button
-                  key={p.name}
-                  onClick={() => setActivePill(activePill === p.name ? null : p.name)}
-                  onMouseEnter={() => setHoveredPill(p.name)}
-                  onMouseLeave={() => setHoveredPill(null)}
-                  className={`text-xs px-3 py-1.5 rounded-md border transition-all cursor-pointer ${
-                    activePill === p.name
-                      ? "border-zinc-400/50 text-zinc-700 bg-stone-100"
-                      : hoveredPill === p.name
-                      ? "border-stone-300 text-zinc-700 bg-stone-50"
-                      : "border-stone-200 text-stone-500"
-                  }`}
-                >
-                  {p.name}
-                </button>
-              ))}
-            </div>
-            <div className="mt-4 max-w-lg mx-auto h-32 relative">
-              {PARTNERS.map((partner) => {
-                const visible = (activePill ?? hoveredPill) === partner.name;
-                return (
-                  <div
-                    key={partner.name}
-                    className={`absolute inset-0 bg-white rounded-xl px-5 py-4 text-left transition-opacity duration-150 overflow-auto shadow-lg border border-stone-100 ${visible ? "opacity-100" : "opacity-0 pointer-events-none"}`}
-                  >
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-xs font-bold text-zinc-900 uppercase tracking-widest">
-                        {partner.name}
-                        {activePill === partner.name && <span className="ml-2 text-zinc-400 font-normal normal-case tracking-normal">· pinned</span>}
-                      </span>
-                      {activePill === partner.name && (
-                        <button onClick={(e) => { e.stopPropagation(); setActivePill(null); }} className="text-zinc-400 hover:text-zinc-600 text-lg leading-none">×</button>
-                      )}
-                    </div>
-                    <p className="text-sm text-zinc-600 leading-relaxed">{partner.summary}</p>
-                  </div>
-                );
-              })}
-            </div>
           </div>
         </div>
       </section>
@@ -450,9 +381,9 @@ export default function HomePage() {
       {/* ── STATS BAR ───────────────────────────────────── */}
       <div
         ref={statsRef}
-        className="border-y border-stone-300 bg-stone-100"
+        className="border-y border-zinc-800 bg-zinc-950"
       >
-        <div className="max-w-5xl mx-auto flex divide-x divide-stone-200">
+        <div className="max-w-5xl mx-auto flex divide-x divide-zinc-800">
           {STATS.map((s) => (
             <StatBlock key={s.label} stat={s} active={statsVisible} />
           ))}
@@ -462,41 +393,41 @@ export default function HomePage() {
       {/* ── PROBLEM ─────────────────────────────────────── */}
       <section
         ref={problemRef}
-        className="py-24 px-6 max-w-7xl mx-auto"
+        className="py-24 px-6 max-w-7xl mx-auto bg-zinc-950"
       >
         <div className="mb-12">
-          <p className="text-zinc-900 text-xs font-bold uppercase tracking-widest mb-3">
+          <p className="text-zinc-400 text-xs font-bold uppercase tracking-widest mb-3">
             The Problem
           </p>
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4 text-zinc-900">
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4 text-white">
             Four threats slowing
             <br />
             your business down
           </h2>
-          <p className="text-zinc-500 text-lg max-w-xl leading-relaxed">
+          <p className="text-zinc-400 text-lg max-w-xl leading-relaxed">
             Most SMBs face these invisible drags every day — and don't know
             where to start fixing them.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 border border-stone-200 rounded-2xl overflow-hidden bg-white">
+        <div className="grid grid-cols-1 md:grid-cols-2 border border-zinc-800 rounded-2xl overflow-hidden bg-zinc-900">
           {PROBLEMS.map((p, i) => (
             <div
               key={p.title}
               className={`p-8 flex flex-col gap-4 ${
-                i < PROBLEMS.length - 2 ? "border-b border-stone-200" : ""
-              } ${i % 2 === 0 ? "border-r border-stone-200" : ""}`}
+                i < PROBLEMS.length - 2 ? "border-b border-zinc-800" : ""
+              } ${i % 2 === 0 ? "border-r border-zinc-800" : ""}`}
             >
-              <span className="text-xs font-mono text-stone-400 tracking-widest">
+              <span className="text-xs font-mono text-zinc-600 tracking-widest">
                 0{i + 1} / 0{PROBLEMS.length}
               </span>
               <div>
-                <h3 className="text-xl font-black text-stone-900 mb-2">{p.title}.</h3>
-                <p className="text-stone-500 text-sm leading-relaxed">{p.desc}</p>
+                <h3 className="text-xl font-black text-white mb-2">{p.title}.</h3>
+                <p className="text-zinc-400 text-sm leading-relaxed">{p.desc}</p>
               </div>
-              <div className="mt-auto flex items-center gap-2 pt-4 border-t border-stone-100">
+              <div className="mt-auto flex items-center gap-2 pt-4 border-t border-zinc-800">
                 <span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0" />
-                <span className="text-xs text-stone-400 font-mono">{p.icon} {p.title}</span>
+                <span className="text-xs text-zinc-600 font-mono">{p.icon} {p.title}</span>
               </div>
             </div>
           ))}
@@ -504,26 +435,26 @@ export default function HomePage() {
       </section>
 
       {/* ── SERVICES ────────────────────────────────────── */}
-      <section ref={serviceRef} className="relative py-24 px-6 overflow-hidden bg-stone-100">
+      <section ref={serviceRef} className="relative py-24 px-6 overflow-hidden bg-zinc-950">
         <img
           src="https://fornida.com/assets/facility/noc-dashboard.jpg"
           alt=""
           aria-hidden
           className="absolute inset-0 w-full h-full object-cover object-center opacity-20"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-stone-100 via-stone-100/40 to-stone-200" />
-        <div className="absolute inset-0 bg-gradient-to-r from-stone-100/70 via-transparent to-stone-100/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-zinc-950 via-zinc-950/40 to-zinc-900" />
+        <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/70 via-transparent to-zinc-950/70" />
         <div className="relative z-10 max-w-7xl mx-auto">
           <div className="mb-12">
-            <p className="text-zinc-900 text-xs font-bold uppercase tracking-widest mb-3">
+            <p className="text-zinc-400 text-xs font-bold uppercase tracking-widest mb-3">
               What We Deliver
             </p>
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4 text-zinc-900">
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4 text-white">
               IT + Security + AI.
               <br />
               One team. No gaps.
             </h2>
-            <p className="text-zinc-500 text-lg max-w-xl leading-relaxed">
+            <p className="text-zinc-400 text-lg max-w-xl leading-relaxed">
               No juggling three vendors. One accountable partner covering all
               three layers — with full context on your environment.
             </p>
@@ -533,23 +464,23 @@ export default function HomePage() {
             {SERVICES.map((s, i) => (
               <div
                 key={s.num}
-                className={`relative rounded-2xl p-8 transition-all duration-500 bg-white shadow-xl hover:-translate-y-1 border border-stone-100 ${
+                className={`relative rounded-2xl p-8 transition-all duration-500 bg-zinc-900 shadow-xl hover:-translate-y-1 border border-zinc-800 ${
                   serviceVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-6"
                 }`}
                 style={{ transitionDelay: `${i * 120}ms` }}
               >
-                <div className="text-6xl font-black text-black/5 mb-4 select-none leading-none">
+                <div className="text-6xl font-black text-white/5 mb-4 select-none leading-none">
                   {s.num}
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-zinc-900">{s.title}</h3>
-                <p className="text-zinc-500 leading-relaxed text-sm mb-6">
+                <h3 className="text-xl font-bold mb-3 text-white">{s.title}</h3>
+                <p className="text-zinc-400 leading-relaxed text-sm mb-6">
                   {s.desc}
                 </p>
                 <a
                   href="#"
-                  className="text-zinc-900 text-sm font-semibold hover:text-zinc-700 transition-colors"
+                  className="text-white text-sm font-semibold hover:text-zinc-300 transition-colors"
                 >
                   Learn more →
                 </a>
@@ -565,30 +496,30 @@ export default function HomePage() {
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1400&q=80&fit=crop')" }}
         />
-        <div className="absolute inset-0 bg-stone-100/85" />
+        <div className="absolute inset-0 bg-zinc-950/80" />
         <div className="relative z-10 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div>
-            <p className="text-zinc-900 text-xs font-bold uppercase tracking-widest mb-3">
+            <p className="text-zinc-400 text-xs font-bold uppercase tracking-widest mb-3">
               Our Story
             </p>
-            <h2 className="text-4xl font-black tracking-tight mb-6 text-zinc-900">
+            <h2 className="text-4xl font-black tracking-tight mb-6 text-white">
               We learned the hard way.
               <br />
-              <span className="text-zinc-400">So you don't have to.</span>
+              <span className="text-zinc-500">So you don't have to.</span>
             </h2>
-            <p className="text-zinc-500 leading-relaxed mb-4">
+            <p className="text-zinc-400 leading-relaxed mb-4">
               In 2018, a wire fraud incident changed everything. We pivoted from
               telecom infrastructure to become the MSP we wished existed — one
               that treats security as a first principle, not an afterthought.
             </p>
-            <p className="text-zinc-500 leading-relaxed mb-8">
+            <p className="text-zinc-400 leading-relaxed mb-8">
               In 2024, we rebuilt our entire internal ops platform using AI in
               just 3 months. Now we bring that same capability to our clients.
             </p>
             <a
               href="/about"
-              className="text-zinc-900 font-semibold hover:text-zinc-700 transition-colors"
+              className="text-white font-semibold hover:text-zinc-300 transition-colors"
             >
               Read the full story →
             </a>
@@ -602,12 +533,12 @@ export default function HomePage() {
             ].map((item) => (
               <div
                 key={item.year}
-                className="border border-stone-200 rounded-xl p-6 bg-white shadow-sm text-center"
+                className="border border-zinc-800 rounded-xl p-6 bg-zinc-900 shadow-sm text-center"
               >
-                <div className="text-2xl font-black text-zinc-900 mb-2">
+                <div className="text-2xl font-black text-white mb-2">
                   {item.year}
                 </div>
-                <div className="text-xs text-zinc-500 leading-relaxed">
+                <div className="text-xs text-zinc-400 leading-relaxed">
                   {item.label}
                 </div>
               </div>
@@ -618,12 +549,11 @@ export default function HomePage() {
       </section>
 
       {/* ── SOCIAL PROOF ────────────────────────────────── */}
-      <section ref={testiRef} className="relative py-24 px-6 overflow-hidden bg-stone-100">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_50%,rgba(6,182,212,0.07),transparent)]" />
+      <section ref={testiRef} className="relative py-24 px-6 overflow-hidden bg-zinc-950">
         <div className="relative z-10 max-w-3xl mx-auto">
           <div className="mb-12 text-center">
-            <p className="text-zinc-900 text-xs font-bold uppercase tracking-widest mb-4">⭐ Client Results · Google Reviews</p>
-            <h2 className="text-4xl md:text-6xl font-black tracking-tight text-zinc-900 leading-tight">
+            <p className="text-zinc-400 text-xs font-bold uppercase tracking-widest mb-4">⭐ Client Results · Google Reviews</p>
+            <h2 className="text-4xl md:text-6xl font-black tracking-tight text-white leading-tight">
               Reviews from operators
               <br />
               <span className="text-zinc-500 font-black">who run the business.</span>
@@ -636,46 +566,45 @@ export default function HomePage() {
       {/* ── FINAL CTA ───────────────────────────────────── */}
       <section
         id="assessment"
-        className="py-24 px-6 relative overflow-hidden bg-gradient-to-br from-stone-100 via-stone-100 to-stone-100"
+        className="py-24 px-6 relative overflow-hidden bg-zinc-950"
       >
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_50%,rgba(6,182,212,0.08),transparent)]" />
         <div className="relative max-w-3xl mx-auto text-center">
-          <p className="text-zinc-900 text-xs font-bold uppercase tracking-widest mb-4">
+          <p className="text-zinc-400 text-xs font-bold uppercase tracking-widest mb-4">
             Free Assessment
           </p>
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4 text-zinc-900">
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4 text-white">
             Get your free AI optimization assessment
           </h2>
-          <p className="text-zinc-500 text-lg mb-10 leading-relaxed">
+          <p className="text-zinc-400 text-lg mb-10 leading-relaxed">
             No commitment. One conversation to find your biggest quick win — on
             us. Response within one business day.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="https://fornida.com/assessment"
-              className="bg-zinc-900 text-white font-bold text-base px-8 py-4 rounded-xl hover:bg-zinc-900 transition-all hover:scale-[1.02] active:scale-[0.98]"
+              className="bg-white text-zinc-950 font-bold text-base px-8 py-4 rounded-xl hover:bg-zinc-100 transition-all hover:scale-[1.02] active:scale-[0.98]"
             >
               Book in 60 seconds →
             </a>
             <a
               href="https://fornida.com/contact"
-              className="border border-stone-300 text-zinc-700 font-semibold text-base px-8 py-4 rounded-xl hover:bg-stone-50 transition-all"
+              className="border border-zinc-700 text-zinc-400 font-semibold text-base px-8 py-4 rounded-xl hover:border-zinc-500 hover:text-white hover:bg-transparent transition-all"
             >
               Talk to an engineer instead
             </a>
           </div>
-          <p className="text-zinc-400 text-xs mt-6">
+          <p className="text-zinc-600 text-xs mt-6">
             📍 2609 Technology Dr, Suite 300, Plano, TX 75074 · +1-949-722-1222
           </p>
         </div>
       </section>
 
       {/* ── PARTNER ECOSYSTEM BAR ───────────────────────── */}
-      <section className="relative border-t border-b border-stone-300 py-12 overflow-hidden bg-stone-100">
+      <section className="relative border-t border-b border-zinc-800 py-12 overflow-hidden bg-zinc-950">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-1/4 w-64 h-32 bg-zinc-900/5 rounded-full blur-3xl" />
-          <div className="absolute top-0 left-1/2 w-48 h-24 bg-zinc-900/5 rounded-full blur-3xl" />
-          <div className="absolute top-0 right-1/4 w-64 h-32 bg-zinc-900/5 rounded-full blur-3xl" />
+          <div className="absolute top-0 left-1/4 w-64 h-32 bg-white/[0.02] rounded-full blur-3xl" />
+          <div className="absolute top-0 left-1/2 w-48 h-24 bg-white/[0.02] rounded-full blur-3xl" />
+          <div className="absolute top-0 right-1/4 w-64 h-32 bg-white/[0.02] rounded-full blur-3xl" />
         </div>
 
         <p className="relative text-center text-[10px] font-bold uppercase tracking-widest text-zinc-400 mb-10">
@@ -754,7 +683,7 @@ export default function HomePage() {
       </section>
 
       {/* ── FOOTER ──────────────────────────────────────── */}
-      <footer className="bg-zinc-900 border-t border-zinc-800 px-6 pt-14 pb-8">
+      <footer className="bg-zinc-950 border-t border-zinc-800 px-6 pt-14 pb-8">
         <div className="max-w-7xl mx-auto">
 
           {/* Top grid */}

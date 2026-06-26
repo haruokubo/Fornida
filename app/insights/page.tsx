@@ -54,16 +54,16 @@ const INSIGHTS = [
 ];
 
 const TAG_COLORS: Record<string, string> = {
-  Cybersecurity: "text-zinc-700 bg-stone-50 border-stone-300",
-  "AI Automation": "text-stone-600 bg-stone-50 border-stone-300",
-  "Incident Response": "text-stone-600 bg-stone-50 border-stone-300",
-  "AI Strategy": "text-zinc-700 bg-stone-50 border-stone-300",
-  "IT Management": "text-zinc-900 bg-stone-50 border-stone-300",
+  Cybersecurity: "text-zinc-300 bg-zinc-800 border-zinc-700",
+  "AI Automation": "text-zinc-400 bg-zinc-800 border-zinc-700",
+  "Incident Response": "text-zinc-400 bg-zinc-800 border-zinc-700",
+  "AI Strategy": "text-zinc-300 bg-zinc-800 border-zinc-700",
+  "IT Management": "text-white bg-zinc-800 border-zinc-700",
 };
 
 export default function InsightsPage() {
   return (
-    <main className="min-h-screen bg-stone-100 text-zinc-900">
+    <main className="min-h-screen bg-zinc-950 text-white">
 
       {/* NAV */}
       <nav className="sticky top-0 z-50 bg-stone-100/90 backdrop-blur-md border-b border-stone-300 shadow-sm">
