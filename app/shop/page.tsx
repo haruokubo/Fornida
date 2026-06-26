@@ -100,7 +100,7 @@ const CATEGORIES = [
 
 const BADGE_STYLES: Record<string, string> = {
   Sale: "bg-red-100 text-zinc-700 border-red-200",
-  Popular: "bg-gray-100 text-zinc-900 border-gray-300",
+  Popular: "bg-stone-50 text-zinc-900 border-stone-300",
 };
 
 function ProductCard({
@@ -117,7 +117,7 @@ function ProductCard({
     : null;
 
   return (
-    <div className="group relative border border-gray-200 shadow-sm rounded-2xl bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col">
+    <div className="group relative border border-stone-200 shadow-sm rounded-2xl bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col">
       {/* Cart-in indicator */}
       {cartQty > 0 && (
         <div className="absolute top-3 right-3 z-10 w-6 h-6 rounded-full bg-green-500 text-white flex items-center justify-center text-[10px] font-bold shadow">
@@ -136,7 +136,7 @@ function ProductCard({
         {/* Badges */}
         <div className="absolute top-3 left-3 flex flex-col gap-1.5">
           {!product.inStock && (
-            <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-gray-100 text-zinc-500 border border-gray-200">
+            <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-stone-50 text-stone-500 border border-stone-200">
               OUT OF STOCK
             </span>
           )}
@@ -156,7 +156,7 @@ function ProductCard({
           <div className="absolute inset-0 bg-white/80 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center">
             <button
               onClick={() => onAddToCart(product.sku)}
-              className="bg-zinc-700 text-white text-xs font-bold px-4 py-2 rounded-lg shadow hover:bg-zinc-800 transition-colors"
+              className="bg-zinc-900 text-white text-xs font-bold px-4 py-2 rounded-lg shadow hover:bg-zinc-900 transition-colors"
             >
               Quick add +
             </button>
@@ -183,7 +183,7 @@ function ProductCard({
             )}
           </div>
           {product.price === 0 ? (
-            <a href="/quote" className="text-xs font-bold px-4 py-2 rounded-lg bg-zinc-700 text-white hover:bg-zinc-800 transition-all whitespace-nowrap">
+            <a href="/quote" className="text-xs font-bold px-4 py-2 rounded-lg bg-zinc-900 text-white hover:bg-zinc-900 transition-all whitespace-nowrap">
               Get Quote →
             </a>
           ) : (
@@ -192,8 +192,8 @@ function ProductCard({
               onClick={() => product.inStock && onAddToCart(product.sku)}
               className={`text-xs font-bold px-4 py-2 rounded-lg transition-all whitespace-nowrap ${
                 product.inStock
-                  ? "bg-zinc-700 text-white hover:bg-zinc-800 active:scale-95"
-                  : "bg-gray-100 text-zinc-400 cursor-not-allowed"
+                  ? "bg-zinc-900 text-white hover:bg-zinc-900 active:scale-95"
+                  : "bg-stone-50 text-zinc-400 cursor-not-allowed"
               }`}
             >
               {!product.inStock ? "Out of stock" : cartQty > 0 ? `In cart: ${cartQty}` : "Add to cart"}
@@ -257,9 +257,9 @@ export default function ShopPage() {
     cat === "All Products" ? PRODUCTS.length : PRODUCTS.filter((p) => p.category === cat).length;
 
   return (
-    <main className="bg-slate-300 text-zinc-900 min-h-screen pb-28">
+    <main className="bg-stone-100 text-zinc-900 min-h-screen pb-28">
       {/* Nav */}
-      <nav className="sticky top-0 z-50 bg-slate-300/90 backdrop-blur-md border-b border-gray-300 shadow-sm">
+      <nav className="sticky top-0 z-50 bg-stone-100/90 backdrop-blur-md border-b border-stone-300 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <a href="/" className="text-zinc-900 text-xl font-black tracking-tight">FORNIDA</a>
           <div className="hidden md:flex items-center gap-8">
@@ -267,7 +267,7 @@ export default function ShopPage() {
             <a href="#" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Case Studies</a>
             <a href="/insights" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Insights</a>
             <a href="#" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">About</a>
-            <a href="/shop" className="text-sm text-zinc-900 font-semibold border-b border-zinc-700 pb-0.5">Shop</a>
+            <a href="/shop" className="text-sm text-zinc-900 font-semibold border-b border-zinc-900 pb-0.5">Shop</a>
           </div>
           <div className="flex items-center gap-3">
             {/* Cart badge */}
@@ -277,13 +277,13 @@ export default function ShopPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
                 {cartItemCount > 0 && (
-                  <span className="absolute -top-1 -right-1 w-4 h-4 bg-zinc-700 text-white text-[9px] font-bold rounded-full flex items-center justify-center">
+                  <span className="absolute -top-1 -right-1 w-4 h-4 bg-zinc-900 text-white text-[9px] font-bold rounded-full flex items-center justify-center">
                     {cartItemCount}
                   </span>
                 )}
               </button>
             </div>
-            <a href="/#assessment" className="bg-zinc-700 text-white text-sm font-bold px-5 py-2.5 rounded-lg hover:bg-zinc-800 transition-colors">
+            <a href="/#assessment" className="bg-zinc-900 text-white text-sm font-bold px-5 py-2.5 rounded-lg hover:bg-zinc-900 transition-colors">
               Book Assessment →
             </a>
           </div>
@@ -291,11 +291,11 @@ export default function ShopPage() {
       </nav>
 
       {/* Hero Banner */}
-      <div className="bg-white border-b border-gray-200 py-6 px-6 text-center">
+      <div className="bg-white border-b border-stone-200 py-6 px-6 text-center">
         <h2 className="text-lg font-bold text-zinc-900 mb-3">
           🖥️ Enterprise Hardware &nbsp;·&nbsp; Certified Refurbished &nbsp;·&nbsp; Ships Nationwide
         </h2>
-        <div className="flex flex-wrap justify-center gap-4 text-sm text-zinc-600">
+        <div className="flex flex-wrap justify-center gap-4 text-sm text-stone-600">
           <span className="flex items-center gap-1.5"><span className="text-zinc-700 font-bold">✓</span> Free Shipping $500+</span>
           <span className="flex items-center gap-1.5"><span className="text-zinc-700 font-bold">✓</span> 30-Day Returns</span>
           <span className="flex items-center gap-1.5"><span className="text-zinc-700 font-bold">✓</span> Secure Checkout</span>
@@ -304,7 +304,7 @@ export default function ShopPage() {
       </div>
 
       {/* Stats Strip */}
-      <div className="bg-white border-y border-gray-200 py-4">
+      <div className="bg-white border-y border-stone-200 py-4">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-wrap justify-around gap-4 text-center text-sm">
             <div>
@@ -342,8 +342,8 @@ export default function ShopPage() {
                     onClick={() => setActiveCategory(cat)}
                     className={`w-full text-left px-3 py-2 rounded-lg text-sm flex items-center justify-between transition-all border ${
                       isActive
-                        ? "bg-zinc-700 text-white border-zinc-700 font-semibold"
-                        : "bg-white border-gray-200 text-zinc-600 hover:text-zinc-900 hover:border-gray-300"
+                        ? "bg-zinc-900 text-white border-zinc-900 font-semibold"
+                        : "bg-white border-stone-200 text-stone-600 hover:text-zinc-900 hover:border-stone-300"
                     }`}
                   >
                     <span>{cat}</span>
@@ -371,13 +371,13 @@ export default function ShopPage() {
                 placeholder="Search by name or SKU..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full bg-white border border-gray-300 text-zinc-900 rounded-xl pl-9 pr-4 py-2.5 text-sm placeholder-zinc-400 focus:outline-none focus:border-zinc-400 transition-all"
+                className="w-full bg-white border border-stone-300 text-zinc-900 rounded-xl pl-9 pr-4 py-2.5 text-sm placeholder-zinc-400 focus:outline-none focus:border-zinc-400 transition-all"
               />
             </div>
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
-              className="bg-white border border-gray-300 text-zinc-900 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-zinc-400 transition-all appearance-none cursor-pointer"
+              className="bg-white border border-stone-300 text-zinc-900 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-zinc-400 transition-all appearance-none cursor-pointer"
             >
               <option value="default">Sort: Default</option>
               <option value="price-asc">Price: Low to High</option>
@@ -397,8 +397,8 @@ export default function ShopPage() {
                   onClick={() => setActiveCategory(cat)}
                   className={`text-xs font-semibold px-3 py-1.5 rounded-full border transition-all ${
                     isActive
-                      ? "bg-zinc-700 text-white border-zinc-700"
-                      : "bg-white border-gray-200 text-zinc-600 hover:border-gray-400 hover:text-zinc-900"
+                      ? "bg-zinc-900 text-white border-zinc-900"
+                      : "bg-white border-stone-200 text-stone-600 hover:border-stone-400 hover:text-zinc-900"
                   }`}
                 >
                   {cat} ({count})
@@ -416,7 +416,7 @@ export default function ShopPage() {
           </div>
 
           {filtered.length === 0 ? (
-            <div className="text-center py-24 border border-gray-200 rounded-2xl bg-white">
+            <div className="text-center py-24 border border-stone-200 rounded-2xl bg-white">
               <div className="text-4xl mb-4">🔍</div>
               <div className="text-zinc-700 font-semibold mb-2">No products found</div>
               <div className="text-zinc-500 text-sm">Try a different search or category</div>
@@ -440,14 +440,14 @@ export default function ShopPage() {
             </div>
           )}
 
-          <div className="mt-12 border border-gray-200 rounded-2xl p-8 bg-white shadow-sm text-center">
+          <div className="mt-12 border border-stone-200 rounded-2xl p-8 bg-white shadow-sm text-center">
             <div className="text-lg font-bold text-zinc-900 mb-2">Don&apos;t see what you need?</div>
             <p className="text-zinc-500 text-sm mb-5">
               We source Dell, HPE, Lenovo, and more. Tell us the SKU or spec and we&apos;ll quote it.
             </p>
             <a
               href="/quote"
-              className="inline-block bg-zinc-700 text-white font-bold text-sm px-6 py-3 rounded-xl hover:bg-zinc-800 transition-all"
+              className="inline-block bg-zinc-900 text-white font-bold text-sm px-6 py-3 rounded-xl hover:bg-zinc-900 transition-all"
             >
               Request a Quote →
             </a>
@@ -463,10 +463,10 @@ export default function ShopPage() {
 
       {/* Sticky cart bottom bar */}
       {cartItemCount > 0 && (
-        <div className="fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-gray-200 shadow-lg px-6 py-4">
+        <div className="fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-stone-200 shadow-lg px-6 py-4">
           <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-zinc-700 rounded-full flex items-center justify-center text-white text-sm font-bold">
+              <div className="w-8 h-8 bg-zinc-900 rounded-full flex items-center justify-center text-white text-sm font-bold">
                 {cartItemCount}
               </div>
               <div>
@@ -480,7 +480,7 @@ export default function ShopPage() {
             </div>
             <a
               href="/cart"
-              className="bg-zinc-700 text-white font-bold text-sm px-6 py-2.5 rounded-xl hover:bg-zinc-800 transition-all"
+              className="bg-zinc-900 text-white font-bold text-sm px-6 py-2.5 rounded-xl hover:bg-zinc-900 transition-all"
             >
               View Cart →
             </a>

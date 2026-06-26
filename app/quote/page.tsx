@@ -15,14 +15,14 @@ export default function QuotePage() {
   };
 
   const inputClass =
-    "w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-zinc-400 focus:ring-2 focus:ring-zinc-400/20 transition-all";
+    "w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-stone-400 focus:ring-2 focus:ring-stone-400/20 transition-all";
   const labelClass = "block text-sm font-semibold text-zinc-700 mb-2";
   const fieldClass = "mb-6";
 
   return (
-    <main className="bg-slate-300 text-zinc-900 min-h-screen">
+    <main className="min-h-screen bg-stone-100 text-zinc-900">
       {/* Nav */}
-      <nav className="sticky top-0 z-50 bg-slate-300/90 backdrop-blur-md border-b border-gray-300 shadow-sm">
+      <nav className="sticky top-0 z-50 bg-stone-100/90 backdrop-blur-md border-b border-stone-300 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <a href="/" className="text-zinc-900 text-xl font-black tracking-tight">FORNIDA</a>
           <div className="hidden md:flex items-center gap-8">
@@ -34,7 +34,7 @@ export default function QuotePage() {
           </div>
           <a
             href="/#assessment"
-            className="bg-zinc-700 text-white text-sm font-bold px-5 py-2.5 rounded-lg hover:bg-zinc-800 transition-colors"
+            className="bg-zinc-900 text-white text-sm font-bold px-5 py-2.5 rounded-lg hover:bg-zinc-900 transition-colors"
           >
             Book Assessment →
           </a>
@@ -42,7 +42,7 @@ export default function QuotePage() {
       </nav>
 
       {/* Header */}
-      <div className="bg-white border-b border-gray-200 py-16 px-6 text-center">
+      <div className="bg-white border-b border-stone-200 py-16 px-6 text-center">
         <div className="text-zinc-900 text-xs font-bold uppercase tracking-widest mb-3">Get a Quote</div>
         <h1 className="text-4xl font-black text-zinc-900 mb-4">Tell us what you need.</h1>
         <p className="text-zinc-500 text-lg max-w-xl mx-auto leading-relaxed">
@@ -53,7 +53,7 @@ export default function QuotePage() {
       {/* Form Section */}
       <div className="max-w-6xl mx-auto py-16 px-6">
         {submitted ? (
-          <div className="max-w-lg mx-auto bg-white rounded-2xl shadow-lg border border-gray-100 p-12 text-center">
+          <div className="max-w-lg mx-auto bg-white rounded-2xl shadow-lg border border-stone-200 p-12 text-center">
             <div className="flex items-center justify-center mb-6">
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
                 <svg className="w-8 h-8 text-zinc-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -68,7 +68,7 @@ export default function QuotePage() {
             </p>
             <a
               href="/shop"
-              className="inline-block bg-zinc-700 text-white font-bold px-6 py-3 rounded-xl hover:bg-zinc-800 transition-all"
+              className="inline-block bg-zinc-900 text-white font-bold px-6 py-3 rounded-xl hover:bg-zinc-900 transition-all"
             >
               Return to shop →
             </a>
@@ -77,7 +77,7 @@ export default function QuotePage() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
             {/* Form */}
             <div className="lg:col-span-2">
-              <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-10">
+              <div className="bg-white rounded-2xl shadow-lg border border-stone-200 p-10">
                 <form onSubmit={handleSubmit}>
                   {/* Row 1: Name + Company */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
@@ -189,7 +189,7 @@ export default function QuotePage() {
 
                   <button
                     type="submit"
-                    className="w-full bg-zinc-700 text-white font-bold text-base py-4 rounded-xl hover:bg-zinc-800 transition-all"
+                    className="w-full bg-zinc-900 text-white font-bold text-base py-4 rounded-xl hover:bg-zinc-900 transition-all"
                   >
                     Submit Quote Request →
                   </button>
@@ -199,7 +199,7 @@ export default function QuotePage() {
 
             {/* Sidebar */}
             <div className="lg:col-span-1">
-              <div className="bg-white rounded-2xl border border-gray-200 p-7 h-fit sticky top-28">
+              <div className="bg-white rounded-2xl border border-stone-200 p-7 h-fit sticky top-28">
                 <h3 className="text-base font-bold text-zinc-900 mb-5">Why request a quote?</h3>
                 <ul className="space-y-3 mb-6">
                   {[
@@ -209,7 +209,7 @@ export default function QuotePage() {
                     "Net-30 terms available for qualified businesses",
                     "MSP-backed support included with every order",
                   ].map((item) => (
-                    <li key={item} className="flex items-start gap-2.5 text-sm text-zinc-600">
+                    <li key={item} className="flex items-start gap-2.5 text-sm text-stone-600">
                       <svg
                         className="w-4 h-4 text-zinc-700 mt-0.5 flex-shrink-0"
                         fill="none"
@@ -223,7 +223,7 @@ export default function QuotePage() {
                   ))}
                 </ul>
 
-                <div className="border-t border-gray-100 pt-6">
+                <div className="border-t border-stone-200 pt-6">
                   <div className="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-3">Questions?</div>
                   <div className="text-sm text-zinc-700 font-semibold mb-1">Call us:</div>
                   <a

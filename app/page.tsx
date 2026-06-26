@@ -197,7 +197,7 @@ function StatBlock({ stat, active }: { stat: StatItem; active: boolean }) {
       : `${stat.prefix ?? ""}${active ? count : "—"}${stat.suffix ?? ""}`;
 
   return (
-    <div className="flex-1 text-center border-r border-gray-200 last:border-r-0 py-8 px-4">
+    <div className="flex-1 text-center border-r border-stone-200 last:border-r-0 py-8 px-4">
       <div className="text-3xl font-black text-zinc-900 tabular-nums tracking-tight">
         {display}
       </div>
@@ -245,16 +245,16 @@ function TestimonialsCarousel({ visible }: { visible: boolean }) {
           }}
         >
           {/* Big quote mark */}
-          <span className="absolute top-4 right-7 text-8xl font-serif text-gray-400/50 leading-none select-none">&rdquo;</span>
+          <span className="absolute top-4 right-7 text-8xl font-serif text-stone-300/60 leading-none select-none">&rdquo;</span>
 
           {/* Stars */}
-          <div className="text-gray-400 text-xl tracking-widest mb-5">★★★★★</div>
+          <div className="text-stone-400 text-xl tracking-widest mb-5">★★★★★</div>
 
           {/* Quote */}
           <p className="text-zinc-800 text-lg leading-relaxed mb-8 font-medium">{t.quote}</p>
 
           {/* Divider */}
-          <div className="border-t border-gray-100 mb-6" />
+          <div className="border-t border-stone-100 mb-6" />
 
           {/* Attribution */}
           <div className="flex items-center gap-4">
@@ -266,7 +266,7 @@ function TestimonialsCarousel({ visible }: { visible: boolean }) {
               <div className="text-zinc-400 text-xs mt-0.5">{t.role}</div>
               <div className="text-zinc-400 text-[10px] uppercase tracking-widest mt-0.5">{TESTI_AGES[idx]}</div>
             </div>
-            <div className="ml-auto flex items-center gap-1.5 bg-gray-50 border border-gray-200 rounded-full px-3 py-1.5">
+            <div className="ml-auto flex items-center gap-1.5 bg-stone-50 border border-stone-200 rounded-full px-3 py-1.5">
               <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none">
                 <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
                 <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
@@ -288,14 +288,14 @@ function TestimonialsCarousel({ visible }: { visible: boolean }) {
             <button
               key={i}
               onClick={() => go(i, i > idx ? "right" : "left")}
-              className={`rounded-full transition-all duration-300 ${i === idx ? "bg-zinc-700 w-6 h-2.5" : "bg-gray-300 hover:bg-gray-400 w-2.5 h-2.5"}`}
+              className={`rounded-full transition-all duration-300 ${i === idx ? "bg-zinc-900 w-6 h-2.5" : "bg-stone-300 hover:bg-stone-400 w-2.5 h-2.5"}`}
             />
           ))}
         </div>
 
         <div className="flex gap-2">
-          <button onClick={prev} className="w-10 h-10 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center text-zinc-600 hover:bg-gray-100 hover:border-zinc-300 hover:text-zinc-900 transition-all font-bold">←</button>
-          <button onClick={next} className="w-10 h-10 rounded-full bg-zinc-700 flex items-center justify-center text-white hover:bg-zinc-800 transition-all font-bold shadow-md">→</button>
+          <button onClick={prev} className="w-10 h-10 rounded-full bg-white border border-stone-200 shadow-sm flex items-center justify-center text-stone-600 hover:bg-stone-100 hover:border-stone-300 hover:text-zinc-900 transition-all font-bold">←</button>
+          <button onClick={next} className="w-10 h-10 rounded-full bg-zinc-900 flex items-center justify-center text-white hover:bg-zinc-900 transition-all font-bold shadow-md">→</button>
         </div>
       </div>
     </div>
@@ -319,13 +319,13 @@ export default function HomePage() {
   }, []);
 
   return (
-    <main className="bg-slate-300 text-zinc-900 min-h-screen overflow-x-hidden" onClick={(e) => { if (!(e.target as HTMLElement).closest('button[class*="border-zinc"]') && !(e.target as HTMLElement).closest('button[class*="border-gray"]')) setActivePill(null); }}>
+    <main className="bg-stone-100 text-zinc-900 min-h-screen overflow-x-hidden" onClick={(e) => { if (!(e.target as HTMLElement).closest('button[class*="border-zinc"]') && !(e.target as HTMLElement).closest('button[class*="border-gray"]')) setActivePill(null); }}>
 
       {/* ── NAVIGATION ──────────────────────────────────── */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-slate-300/90 backdrop-blur-md border-b border-gray-300 shadow-sm"
+            ? "bg-stone-100/90 backdrop-blur-md border-b border-stone-300 shadow-sm"
             : "bg-transparent"
         }`}
       >
@@ -343,7 +343,7 @@ export default function HomePage() {
           </div>
           <a
             href="#assessment"
-            className="bg-zinc-700 text-white text-sm font-bold px-5 py-2.5 rounded-lg hover:bg-zinc-800 transition-colors"
+            className="bg-zinc-900 text-white text-sm font-bold px-5 py-2.5 rounded-lg hover:bg-zinc-900 transition-colors"
           >
             Book Assessment →
           </a>
@@ -351,7 +351,7 @@ export default function HomePage() {
       </nav>
 
       {/* ── HERO ────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex items-center justify-center text-center px-6 overflow-hidden bg-gradient-to-br from-slate-300 via-slate-200 to-slate-300">
+      <section className="relative min-h-screen flex items-center justify-center text-center px-6 overflow-hidden bg-gradient-to-br from-stone-100 via-stone-100 to-stone-200">
         {/* Hero team photo — subtle */}
         <img
           src="https://fornida.com/assets/fornida_hero_image.jpg"
@@ -360,15 +360,15 @@ export default function HomePage() {
           className="absolute inset-0 w-full h-full object-cover object-center opacity-30"
         />
         {/* Light overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-300/80 via-slate-200/40 to-slate-100/20" />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-100 via-transparent to-slate-200/50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-stone-100/80 via-stone-100/40 to-stone-100/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-stone-100 via-transparent to-stone-100/50" />
         {/* Subtle mesh accents */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(6,182,212,0.08),transparent)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_40%_40%_at_80%_60%,rgba(124,58,237,0.04),transparent)]" />
 
         <div className="relative max-w-4xl mx-auto pt-20 animate-fade-up">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 border border-zinc-400/30 text-zinc-900 text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full mb-8 bg-gray-100">
+          <div className="inline-flex items-center gap-2 border border-zinc-400/30 text-zinc-900 text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full mb-8 bg-stone-50">
             <span className="w-1.5 h-1.5 rounded-full bg-zinc-500 animate-pulse" />
             Texas-based MSP · Est. 2012
           </div>
@@ -387,13 +387,13 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="#assessment"
-              className="bg-zinc-700 text-white font-bold text-base px-8 py-4 rounded-xl hover:bg-zinc-800 transition-all hover:scale-[1.02] active:scale-[0.98]"
+              className="bg-zinc-900 text-white font-bold text-base px-8 py-4 rounded-xl hover:bg-zinc-900 transition-all hover:scale-[1.02] active:scale-[0.98]"
             >
               Book AI Optimization Assessment →
             </a>
             <a
               href="#quick-win"
-              className="border border-gray-300 text-zinc-700 font-semibold text-base px-8 py-4 rounded-xl hover:bg-gray-50 transition-all"
+              className="border border-stone-300 text-zinc-700 font-semibold text-base px-8 py-4 rounded-xl hover:bg-stone-50 transition-all"
             >
               Claim Your Free Quick Win
             </a>
@@ -411,10 +411,10 @@ export default function HomePage() {
                   onMouseLeave={() => setHoveredPill(null)}
                   className={`text-xs px-3 py-1.5 rounded-md border transition-all cursor-pointer ${
                     activePill === p.name
-                      ? "border-zinc-400/50 text-zinc-700 bg-gray-100"
+                      ? "border-zinc-400/50 text-zinc-700 bg-stone-100"
                       : hoveredPill === p.name
-                      ? "border-gray-300 text-zinc-700 bg-gray-50"
-                      : "border-gray-200 text-zinc-500"
+                      ? "border-stone-300 text-zinc-700 bg-stone-50"
+                      : "border-stone-200 text-stone-500"
                   }`}
                 >
                   {p.name}
@@ -427,7 +427,7 @@ export default function HomePage() {
                 return (
                   <div
                     key={partner.name}
-                    className={`absolute inset-0 bg-white rounded-xl px-5 py-4 text-left transition-opacity duration-150 overflow-auto shadow-lg border border-gray-100 ${visible ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+                    className={`absolute inset-0 bg-white rounded-xl px-5 py-4 text-left transition-opacity duration-150 overflow-auto shadow-lg border border-stone-100 ${visible ? "opacity-100" : "opacity-0 pointer-events-none"}`}
                   >
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-xs font-bold text-zinc-900 uppercase tracking-widest">
@@ -450,9 +450,9 @@ export default function HomePage() {
       {/* ── STATS BAR ───────────────────────────────────── */}
       <div
         ref={statsRef}
-        className="border-y border-gray-300 bg-slate-300"
+        className="border-y border-stone-300 bg-stone-100"
       >
-        <div className="max-w-5xl mx-auto flex divide-x divide-gray-200">
+        <div className="max-w-5xl mx-auto flex divide-x divide-stone-200">
           {STATS.map((s) => (
             <StatBlock key={s.label} stat={s} active={statsVisible} />
           ))}
@@ -479,37 +479,40 @@ export default function HomePage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 border border-stone-200 rounded-2xl overflow-hidden bg-white">
           {PROBLEMS.map((p, i) => (
             <div
               key={p.title}
-              className={`group border border-gray-200 rounded-2xl p-8 hover:border-zinc-300/50 hover:-translate-y-1 transition-all duration-300 bg-white shadow-sm ${
-                problemVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-4"
-              }`}
-              style={{ transitionDelay: `${i * 80}ms` }}
+              className={`p-8 flex flex-col gap-4 ${
+                i < PROBLEMS.length - 2 ? "border-b border-stone-200" : ""
+              } ${i % 2 === 0 ? "border-r border-stone-200" : ""}`}
             >
-              <div className="text-3xl mb-4">{p.icon}</div>
-              <h3 className="text-xl font-bold mb-2 text-zinc-900 group-hover:text-zinc-900 transition-colors">
-                {p.title}
-              </h3>
-              <p className="text-zinc-500 leading-relaxed">{p.desc}</p>
+              <span className="text-xs font-mono text-stone-400 tracking-widest">
+                0{i + 1} / 0{PROBLEMS.length}
+              </span>
+              <div>
+                <h3 className="text-xl font-black text-stone-900 mb-2">{p.title}.</h3>
+                <p className="text-stone-500 text-sm leading-relaxed">{p.desc}</p>
+              </div>
+              <div className="mt-auto flex items-center gap-2 pt-4 border-t border-stone-100">
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0" />
+                <span className="text-xs text-stone-400 font-mono">{p.icon} {p.title}</span>
+              </div>
             </div>
           ))}
         </div>
       </section>
 
       {/* ── SERVICES ────────────────────────────────────── */}
-      <section ref={serviceRef} className="relative py-24 px-6 overflow-hidden bg-slate-300">
+      <section ref={serviceRef} className="relative py-24 px-6 overflow-hidden bg-stone-100">
         <img
           src="https://fornida.com/assets/facility/noc-dashboard.jpg"
           alt=""
           aria-hidden
           className="absolute inset-0 w-full h-full object-cover object-center opacity-20"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-300 via-slate-200/40 to-slate-200" />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-300/70 via-transparent to-slate-200/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-stone-100 via-stone-100/40 to-stone-200" />
+        <div className="absolute inset-0 bg-gradient-to-r from-stone-100/70 via-transparent to-stone-100/70" />
         <div className="relative z-10 max-w-7xl mx-auto">
           <div className="mb-12">
             <p className="text-zinc-900 text-xs font-bold uppercase tracking-widest mb-3">
@@ -530,7 +533,7 @@ export default function HomePage() {
             {SERVICES.map((s, i) => (
               <div
                 key={s.num}
-                className={`relative rounded-2xl p-8 transition-all duration-500 bg-white shadow-xl hover:-translate-y-1 border border-gray-100 ${
+                className={`relative rounded-2xl p-8 transition-all duration-500 bg-white shadow-xl hover:-translate-y-1 border border-stone-100 ${
                   serviceVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-6"
@@ -562,7 +565,7 @@ export default function HomePage() {
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1400&q=80&fit=crop')" }}
         />
-        <div className="absolute inset-0 bg-slate-300/85" />
+        <div className="absolute inset-0 bg-stone-100/85" />
         <div className="relative z-10 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div>
@@ -599,7 +602,7 @@ export default function HomePage() {
             ].map((item) => (
               <div
                 key={item.year}
-                className="border border-gray-200 rounded-xl p-6 bg-white shadow-sm text-center"
+                className="border border-stone-200 rounded-xl p-6 bg-white shadow-sm text-center"
               >
                 <div className="text-2xl font-black text-zinc-900 mb-2">
                   {item.year}
@@ -615,7 +618,7 @@ export default function HomePage() {
       </section>
 
       {/* ── SOCIAL PROOF ────────────────────────────────── */}
-      <section ref={testiRef} className="relative py-24 px-6 overflow-hidden bg-slate-300">
+      <section ref={testiRef} className="relative py-24 px-6 overflow-hidden bg-stone-100">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_50%,rgba(6,182,212,0.07),transparent)]" />
         <div className="relative z-10 max-w-3xl mx-auto">
           <div className="mb-12 text-center">
@@ -633,7 +636,7 @@ export default function HomePage() {
       {/* ── FINAL CTA ───────────────────────────────────── */}
       <section
         id="assessment"
-        className="py-24 px-6 relative overflow-hidden bg-gradient-to-br from-slate-200 via-slate-200 to-slate-200"
+        className="py-24 px-6 relative overflow-hidden bg-gradient-to-br from-stone-100 via-stone-100 to-stone-100"
       >
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_50%,rgba(6,182,212,0.08),transparent)]" />
         <div className="relative max-w-3xl mx-auto text-center">
@@ -650,13 +653,13 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="https://fornida.com/assessment"
-              className="bg-zinc-700 text-white font-bold text-base px-8 py-4 rounded-xl hover:bg-zinc-800 transition-all hover:scale-[1.02] active:scale-[0.98]"
+              className="bg-zinc-900 text-white font-bold text-base px-8 py-4 rounded-xl hover:bg-zinc-900 transition-all hover:scale-[1.02] active:scale-[0.98]"
             >
               Book in 60 seconds →
             </a>
             <a
               href="https://fornida.com/contact"
-              className="border border-gray-300 text-zinc-700 font-semibold text-base px-8 py-4 rounded-xl hover:bg-gray-50 transition-all"
+              className="border border-stone-300 text-zinc-700 font-semibold text-base px-8 py-4 rounded-xl hover:bg-stone-50 transition-all"
             >
               Talk to an engineer instead
             </a>
@@ -668,7 +671,7 @@ export default function HomePage() {
       </section>
 
       {/* ── PARTNER ECOSYSTEM BAR ───────────────────────── */}
-      <section className="relative border-t border-b border-gray-300 py-12 overflow-hidden bg-slate-300">
+      <section className="relative border-t border-b border-stone-300 py-12 overflow-hidden bg-stone-100">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-1/4 w-64 h-32 bg-zinc-900/5 rounded-full blur-3xl" />
           <div className="absolute top-0 left-1/2 w-48 h-24 bg-zinc-900/5 rounded-full blur-3xl" />
