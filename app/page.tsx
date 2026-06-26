@@ -500,61 +500,59 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── ORIGIN STORY ────────────────────────────────── */}
-      <section className="relative py-24 px-6 overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1400&q=80&fit=crop')" }}
-        />
-        <div className="absolute inset-0 bg-zinc-950/80" />
-        <div className="relative z-10 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          <div>
-            <p className="text-zinc-400 text-xs font-bold uppercase tracking-widest mb-3">
-              Our Story
-            </p>
-            <h2 className="text-4xl font-black tracking-tight mb-6 text-white">
-              We learned the hard way.
-              <br />
-              <span className="text-zinc-500">So you don't have to.</span>
-            </h2>
-            <p className="text-zinc-400 leading-relaxed mb-4">
-              In 2018, a wire fraud incident changed everything. We pivoted from
-              telecom infrastructure to become the MSP we wished existed — one
-              that treats security as a first principle, not an afterthought.
-            </p>
-            <p className="text-zinc-400 leading-relaxed mb-8">
-              In 2024, we rebuilt our entire internal ops platform using AI in
-              just 3 months. Now we bring that same capability to our clients.
-            </p>
-            <a
-              href="/about"
-              className="text-white font-semibold hover:text-zinc-300 transition-colors"
-            >
-              Read the full story →
-            </a>
+      {/* ── ABOUT / ORIGIN ──────────────────────────────── */}
+      <section id="about" className="py-24 px-6 bg-zinc-950 border-t border-zinc-800">
+        <div className="max-w-2xl mx-auto">
+          {/* Label */}
+          <div className="flex items-center gap-3 mb-10">
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+            <span className="text-zinc-500 text-xs font-bold uppercase tracking-widest">08 / Origin</span>
           </div>
 
-          <div className="grid grid-cols-3 gap-4">
-            {[
-              { year: "2012", label: "Founded on telecom infrastructure" },
-              { year: "2018", label: "Wire fraud wake-up → MSP pivot" },
-              { year: "2024", label: "AI-rebuilt ops platform in 90 days" },
-            ].map((item) => (
-              <div
-                key={item.year}
-                className="border border-zinc-800 rounded-xl p-6 bg-zinc-900 shadow-sm text-center"
-              >
-                <div className="text-2xl font-black text-white mb-2">
-                  {item.year}
-                </div>
-                <div className="text-xs text-zinc-400 leading-relaxed">
-                  {item.label}
-                </div>
-              </div>
-            ))}
+          {/* Heading */}
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-2 text-white">
+            Three chapters.
+          </h2>
+          <p className="text-3xl md:text-4xl font-black italic text-amber-400 mb-14">
+            One operating philosophy.
+          </p>
+
+          {/* Timeline */}
+          <div className="flex flex-col gap-10">
+            {/* 2012 */}
+            <div className="border-t border-zinc-800 pt-8">
+              <p className="text-amber-500 text-xs font-bold uppercase tracking-widest mb-3">2012 · Roots</p>
+              <p className="text-zinc-300 leading-relaxed">
+                Fornida started building mission-critical infrastructure for major national telecoms, including T-Mobile — datacenters, network backbone, enterprise IT.
+              </p>
+            </div>
+
+            {/* 2018 */}
+            <div className="border-t border-zinc-800 pt-8">
+              <p className="text-amber-500 text-xs font-bold uppercase tracking-widest mb-3">2018 · The Wake-Up Call</p>
+              <p className="text-zinc-300 leading-relaxed mb-4">
+                A sophisticated threat actor monitored our communications and slipped in a fraudulent wire change at the exact right moment. A vendor who picked up the phone to verify stopped it. Not a firewall — a phone call.
+              </p>
+              <p className="text-zinc-300 leading-relaxed">
+                If it could happen to us, it could happen to anyone. That's when Fornida became an MSP — enterprise-grade defense, repackaged for SMBs.
+              </p>
+            </div>
+
+            {/* 2024 */}
+            <div className="border-t border-zinc-800 pt-8">
+              <p className="text-amber-500 text-xs font-bold uppercase tracking-widest mb-3">2024 · AI, Proven on Ourselves</p>
+              <p className="text-zinc-300 leading-relaxed">
+                We rebuilt Dash — our internal ops platform, originally three years and four developers — from the ground up in three months using AI tools. Better architecture. Lower cost. Mission-critical, still in production. That's how we know what AI can do for your business: we did it on ours first.
+              </p>
+            </div>
           </div>
-        </div>
+
+          {/* Footer note */}
+          <div className="mt-12 pt-8 border-t border-zinc-800 flex flex-wrap gap-8 text-xs text-zinc-500 uppercase tracking-widest">
+            <span>Headquarters · Plano, Texas</span>
+            <span>Founded · 2012</span>
+            <span>Owner-Operated</span>
+          </div>
         </div>
       </section>
 

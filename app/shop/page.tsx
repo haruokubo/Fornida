@@ -169,35 +169,16 @@ function ProductCard({
         <h3 className="text-sm font-semibold text-white leading-snug mb-3 flex-1">
           {product.name}
         </h3>
-        <div className="flex items-end justify-between mt-auto gap-2">
-          <div className="flex items-baseline gap-2">
-            {product.price === 0 ? (
-              <span className="text-sm font-bold text-white">Price on request</span>
-            ) : (
-              <>
-                <span className="text-xl font-black text-white">${product.price.toLocaleString()}</span>
-                {product.originalPrice && (
-                  <span className="text-sm text-zinc-400 line-through">${product.originalPrice.toLocaleString()}</span>
-                )}
-              </>
-            )}
-          </div>
+        <div className="flex items-baseline gap-2 mt-auto">
           {product.price === 0 ? (
-            <a href="/quote" className="text-xs font-bold px-4 py-2 rounded-lg bg-zinc-900 text-white hover:bg-zinc-900 transition-all whitespace-nowrap">
-              Get Quote →
-            </a>
+            <span className="text-sm font-bold text-white">Price on request</span>
           ) : (
-            <button
-              disabled={!product.inStock}
-              onClick={() => product.inStock && onAddToCart(product.sku)}
-              className={`text-xs font-bold px-4 py-2 rounded-lg transition-all whitespace-nowrap ${
-                product.inStock
-                  ? "bg-zinc-900 text-white hover:bg-zinc-900 active:scale-95"
-                  : "bg-zinc-900 text-zinc-400 cursor-not-allowed"
-              }`}
-            >
-              {!product.inStock ? "Out of stock" : cartQty > 0 ? `In cart: ${cartQty}` : "Add to cart"}
-            </button>
+            <>
+              <span className="text-xl font-black text-white">${product.price.toLocaleString()}</span>
+              {product.originalPrice && (
+                <span className="text-sm text-zinc-400 line-through">${product.originalPrice.toLocaleString()}</span>
+              )}
+            </>
           )}
         </div>
       </div>
@@ -327,39 +308,9 @@ export default function ShopPage() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-10 flex gap-10">
-        {/* Sidebar */}
-        <aside className="w-52 flex-shrink-0">
-          <div className="sticky top-24">
-            <div className="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-4">Categories</div>
-            <nav className="flex flex-col gap-1">
-              {CATEGORIES.map((cat) => {
-                const count = getCategoryCount(cat);
-                const isActive = activeCategory === cat;
-                return (
-                  <button
-                    key={cat}
-                    onClick={() => setActiveCategory(cat)}
-                    className={`w-full text-left px-3 py-2 rounded-lg text-sm flex items-center justify-between transition-all border ${
-                      isActive
-                        ? "bg-zinc-900 text-white border-zinc-900 font-semibold"
-                        : "bg-zinc-900 border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700"
-                    }`}
-                  >
-                    <span>{cat}</span>
-                    <span className={`text-xs ${isActive ? "text-white" : "text-zinc-400"}`}>
-                      {count}
-                    </span>
-                  </button>
-                );
-              })}
-            </nav>
-
-          </div>
-        </aside>
-
+      <div className="max-w-7xl mx-auto px-6 py-10">
         {/* Main content */}
-        <div className="flex-1 min-w-0">
+        <div className="w-full">
           {/* Search & Sort */}
           <div className="flex gap-3 mb-6 flex-wrap">
             <div className="relative flex-1 min-w-52">
