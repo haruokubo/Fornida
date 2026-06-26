@@ -108,16 +108,16 @@ export default function CartPage() {
     <main className="min-h-screen bg-zinc-950 text-white">
 
       {/* NAV */}
-      <nav className="sticky top-0 z-50 bg-stone-100/90 backdrop-blur-md border-b border-stone-300 shadow-sm">
+      <nav className="sticky top-0 z-50 bg-zinc-950/90 backdrop-blur-md border-b border-zinc-700 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <a href="/" className="flex items-center gap-2">
             <img src="/fornida-mark.png" alt="Fornida" className="h-8 w-auto" />
-            <span className="text-zinc-900 text-xl font-black tracking-tight">FORNIDA</span>
+            <span className="text-white text-xl font-black tracking-tight">FORNIDA</span>
           </a>
           <div className="hidden md:flex items-center gap-8">
-            <a href="/services" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Services</a>
-            <a href="/insights" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Insights</a>
-            <a href="/shop" className="text-sm text-zinc-900 font-semibold border-b border-zinc-900 pb-0.5">Shop</a>
+            <a href="/services" className="text-sm text-zinc-500 hover:text-white transition-colors">Services</a>
+            <a href="/insights" className="text-sm text-zinc-500 hover:text-white transition-colors">Insights</a>
+            <a href="/shop" className="text-sm text-white font-semibold border-b border-zinc-900 pb-0.5">Shop</a>
           </div>
           <a href="/#assessment" className="bg-zinc-900 text-white text-sm font-bold px-5 py-2.5 rounded-lg hover:bg-zinc-900 transition-colors">
             Book Assessment →
@@ -127,16 +127,16 @@ export default function CartPage() {
 
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="mb-8 flex items-center gap-3">
-          <a href="/shop" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">← Back to Shop</a>
+          <a href="/shop" className="text-sm text-zinc-500 hover:text-white transition-colors">← Back to Shop</a>
         </div>
-        <h1 className="text-4xl font-black tracking-tight mb-10 text-zinc-900">Your Cart</h1>
+        <h1 className="text-4xl font-black tracking-tight mb-10 text-white">Your Cart</h1>
 
         {!loaded ? null : items.length === 0 ? (
           <div className="text-center py-24">
             <div className="text-6xl mb-6">🛒</div>
             <h2 className="text-2xl font-bold text-zinc-700 mb-3">Your cart is empty</h2>
             <p className="text-zinc-500 mb-8">Add some hardware from our shop to get started.</p>
-            <a href="/shop" className="bg-zinc-900 text-white font-bold px-8 py-3 rounded-xl hover:bg-zinc-900 transition-all">
+            <a href="/shop" className="bg-white text-zinc-950 font-bold px-8 py-3 rounded-xl hover:bg-zinc-900 transition-all">
               Browse Shop →
             </a>
           </div>
@@ -146,26 +146,26 @@ export default function CartPage() {
             {/* Items */}
             <div className="lg:col-span-2 flex flex-col gap-4">
               {items.map((item) => (
-                <div key={item.sku} className="bg-white rounded-2xl border border-stone-200 shadow-sm p-5 flex gap-5 items-start">
+                <div key={item.sku} className="bg-zinc-900 rounded-2xl border border-zinc-800 shadow-sm p-5 flex gap-5 items-start">
                   <img
                     src={item.image}
                     alt={item.name}
-                    className="w-20 h-20 object-contain rounded-xl bg-stone-50 border border-stone-200 flex-shrink-0"
+                    className="w-20 h-20 object-contain rounded-xl bg-zinc-900 border border-zinc-800 flex-shrink-0"
                   />
                   <div className="flex-1 min-w-0">
                     <p className="text-xs text-zinc-400 font-mono mb-1">{item.sku}</p>
-                    <p className="text-sm font-semibold text-zinc-900 leading-snug mb-3">{item.name}</p>
+                    <p className="text-sm font-semibold text-white leading-snug mb-3">{item.name}</p>
                     <div className="flex items-center gap-4 flex-wrap">
                       {/* Qty stepper */}
-                      <div className="flex items-center border border-stone-200 rounded-lg overflow-hidden">
+                      <div className="flex items-center border border-zinc-800 rounded-lg overflow-hidden">
                         <button
                           onClick={() => updateQty(item.sku, item.qty - 1)}
-                          className="px-3 py-1.5 text-stone-600 hover:bg-stone-50 transition-colors font-bold text-lg leading-none"
+                          className="px-3 py-1.5 text-zinc-400 hover:bg-zinc-900 transition-colors font-bold text-lg leading-none"
                         >−</button>
-                        <span className="px-4 py-1.5 text-sm font-semibold text-zinc-900 border-x border-stone-200">{item.qty}</span>
+                        <span className="px-4 py-1.5 text-sm font-semibold text-white border-x border-zinc-800">{item.qty}</span>
                         <button
                           onClick={() => updateQty(item.sku, item.qty + 1)}
-                          className="px-3 py-1.5 text-stone-600 hover:bg-stone-50 transition-colors font-bold text-lg leading-none"
+                          className="px-3 py-1.5 text-zinc-400 hover:bg-zinc-900 transition-colors font-bold text-lg leading-none"
                         >+</button>
                       </div>
                       <button
@@ -177,7 +177,7 @@ export default function CartPage() {
                     </div>
                   </div>
                   <div className="text-right flex-shrink-0">
-                    <p className="text-lg font-black text-zinc-900">${(item.price * item.qty).toLocaleString()}</p>
+                    <p className="text-lg font-black text-white">${(item.price * item.qty).toLocaleString()}</p>
                     {item.qty > 1 && (
                       <p className="text-xs text-zinc-400">${item.price.toLocaleString()} each</p>
                     )}
@@ -195,24 +195,24 @@ export default function CartPage() {
 
             {/* Order summary */}
             <div className="lg:col-span-1">
-              <div className="bg-white rounded-2xl border border-stone-200 shadow-sm p-6 sticky top-24">
-                <h2 className="text-lg font-black text-zinc-900 mb-5">Order Summary</h2>
+              <div className="bg-zinc-900 rounded-2xl border border-zinc-800 shadow-sm p-6 sticky top-24">
+                <h2 className="text-lg font-black text-white mb-5">Order Summary</h2>
 
                 <div className="flex flex-col gap-3 text-sm mb-5">
-                  <div className="flex justify-between text-stone-600">
+                  <div className="flex justify-between text-zinc-400">
                     <span>Subtotal ({items.reduce((s, i) => s + i.qty, 0)} items)</span>
-                    <span className="font-semibold text-zinc-900">${subtotal.toLocaleString()}</span>
+                    <span className="font-semibold text-white">${subtotal.toLocaleString()}</span>
                   </div>
-                  <div className="flex justify-between text-stone-600">
+                  <div className="flex justify-between text-zinc-400">
                     <span>Shipping</span>
-                    <span className={shipping === 0 ? "text-green-600 font-semibold" : "font-semibold text-zinc-900"}>
+                    <span className={shipping === 0 ? "text-green-600 font-semibold" : "font-semibold text-white"}>
                       {shipping === 0 ? "Free" : `$${shipping}`}
                     </span>
                   </div>
                   {shipping > 0 && (
                     <p className="text-xs text-zinc-400">Free shipping on orders $500+</p>
                   )}
-                  <div className="border-t border-stone-200 pt-3 flex justify-between font-black text-zinc-900 text-base">
+                  <div className="border-t border-zinc-800 pt-3 flex justify-between font-black text-white text-base">
                     <span>Total</span>
                     <span>${total.toLocaleString()}</span>
                   </div>
@@ -220,25 +220,25 @@ export default function CartPage() {
 
                 <a
                   href="/checkout"
-                  className="block w-full text-center bg-zinc-900 text-white font-bold text-sm py-3.5 rounded-xl hover:bg-zinc-900 transition-all mb-3"
+                  className="block w-full text-center bg-white text-zinc-950 font-bold text-sm py-3.5 rounded-xl hover:bg-zinc-900 transition-all mb-3"
                 >
                   Proceed to Checkout →
                 </a>
                 <a
                   href="/shop"
-                  className="block w-full text-center border border-stone-200 text-stone-600 font-semibold text-sm py-3 rounded-xl hover:bg-stone-50 transition-all"
+                  className="block w-full text-center border border-zinc-800 text-zinc-400 font-semibold text-sm py-3 rounded-xl hover:bg-zinc-900 transition-all"
                 >
                   Continue Shopping
                 </a>
 
-                <div className="mt-5 pt-5 border-t border-stone-200 flex flex-col gap-2">
-                  <div className="flex items-center gap-2 text-xs text-stone-500">
+                <div className="mt-5 pt-5 border-t border-zinc-800 flex flex-col gap-2">
+                  <div className="flex items-center gap-2 text-xs text-zinc-500">
                     <span>✓</span><span>Ships from Plano, TX</span>
                   </div>
-                  <div className="flex items-center gap-2 text-xs text-stone-500">
+                  <div className="flex items-center gap-2 text-xs text-zinc-500">
                     <span>✓</span><span>30-day returns</span>
                   </div>
-                  <div className="flex items-center gap-2 text-xs text-stone-500">
+                  <div className="flex items-center gap-2 text-xs text-zinc-500">
                     <span>✓</span><span>MSP-backed support</span>
                   </div>
                 </div>

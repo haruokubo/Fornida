@@ -22,15 +22,15 @@ export default function QuotePage() {
   return (
     <main className="min-h-screen bg-zinc-950 text-white">
       {/* Nav */}
-      <nav className="sticky top-0 z-50 bg-stone-100/90 backdrop-blur-md border-b border-stone-300 shadow-sm">
+      <nav className="sticky top-0 z-50 bg-zinc-950/90 backdrop-blur-md border-b border-zinc-700 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <a href="/" className="text-zinc-900 text-xl font-black tracking-tight">FORNIDA</a>
+          <a href="/" className="text-white text-xl font-black tracking-tight">FORNIDA</a>
           <div className="hidden md:flex items-center gap-8">
-            <a href="/services" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Services</a>
-            <a href="#" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Case Studies</a>
-            <a href="/insights" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Insights</a>
-            <a href="#" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">About</a>
-            <a href="/shop" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Shop</a>
+            <a href="/services" className="text-sm text-zinc-500 hover:text-white transition-colors">Services</a>
+            <a href="#" className="text-sm text-zinc-500 hover:text-white transition-colors">Case Studies</a>
+            <a href="/insights" className="text-sm text-zinc-500 hover:text-white transition-colors">Insights</a>
+            <a href="#" className="text-sm text-zinc-500 hover:text-white transition-colors">About</a>
+            <a href="/shop" className="text-sm text-zinc-500 hover:text-white transition-colors">Shop</a>
           </div>
           <a
             href="/#assessment"
@@ -42,9 +42,9 @@ export default function QuotePage() {
       </nav>
 
       {/* Header */}
-      <div className="bg-white border-b border-stone-200 py-16 px-6 text-center">
-        <div className="text-zinc-900 text-xs font-bold uppercase tracking-widest mb-3">Get a Quote</div>
-        <h1 className="text-4xl font-black text-zinc-900 mb-4">Tell us what you need.</h1>
+      <div className="bg-zinc-900 border-b border-zinc-800 py-16 px-6 text-center">
+        <div className="text-white text-xs font-bold uppercase tracking-widest mb-3">Get a Quote</div>
+        <h1 className="text-4xl font-black text-white mb-4">Tell us what you need.</h1>
         <p className="text-zinc-500 text-lg max-w-xl mx-auto leading-relaxed">
           Bulk orders, custom configs, hard-to-find hardware — we source it. Fill out the form and a Fornida engineer will respond within one business day.
         </p>
@@ -53,7 +53,7 @@ export default function QuotePage() {
       {/* Form Section */}
       <div className="max-w-6xl mx-auto py-16 px-6">
         {submitted ? (
-          <div className="max-w-lg mx-auto bg-white rounded-2xl shadow-lg border border-stone-200 p-12 text-center">
+          <div className="max-w-lg mx-auto bg-zinc-900 rounded-2xl shadow-lg border border-zinc-800 p-12 text-center">
             <div className="flex items-center justify-center mb-6">
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
                 <svg className="w-8 h-8 text-zinc-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -61,14 +61,14 @@ export default function QuotePage() {
                 </svg>
               </div>
             </div>
-            <h2 className="text-2xl font-black text-zinc-900 mb-3">Quote request received!</h2>
+            <h2 className="text-2xl font-black text-white mb-3">Quote request received!</h2>
             <p className="text-zinc-500 leading-relaxed mb-8">
               A Fornida engineer will reach out to you at{" "}
               <span className="font-semibold text-zinc-700">{email}</span> within one business day.
             </p>
             <a
               href="/shop"
-              className="inline-block bg-zinc-900 text-white font-bold px-6 py-3 rounded-xl hover:bg-zinc-900 transition-all"
+              className="inline-block bg-white text-zinc-950 font-bold px-6 py-3 rounded-xl hover:bg-zinc-900 transition-all"
             >
               Return to shop →
             </a>
@@ -77,7 +77,7 @@ export default function QuotePage() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
             {/* Form */}
             <div className="lg:col-span-2">
-              <div className="bg-white rounded-2xl shadow-lg border border-stone-200 p-10">
+              <div className="bg-zinc-900 rounded-2xl shadow-lg border border-zinc-800 p-10">
                 <form onSubmit={handleSubmit}>
                   {/* Row 1: Name + Company */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
@@ -189,7 +189,7 @@ export default function QuotePage() {
 
                   <button
                     type="submit"
-                    className="w-full bg-zinc-900 text-white font-bold text-base py-4 rounded-xl hover:bg-zinc-900 transition-all"
+                    className="w-full bg-white text-zinc-950 font-bold text-base py-4 rounded-xl hover:bg-zinc-900 transition-all"
                   >
                     Submit Quote Request →
                   </button>
@@ -199,8 +199,8 @@ export default function QuotePage() {
 
             {/* Sidebar */}
             <div className="lg:col-span-1">
-              <div className="bg-white rounded-2xl border border-stone-200 p-7 h-fit sticky top-28">
-                <h3 className="text-base font-bold text-zinc-900 mb-5">Why request a quote?</h3>
+              <div className="bg-zinc-900 rounded-2xl border border-zinc-800 p-7 h-fit sticky top-28">
+                <h3 className="text-base font-bold text-white mb-5">Why request a quote?</h3>
                 <ul className="space-y-3 mb-6">
                   {[
                     "Bulk pricing on 5+ units",
@@ -209,7 +209,7 @@ export default function QuotePage() {
                     "Net-30 terms available for qualified businesses",
                     "MSP-backed support included with every order",
                   ].map((item) => (
-                    <li key={item} className="flex items-start gap-2.5 text-sm text-stone-600">
+                    <li key={item} className="flex items-start gap-2.5 text-sm text-zinc-400">
                       <svg
                         className="w-4 h-4 text-zinc-700 mt-0.5 flex-shrink-0"
                         fill="none"
@@ -223,19 +223,19 @@ export default function QuotePage() {
                   ))}
                 </ul>
 
-                <div className="border-t border-stone-200 pt-6">
+                <div className="border-t border-zinc-800 pt-6">
                   <div className="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-3">Questions?</div>
                   <div className="text-sm text-zinc-700 font-semibold mb-1">Call us:</div>
                   <a
                     href="tel:+19497221222"
-                    className="text-zinc-900 font-bold text-sm hover:text-zinc-900 transition-colors block mb-3"
+                    className="text-white font-bold text-sm hover:text-white transition-colors block mb-3"
                   >
                     +1-949-722-1222
                   </a>
                   <div className="text-sm text-zinc-700 font-semibold mb-1">Email:</div>
                   <a
                     href="mailto:info@fornida.com"
-                    className="text-zinc-900 font-bold text-sm hover:text-zinc-900 transition-colors"
+                    className="text-white font-bold text-sm hover:text-white transition-colors"
                   >
                     info@fornida.com
                   </a>

@@ -110,7 +110,7 @@ export default function CheckoutPage() {
         <h1 className="text-2xl font-black text-white mb-3">Order Placed!</h1>
         <p className="text-zinc-500 mb-2">Thank you for your order. A Fornida engineer will confirm and process your shipment within one business day.</p>
         <p className="text-zinc-400 text-sm mb-8">Confirmation will be sent to <strong className="text-zinc-200">{form.email}</strong></p>
-        <a href="/shop" className="inline-block bg-white text-zinc-950 font-bold px-8 py-3 rounded-xl hover:bg-zinc-100 transition-all">
+        <a href="/shop" className="inline-block bg-zinc-900 text-zinc-950 font-bold px-8 py-3 rounded-xl hover:bg-zinc-100 transition-all">
           Back to Shop
         </a>
       </div>
@@ -121,14 +121,14 @@ export default function CheckoutPage() {
     <main className="min-h-screen bg-zinc-950 text-white">
 
       {/* NAV */}
-      <nav className="sticky top-0 z-50 bg-stone-100/90 backdrop-blur-md border-b border-stone-300 shadow-sm">
+      <nav className="sticky top-0 z-50 bg-zinc-950/90 backdrop-blur-md border-b border-zinc-700 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <a href="/" className="flex items-center gap-2">
             <img src="/fornida-mark.png" alt="Fornida" className="h-8 w-auto" />
-            <span className="text-zinc-900 text-xl font-black tracking-tight">FORNIDA</span>
+            <span className="text-white text-xl font-black tracking-tight">FORNIDA</span>
           </a>
           <div className="flex items-center gap-3 text-sm text-zinc-500">
-            <span className="font-semibold text-zinc-900">Secure Checkout</span>
+            <span className="font-semibold text-white">Secure Checkout</span>
             <span>🔒</span>
           </div>
         </div>
@@ -136,9 +136,9 @@ export default function CheckoutPage() {
 
       <div className="max-w-7xl mx-auto px-6 py-10">
         <div className="mb-6 flex items-center gap-2 text-sm text-zinc-500">
-          <a href="/cart" className="hover:text-zinc-900 transition-colors">← Back to Cart</a>
+          <a href="/cart" className="hover:text-white transition-colors">← Back to Cart</a>
         </div>
-        <h1 className="text-3xl font-black tracking-tight mb-8 text-zinc-900">Checkout</h1>
+        <h1 className="text-3xl font-black tracking-tight mb-8 text-white">Checkout</h1>
 
         <form onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -147,63 +147,63 @@ export default function CheckoutPage() {
             <div className="lg:col-span-2 flex flex-col gap-6">
 
               {/* Contact */}
-              <div className="bg-white rounded-2xl border border-stone-200 shadow-sm p-6">
-                <h2 className="text-base font-black text-zinc-900 mb-5">Contact Information</h2>
+              <div className="bg-zinc-900 rounded-2xl border border-zinc-800 shadow-sm p-6">
+                <h2 className="text-base font-black text-white mb-5">Contact Information</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-semibold text-stone-600 mb-1.5">First Name *</label>
+                    <label className="block text-xs font-semibold text-zinc-400 mb-1.5">First Name *</label>
                     <input required value={form.firstName} onChange={e => set("firstName", e.target.value)}
-                      className="w-full border border-stone-200 rounded-xl px-4 py-2.5 text-sm text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-stone-400 transition-all"
+                      className="w-full border border-zinc-800 rounded-xl px-4 py-2.5 text-sm text-white placeholder-zinc-400 focus:outline-none focus:border-stone-400 transition-all"
                       placeholder="Jane" />
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold text-stone-600 mb-1.5">Last Name *</label>
+                    <label className="block text-xs font-semibold text-zinc-400 mb-1.5">Last Name *</label>
                     <input required value={form.lastName} onChange={e => set("lastName", e.target.value)}
-                      className="w-full border border-stone-200 rounded-xl px-4 py-2.5 text-sm text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-stone-400 transition-all"
+                      className="w-full border border-zinc-800 rounded-xl px-4 py-2.5 text-sm text-white placeholder-zinc-400 focus:outline-none focus:border-stone-400 transition-all"
                       placeholder="Smith" />
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold text-stone-600 mb-1.5">Email *</label>
+                    <label className="block text-xs font-semibold text-zinc-400 mb-1.5">Email *</label>
                     <input required type="email" value={form.email} onChange={e => set("email", e.target.value)}
-                      className="w-full border border-stone-200 rounded-xl px-4 py-2.5 text-sm text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-stone-400 transition-all"
+                      className="w-full border border-zinc-800 rounded-xl px-4 py-2.5 text-sm text-white placeholder-zinc-400 focus:outline-none focus:border-stone-400 transition-all"
                       placeholder="jane@company.com" />
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold text-stone-600 mb-1.5">Phone</label>
+                    <label className="block text-xs font-semibold text-zinc-400 mb-1.5">Phone</label>
                     <input value={form.phone} onChange={e => set("phone", e.target.value)}
-                      className="w-full border border-stone-200 rounded-xl px-4 py-2.5 text-sm text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-stone-400 transition-all"
+                      className="w-full border border-zinc-800 rounded-xl px-4 py-2.5 text-sm text-white placeholder-zinc-400 focus:outline-none focus:border-stone-400 transition-all"
                       placeholder="+1 (555) 000-0000" />
                   </div>
                 </div>
               </div>
 
               {/* Shipping */}
-              <div className="bg-white rounded-2xl border border-stone-200 shadow-sm p-6">
-                <h2 className="text-base font-black text-zinc-900 mb-5">Shipping Address</h2>
+              <div className="bg-zinc-900 rounded-2xl border border-zinc-800 shadow-sm p-6">
+                <h2 className="text-base font-black text-white mb-5">Shipping Address</h2>
                 <div className="flex flex-col gap-4">
                   <div>
-                    <label className="block text-xs font-semibold text-stone-600 mb-1.5">Street Address *</label>
+                    <label className="block text-xs font-semibold text-zinc-400 mb-1.5">Street Address *</label>
                     <input required value={form.address} onChange={e => set("address", e.target.value)}
-                      className="w-full border border-stone-200 rounded-xl px-4 py-2.5 text-sm text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-stone-400 transition-all"
+                      className="w-full border border-zinc-800 rounded-xl px-4 py-2.5 text-sm text-white placeholder-zinc-400 focus:outline-none focus:border-stone-400 transition-all"
                       placeholder="123 Main St, Suite 400" />
                   </div>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                     <div className="col-span-2 sm:col-span-1">
-                      <label className="block text-xs font-semibold text-stone-600 mb-1.5">City *</label>
+                      <label className="block text-xs font-semibold text-zinc-400 mb-1.5">City *</label>
                       <input required value={form.city} onChange={e => set("city", e.target.value)}
-                        className="w-full border border-stone-200 rounded-xl px-4 py-2.5 text-sm text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-stone-400 transition-all"
+                        className="w-full border border-zinc-800 rounded-xl px-4 py-2.5 text-sm text-white placeholder-zinc-400 focus:outline-none focus:border-stone-400 transition-all"
                         placeholder="Dallas" />
                     </div>
                     <div>
-                      <label className="block text-xs font-semibold text-stone-600 mb-1.5">State *</label>
+                      <label className="block text-xs font-semibold text-zinc-400 mb-1.5">State *</label>
                       <input required value={form.state} onChange={e => set("state", e.target.value)}
-                        className="w-full border border-stone-200 rounded-xl px-4 py-2.5 text-sm text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-stone-400 transition-all"
+                        className="w-full border border-zinc-800 rounded-xl px-4 py-2.5 text-sm text-white placeholder-zinc-400 focus:outline-none focus:border-stone-400 transition-all"
                         placeholder="TX" maxLength={2} />
                     </div>
                     <div>
-                      <label className="block text-xs font-semibold text-stone-600 mb-1.5">ZIP *</label>
+                      <label className="block text-xs font-semibold text-zinc-400 mb-1.5">ZIP *</label>
                       <input required value={form.zip} onChange={e => set("zip", e.target.value)}
-                        className="w-full border border-stone-200 rounded-xl px-4 py-2.5 text-sm text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-stone-400 transition-all"
+                        className="w-full border border-zinc-800 rounded-xl px-4 py-2.5 text-sm text-white placeholder-zinc-400 focus:outline-none focus:border-stone-400 transition-all"
                         placeholder="75001" maxLength={10} />
                     </div>
                   </div>
@@ -211,8 +211,8 @@ export default function CheckoutPage() {
               </div>
 
               {/* Payment */}
-              <div className="bg-white rounded-2xl border border-stone-200 shadow-sm p-6">
-                <h2 className="text-base font-black text-zinc-900 mb-1">Payment</h2>
+              <div className="bg-zinc-900 rounded-2xl border border-zinc-800 shadow-sm p-6">
+                <h2 className="text-base font-black text-white mb-1">Payment</h2>
                 <p className="text-xs text-zinc-400 mb-5 flex items-center gap-1.5">
                   <span>🔒</span> Secure & encrypted
                 </p>
@@ -220,37 +220,37 @@ export default function CheckoutPage() {
                 {/* Card type icons */}
                 <div className="flex items-center gap-2 mb-5">
                   {["VISA", "MC", "AMEX", "DISC"].map((c) => (
-                    <span key={c} className="border border-stone-200 rounded px-2 py-0.5 text-[10px] font-black text-zinc-500 bg-stone-50">{c}</span>
+                    <span key={c} className="border border-zinc-800 rounded px-2 py-0.5 text-[10px] font-black text-zinc-500 bg-zinc-900">{c}</span>
                   ))}
                 </div>
 
                 <div className="flex flex-col gap-4">
                   <div>
-                    <label className="block text-xs font-semibold text-stone-600 mb-1.5">Card Number *</label>
+                    <label className="block text-xs font-semibold text-zinc-400 mb-1.5">Card Number *</label>
                     <input required value={form.cardNumber}
                       onChange={e => set("cardNumber", formatCard(e.target.value))}
-                      className="w-full border border-stone-200 rounded-xl px-4 py-2.5 text-sm text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-stone-400 transition-all font-mono tracking-widest"
+                      className="w-full border border-zinc-800 rounded-xl px-4 py-2.5 text-sm text-white placeholder-zinc-400 focus:outline-none focus:border-stone-400 transition-all font-mono tracking-widest"
                       placeholder="1234 5678 9012 3456" maxLength={19} />
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold text-stone-600 mb-1.5">Name on Card *</label>
+                    <label className="block text-xs font-semibold text-zinc-400 mb-1.5">Name on Card *</label>
                     <input required value={form.cardName} onChange={e => set("cardName", e.target.value)}
-                      className="w-full border border-stone-200 rounded-xl px-4 py-2.5 text-sm text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-stone-400 transition-all"
+                      className="w-full border border-zinc-800 rounded-xl px-4 py-2.5 text-sm text-white placeholder-zinc-400 focus:outline-none focus:border-stone-400 transition-all"
                       placeholder="Jane Smith" />
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-semibold text-stone-600 mb-1.5">Expiry *</label>
+                      <label className="block text-xs font-semibold text-zinc-400 mb-1.5">Expiry *</label>
                       <input required value={form.expiry}
                         onChange={e => set("expiry", formatExpiry(e.target.value))}
-                        className="w-full border border-stone-200 rounded-xl px-4 py-2.5 text-sm text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-stone-400 transition-all font-mono"
+                        className="w-full border border-zinc-800 rounded-xl px-4 py-2.5 text-sm text-white placeholder-zinc-400 focus:outline-none focus:border-stone-400 transition-all font-mono"
                         placeholder="MM/YY" maxLength={5} />
                     </div>
                     <div>
-                      <label className="block text-xs font-semibold text-stone-600 mb-1.5">CVV *</label>
+                      <label className="block text-xs font-semibold text-zinc-400 mb-1.5">CVV *</label>
                       <input required value={form.cvv}
                         onChange={e => set("cvv", e.target.value.replace(/\D/g, "").slice(0, 4))}
-                        className="w-full border border-stone-200 rounded-xl px-4 py-2.5 text-sm text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-stone-400 transition-all font-mono"
+                        className="w-full border border-zinc-800 rounded-xl px-4 py-2.5 text-sm text-white placeholder-zinc-400 focus:outline-none focus:border-stone-400 transition-all font-mono"
                         placeholder="•••" maxLength={4} type="password" />
                     </div>
                   </div>
@@ -260,35 +260,35 @@ export default function CheckoutPage() {
 
             {/* Right — order summary */}
             <div className="lg:col-span-1">
-              <div className="bg-white rounded-2xl border border-stone-200 shadow-sm p-6 sticky top-24">
-                <h2 className="text-base font-black text-zinc-900 mb-4">Order Summary</h2>
+              <div className="bg-zinc-900 rounded-2xl border border-zinc-800 shadow-sm p-6 sticky top-24">
+                <h2 className="text-base font-black text-white mb-4">Order Summary</h2>
 
                 <div className="flex flex-col gap-3 mb-5 max-h-64 overflow-y-auto pr-1">
                   {items.map((item) => (
                     <div key={item.sku} className="flex gap-3 items-start">
                       <div className="relative flex-shrink-0">
-                        <img src={item.image} alt={item.name} className="w-12 h-12 object-contain rounded-lg border border-stone-200 bg-stone-50" />
+                        <img src={item.image} alt={item.name} className="w-12 h-12 object-contain rounded-lg border border-zinc-800 bg-zinc-900" />
                         <span className="absolute -top-1.5 -right-1.5 w-5 h-5 bg-zinc-600 text-white rounded-full text-[10px] font-bold flex items-center justify-center">{item.qty}</span>
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className="text-xs text-zinc-900 font-semibold leading-tight line-clamp-2">{item.name}</p>
+                        <p className="text-xs text-white font-semibold leading-tight line-clamp-2">{item.name}</p>
                         <p className="text-[10px] text-zinc-400 font-mono mt-0.5">{item.sku}</p>
                       </div>
-                      <p className="text-sm font-bold text-zinc-900 flex-shrink-0">${(item.price * item.qty).toLocaleString()}</p>
+                      <p className="text-sm font-bold text-white flex-shrink-0">${(item.price * item.qty).toLocaleString()}</p>
                     </div>
                   ))}
                 </div>
 
-                <div className="border-t border-stone-200 pt-4 flex flex-col gap-2 text-sm mb-5">
-                  <div className="flex justify-between text-stone-600">
+                <div className="border-t border-zinc-800 pt-4 flex flex-col gap-2 text-sm mb-5">
+                  <div className="flex justify-between text-zinc-400">
                     <span>Subtotal</span>
                     <span className="font-semibold">${subtotal.toLocaleString()}</span>
                   </div>
-                  <div className="flex justify-between text-stone-600">
+                  <div className="flex justify-between text-zinc-400">
                     <span>Shipping</span>
                     <span className={`font-semibold ${shipping === 0 ? "text-green-600" : ""}`}>{shipping === 0 ? "Free" : `$${shipping}`}</span>
                   </div>
-                  <div className="flex justify-between font-black text-zinc-900 text-base pt-2 border-t border-stone-200">
+                  <div className="flex justify-between font-black text-white text-base pt-2 border-t border-zinc-800">
                     <span>Total</span>
                     <span>${total.toLocaleString()}</span>
                   </div>
@@ -296,7 +296,7 @@ export default function CheckoutPage() {
 
                 <button
                   type="submit"
-                  className="w-full bg-zinc-900 text-white font-bold text-sm py-3.5 rounded-xl hover:bg-zinc-900 transition-all active:scale-[0.98]"
+                  className="w-full bg-white text-zinc-950 font-bold text-sm py-3.5 rounded-xl hover:bg-zinc-900 transition-all active:scale-[0.98]"
                 >
                   Place Order · ${total.toLocaleString()}
                 </button>
