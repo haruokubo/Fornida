@@ -125,11 +125,11 @@ function ProductCard({
         </div>
       )}
 
-      <div className="aspect-square bg-zinc-900 flex items-center justify-center p-4 relative overflow-hidden border-b border-zinc-800">
+      <div className="aspect-square bg-zinc-100 flex items-center justify-center p-4 relative overflow-hidden border-b border-zinc-800">
         <img
           src={product.image}
           alt={product.name}
-          className="w-full h-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-300"
+          className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
           loading="lazy"
           onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
         />
