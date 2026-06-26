@@ -334,7 +334,16 @@ export default function HomePage() {
             <img src="/fornida-mark.png" alt="Fornida" className="h-8 w-auto" />
             <span className="text-white text-xl font-black tracking-tight">FORNIDA</span>
           </a>
-          <button className="text-white p-2"><svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" /></svg></button>
+          <div className="hidden md:flex items-center gap-8">
+            <a href="/services" className="text-sm text-zinc-400 hover:text-white transition-colors">Services</a>
+            <a href="#" className="text-sm text-zinc-400 hover:text-white transition-colors">Case Studies</a>
+            <a href="/insights" className="text-sm text-zinc-400 hover:text-white transition-colors">Insights</a>
+            <a href="#" className="text-sm text-zinc-400 hover:text-white transition-colors">About</a>
+            <a href="/shop" className="text-sm text-zinc-400 hover:text-white transition-colors">Shop</a>
+          </div>
+          <a href="#assessment" className="bg-white text-zinc-950 text-sm font-bold px-5 py-2.5 rounded-lg hover:bg-zinc-100 transition-colors">
+            Book Assessment →
+          </a>
         </div>
       </nav>
 
