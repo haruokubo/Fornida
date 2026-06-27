@@ -58,9 +58,9 @@ const CASE_STUDIES = [
 ];
 
 const TAG_COLORS: Record<string, string> = {
-  Healthcare: "text-zinc-700 bg-zinc-800 border-gray-300",
-  "AI Automation": "text-zinc-700 bg-zinc-800 border-gray-300",
-  Cybersecurity: "text-zinc-700 bg-zinc-800 border-gray-300",
+  Healthcare: "text-zinc-700 bg-gray-50 border-gray-300",
+  "AI Automation": "text-zinc-700 bg-gray-50 border-gray-300",
+  Cybersecurity: "text-zinc-700 bg-gray-50 border-gray-300",
 };
 
 export default function CaseStudiesPage() {
@@ -123,7 +123,7 @@ export default function CaseStudiesPage() {
                   <span className="text-xs text-zinc-500 ml-auto">{cs.date}</span>
                 </div>
 
-                <h2 className="text-2xl md:text-3xl font-black tracking-tight text-zinc-900 mb-4 leading-snug group-hover:text-zinc-100 transition-colors">
+                <h2 className="text-2xl md:text-3xl font-black tracking-tight text-zinc-900 mb-4 leading-snug group-hover:text-zinc-700 transition-colors">
                   {cs.title}
                 </h2>
 

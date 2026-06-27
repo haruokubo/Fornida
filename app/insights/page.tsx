@@ -54,11 +54,11 @@ const INSIGHTS = [
 ];
 
 const TAG_COLORS: Record<string, string> = {
-  Cybersecurity: "text-zinc-700 bg-zinc-800 border-gray-300",
-  "AI Automation": "text-zinc-500 bg-zinc-800 border-gray-300",
-  "Incident Response": "text-zinc-500 bg-zinc-800 border-gray-300",
-  "AI Strategy": "text-zinc-700 bg-zinc-800 border-gray-300",
-  "IT Management": "text-zinc-900 bg-zinc-800 border-gray-300",
+  Cybersecurity: "text-zinc-700 bg-gray-50 border-gray-300",
+  "AI Automation": "text-zinc-700 bg-gray-50 border-gray-300",
+  "Incident Response": "text-zinc-700 bg-gray-50 border-gray-300",
+  "AI Strategy": "text-zinc-700 bg-gray-50 border-gray-300",
+  "IT Management": "text-zinc-700 bg-gray-50 border-gray-300",
 };
 
 export default function InsightsPage() {
@@ -76,7 +76,7 @@ export default function InsightsPage() {
             <a href="#" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">About</a>
             <a href="/shop" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Shop</a>
           </div>
-          <a href="/#assessment" className="bg-zinc-900 text-zinc-900 text-sm font-bold px-5 py-2.5 rounded-lg hover:bg-gray-50 transition-colors">
+          <a href="/#assessment" className="bg-zinc-900 text-white text-sm font-bold px-5 py-2.5 rounded-lg hover:bg-zinc-800 transition-colors">
             Book Assessment →
           </a>
         </div>
