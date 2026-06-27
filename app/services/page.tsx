@@ -160,7 +160,7 @@ export default function ServicesPage() {
           </a>
           <div className="hidden md:flex items-center gap-8">
             <a href="/services" className="text-sm text-zinc-900 font-semibold border-b border-zinc-900 pb-0.5">Services</a>
-            <a href="#" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Case Studies</a>
+            <a href="/case-studies" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Case Studies</a>
             <a href="/insights" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Insights</a>
             <a href="#" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">About</a>
             <a href="/shop" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Shop</a>

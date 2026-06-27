@@ -71,7 +71,7 @@ export default function InsightsPage() {
           <a href="/" className="text-zinc-900 text-xl font-black tracking-tight">FORNIDA</a>
           <div className="hidden md:flex items-center gap-8">
             <a href="/services" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Services</a>
-            <a href="#" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Case Studies</a>
+            <a href="/case-studies" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Case Studies</a>
             <a href="/insights" className="text-sm text-zinc-900 font-semibold border-b border-zinc-900 pb-0.5">Insights</a>
             <a href="#" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">About</a>
             <a href="/shop" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Shop</a>

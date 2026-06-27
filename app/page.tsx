@@ -367,7 +367,7 @@ export default function HomePage() {
           </a>
           <div className="hidden md:flex items-center gap-8">
             <a href="/services" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Services</a>
-            <a href="#" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Case Studies</a>
+            <a href="/case-studies" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Case Studies</a>
             <a href="/insights" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Insights</a>
             <a href="#" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">About</a>
             <a href="/shop" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Shop</a>
@@ -523,6 +523,64 @@ export default function HomePage() {
                   {s.explore} →
                 </a>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CASE STUDIES PREVIEW ────────────────────────── */}
+      <section className="py-24 px-6 bg-gray-50 border-t border-gray-200">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-end justify-between mb-12 flex-wrap gap-4">
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+                <span className="text-zinc-500 text-xs font-bold uppercase tracking-widest">Case Studies</span>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-black tracking-tight text-zinc-900">
+                Real problems.<br />
+                <span className="italic text-amber-400">Measurable results.</span>
+              </h2>
+            </div>
+            <a href="/case-studies" className="text-sm font-semibold text-zinc-500 hover:text-zinc-900 transition-colors whitespace-nowrap">
+              View all case studies →
+            </a>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[
+              {
+                tag: "Cybersecurity",
+                client: "RPM",
+                title: "How RPM Stopped an $85,000 Wire Fraud Attempt After a Phishing Breach",
+                metrics: [{ value: "$85,000", label: "Wire fraud prevented" }, { value: "<2 hrs", label: "Incident contained" }, { value: "0", label: "Data exfiltrated" }],
+              },
+              {
+                tag: "Healthcare",
+                client: "ExaltHealth",
+                title: "Managed IT Services for Healthcare: How ExaltHealth Turned Hospital Openings into a Playbook",
+                metrics: [{ value: "Repeatable", label: "Deployment playbook" }, { value: "On-time", label: "Every location launch" }, { value: "1 team", label: "IT across all sites" }],
+              },
+            ].map((cs) => (
+              <a
+                key={cs.title}
+                href="/case-studies"
+                className="group bg-white border border-gray-200 rounded-2xl p-8 hover:border-gray-300 hover:-translate-y-1 transition-all duration-300 block"
+              >
+                <div className="flex items-center gap-3 mb-5">
+                  <span className="text-xs font-bold px-3 py-1 rounded-full border border-gray-300 bg-gray-50 text-zinc-700">{cs.tag}</span>
+                  {cs.client && <span className="text-xs text-zinc-400 font-mono">{cs.client}</span>}
+                </div>
+                <h3 className="text-lg font-black text-zinc-900 leading-snug mb-6 group-hover:text-zinc-700 transition-colors">{cs.title}</h3>
+                <div className="flex gap-6 pt-5 border-t border-gray-100">
+                  {cs.metrics.map((m) => (
+                    <div key={m.label}>
+                      <div className="text-lg font-black text-amber-400">{m.value}</div>
+                      <div className="text-[10px] text-zinc-400 uppercase tracking-widest mt-0.5">{m.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </a>
             ))}
           </div>
         </div>
@@ -771,7 +829,7 @@ export default function HomePage() {
                 title: "Resources",
                 links: [
                   { label: "Insights", href: "/insights" },
-                  { label: "Case Studies", href: "#" },
+                  { label: "Case Studies", href: "/case-studies" },
                   { label: "Point of View", href: "#" },
                 ],
               },
