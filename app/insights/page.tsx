@@ -98,27 +98,28 @@ export default function InsightsPage() {
         <div>
           <p className="text-zinc-900 text-xs font-bold uppercase tracking-widest mb-8">Latest Articles</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {INSIGHTS.map((item) => (
-              <article
-                key={item.title}
+            {ARTICLES.map((item) => (
+              <a
+                key={item.slug}
+                href={`/insights/${item.slug}`}
                 className="group bg-gray-50 border border-gray-200 shadow-sm rounded-2xl p-7 hover:border-gray-400 hover:-translate-y-1 transition-all duration-300 flex flex-col cursor-pointer"
               >
                 <div className="flex items-center justify-between mb-5">
-                  <span className={`text-[10px] font-bold px-2.5 py-1 rounded-full border ${TAG_COLORS[item.tag] ?? "text-zinc-500 bg-white border-gray-200"}`}>
+                  <span className="text-[10px] font-bold px-2.5 py-1 rounded-full border border-gray-300 bg-white text-zinc-700">
                     {item.tag}
                   </span>
                   <span className="text-[10px] text-zinc-500">{item.readTime}</span>
                 </div>
-                <h3 className="text-base font-bold leading-snug mb-3 text-zinc-900 group-hover:text-zinc-900 transition-colors flex-1">
+                <h3 className="text-base font-bold leading-snug mb-3 text-zinc-900 group-hover:text-teal-600 transition-colors flex-1">
                   {item.title}
                 </h3>
                 <p className="text-zinc-500 text-sm leading-relaxed mb-5">
                   {item.desc}
                 </p>
-                <span className="text-zinc-900 text-xs font-semibold transition-colors">
+                <span className="text-zinc-900 text-xs font-semibold group-hover:text-teal-600 transition-colors">
                   Read article →
                 </span>
-              </article>
+              </a>
             ))}
           </div>
         </div>

@@ -1,5 +1,6 @@
 "use client";
 
+import { use } from "react";
 import { notFound } from "next/navigation";
 import { ARTICLES, ArticleBlock } from "../articles-data";
 
@@ -45,8 +46,9 @@ function renderBlock(block: ArticleBlock, i: number) {
   }
 }
 
-export default function ArticlePage({ params }: { params: { slug: string } }) {
-  const article = ARTICLES.find((a) => a.slug === params.slug);
+export default function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = use(params);
+  const article = ARTICLES.find((a) => a.slug === slug);
   if (!article) notFound();
 
   return (
