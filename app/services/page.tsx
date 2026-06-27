@@ -81,7 +81,7 @@ function ServiceSection({ svc, index }: { svc: typeof SERVICES[0]; index: number
   return (
     <section
       id={svc.id}
-      className={`py-20 px-6 border-b border-zinc-800 ${isEven ? "bg-zinc-900" : "bg-zinc-950"}`}
+      className={`py-20 px-6 border-b border-gray-200 ${isEven ? "bg-gray-50" : "bg-white"}`}
     >
       <div className="max-w-7xl mx-auto">
         <div className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-start ${!isEven ? "lg:flex lg:flex-row-reverse" : ""}`}>
@@ -98,13 +98,13 @@ function ServiceSection({ svc, index }: { svc: typeof SERVICES[0]; index: number
               <span className="text-2xl">{svc.icon}</span>
             </div>
 
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-3 text-white">{svc.title}</h2>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-3 text-zinc-900">{svc.title}</h2>
             <p className="font-semibold mb-5" style={{ color: svc.accent }}>{svc.tagline}</p>
             <p className="text-zinc-500 text-lg leading-relaxed mb-8">{svc.description}</p>
 
             <a
               href="/#assessment"
-              className="inline-block bg-white text-zinc-950 font-bold text-sm px-6 py-3 rounded-xl transition-all hover:bg-zinc-900 hover:scale-[1.02] active:scale-[0.98]"
+              className="inline-block bg-zinc-900 text-white font-bold text-sm px-6 py-3 rounded-xl transition-all hover:bg-gray-50 hover:scale-[1.02] active:scale-[0.98]"
             >
               Book a free assessment →
             </a>
@@ -123,7 +123,7 @@ function ServiceSection({ svc, index }: { svc: typeof SERVICES[0]; index: number
                 }}
               >
                 <div className="flex items-center justify-between gap-4">
-                  <span className="font-semibold text-sm text-white">{f.title}</span>
+                  <span className="font-semibold text-sm text-zinc-900">{f.title}</span>
                   <span
                     className="text-lg flex-shrink-0 transition-transform duration-200"
                     style={{
@@ -149,34 +149,34 @@ function ServiceSection({ svc, index }: { svc: typeof SERVICES[0]; index: number
 // ─── Page ───────────────────────────────────────────────────────────────────
 export default function ServicesPage() {
   return (
-    <main className="bg-zinc-950 text-white min-h-screen">
+    <main className="bg-white text-zinc-900 min-h-screen">
 
       {/* ── NAV ───────────────────────────────────────── */}
-      <nav className="sticky top-0 z-50 bg-zinc-950/90 backdrop-blur-md border-b border-zinc-700 shadow-sm">
+      <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-300 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <a href="/" className="flex items-center gap-2">
             <img src="/fornida-mark.png" alt="Fornida" className="h-8 w-auto" />
-            <span className="text-white text-xl font-black tracking-tight">FORNIDA</span>
+            <span className="text-zinc-900 text-xl font-black tracking-tight">FORNIDA</span>
           </a>
           <div className="hidden md:flex items-center gap-8">
-            <a href="/services" className="text-sm text-white font-semibold border-b border-zinc-900 pb-0.5">Services</a>
-            <a href="#" className="text-sm text-zinc-500 hover:text-white transition-colors">Case Studies</a>
-            <a href="/insights" className="text-sm text-zinc-500 hover:text-white transition-colors">Insights</a>
-            <a href="#" className="text-sm text-zinc-500 hover:text-white transition-colors">About</a>
-            <a href="/shop" className="text-sm text-zinc-500 hover:text-white transition-colors">Shop</a>
+            <a href="/services" className="text-sm text-zinc-900 font-semibold border-b border-zinc-900 pb-0.5">Services</a>
+            <a href="#" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Case Studies</a>
+            <a href="/insights" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Insights</a>
+            <a href="#" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">About</a>
+            <a href="/shop" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Shop</a>
           </div>
-          <a href="/#assessment" className="bg-zinc-900 text-white text-sm font-bold px-5 py-2.5 rounded-lg hover:bg-zinc-900 transition-colors">
+          <a href="/#assessment" className="bg-zinc-900 text-zinc-900 text-sm font-bold px-5 py-2.5 rounded-lg hover:bg-gray-50 transition-colors">
             Book Assessment →
           </a>
         </div>
       </nav>
 
       {/* ── HEADER ────────────────────────────────────── */}
-      <div className="relative overflow-hidden border-b border-zinc-800 bg-zinc-900">
+      <div className="relative overflow-hidden border-b border-gray-200 bg-gray-50">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(82,82,91,0.08),transparent)]" />
         <div className="relative max-w-7xl mx-auto px-6 py-20">
-          <p className="text-white text-xs font-bold uppercase tracking-widest mb-4">What We Deliver</p>
-          <h1 className="text-5xl md:text-6xl font-black tracking-tight mb-5 text-white">
+          <p className="text-zinc-900 text-xs font-bold uppercase tracking-widest mb-4">What We Deliver</p>
+          <h1 className="text-5xl md:text-6xl font-black tracking-tight mb-5 text-zinc-900">
             IT. Security. AI.<br />
             <span className="text-zinc-500">One team. No gaps.</span>
           </h1>
@@ -190,7 +190,7 @@ export default function ServicesPage() {
               <a
                 key={s.id}
                 href={`#${s.id}`}
-                className="flex items-center gap-2 border border-zinc-800 text-sm text-zinc-400 px-4 py-2 rounded-lg hover:border-zinc-600 hover:text-white transition-all bg-zinc-900 shadow-sm"
+                className="flex items-center gap-2 border border-gray-200 text-sm text-zinc-500 px-4 py-2 rounded-lg hover:border-gray-400 hover:text-zinc-900 transition-all bg-gray-50 shadow-sm"
               >
                 <span>{s.icon}</span>
                 <span>{s.title}</span>
@@ -206,12 +206,12 @@ export default function ServicesPage() {
       ))}
 
       {/* ── QUICK WIN CALLOUT ─────────────────────────── */}
-      <section className="py-20 px-6 bg-zinc-900 border-b border-zinc-800">
+      <section className="py-20 px-6 bg-gray-50 border-b border-gray-200">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="text-white text-xs font-bold uppercase tracking-widest mb-4">Free Offer</p>
-              <h2 className="text-4xl font-black tracking-tight mb-4 text-white">
+              <p className="text-zinc-900 text-xs font-bold uppercase tracking-widest mb-4">Free Offer</p>
+              <h2 className="text-4xl font-black tracking-tight mb-4 text-zinc-900">
                 The 2-hour rule:<br />
                 <span className="text-gray-500">one automation, on us.</span>
               </h2>
@@ -220,7 +220,7 @@ export default function ServicesPage() {
               </p>
               <a
                 href="/#assessment"
-                className="inline-block bg-white text-zinc-950 font-bold text-base px-8 py-4 rounded-xl hover:bg-zinc-900 transition-all hover:scale-[1.02]"
+                className="inline-block bg-zinc-900 text-white font-bold text-base px-8 py-4 rounded-xl hover:bg-gray-50 transition-all hover:scale-[1.02]"
               >
                 Claim your free quick win →
               </a>
@@ -230,7 +230,7 @@ export default function ServicesPage() {
               {QUICK_WINS.map((q) => (
                 <div
                   key={q.label}
-                  className="border border-zinc-800 rounded-xl p-6 bg-zinc-900 shadow-sm text-center hover:border-zinc-600 hover:-translate-y-1 transition-all"
+                  className="border border-gray-200 rounded-xl p-6 bg-gray-50 shadow-sm text-center hover:border-gray-400 hover:-translate-y-1 transition-all"
                 >
                   <div className="text-3xl mb-3">{q.icon}</div>
                   <div className="text-sm font-semibold text-zinc-700">{q.label}</div>
@@ -245,20 +245,20 @@ export default function ServicesPage() {
       <section className="py-20 px-6 relative overflow-hidden bg-gradient-to-br from-zinc-950 via-zinc-950 to-zinc-900">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_50%,rgba(82,82,91,0.08),transparent)]" />
         <div className="relative max-w-3xl mx-auto text-center">
-          <h2 className="text-4xl font-black tracking-tight mb-4 text-white">Ready to consolidate your IT?</h2>
-          <p className="text-zinc-400 text-lg mb-10">
+          <h2 className="text-4xl font-black tracking-tight mb-4 text-zinc-900">Ready to consolidate your IT?</h2>
+          <p className="text-zinc-500 text-lg mb-10">
             One conversation. We'll show you exactly what's exposed, what's manual, and what AI can fix — in 30 minutes.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="/#assessment"
-              className="bg-white text-zinc-950 font-bold text-base px-8 py-4 rounded-xl hover:bg-zinc-900 transition-all hover:scale-[1.02]"
+              className="bg-zinc-900 text-white font-bold text-base px-8 py-4 rounded-xl hover:bg-gray-50 transition-all hover:scale-[1.02]"
             >
               Book free assessment →
             </a>
             <a
               href="mailto:info@fornida.com"
-              className="border border-zinc-700 text-zinc-700 font-semibold text-base px-8 py-4 rounded-xl hover:bg-zinc-900 transition-all"
+              className="border border-gray-300 text-zinc-700 font-semibold text-base px-8 py-4 rounded-xl hover:bg-gray-50 transition-all"
             >
               Email us directly
             </a>
@@ -267,13 +267,13 @@ export default function ServicesPage() {
       </section>
 
       {/* ── FOOTER ────────────────────────────────────── */}
-      <footer className="border-t border-zinc-800 bg-zinc-900 px-6 py-10">
+      <footer className="border-t border-gray-200 bg-gray-50 px-6 py-10">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-4">
-          <span className="text-white font-black">FORNIDA</span>
+          <span className="text-zinc-900 font-black">FORNIDA</span>
           <span className="text-zinc-500 text-xs">© 2026 Fornida LLC · 2609 Technology Dr, Suite 300, Plano, TX 75074</span>
           <div className="flex gap-6">
             {["Privacy Policy", "Terms of Use", "MSA"].map((l) => (
-              <a key={l} href="#" className="text-zinc-500 text-xs hover:text-zinc-400 transition-colors">{l}</a>
+              <a key={l} href="#" className="text-zinc-500 text-xs hover:text-zinc-500 transition-colors">{l}</a>
             ))}
           </div>
         </div>

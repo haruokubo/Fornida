@@ -100,7 +100,7 @@ const CATEGORIES = [
 
 const BADGE_STYLES: Record<string, string> = {
   Sale: "bg-red-900/30 text-red-300 border-red-800",
-  Popular: "bg-zinc-800 text-white border-zinc-600",
+  Popular: "bg-zinc-800 text-zinc-900 border-zinc-600",
 };
 
 function ProductCard({
@@ -117,15 +117,15 @@ function ProductCard({
     : null;
 
   return (
-    <div className="group relative border border-zinc-800 shadow-sm rounded-2xl bg-zinc-900 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col">
+    <div className="group relative border border-gray-200 shadow-sm rounded-2xl bg-gray-50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col">
       {/* Cart-in indicator */}
       {cartQty > 0 && (
-        <div className="absolute top-3 right-3 z-10 w-6 h-6 rounded-full bg-green-500 text-white flex items-center justify-center text-[10px] font-bold shadow">
+        <div className="absolute top-3 right-3 z-10 w-6 h-6 rounded-full bg-green-500 text-zinc-900 flex items-center justify-center text-[10px] font-bold shadow">
           ✓
         </div>
       )}
 
-      <div className="aspect-square bg-zinc-100 flex items-center justify-center p-4 relative overflow-hidden border-b border-zinc-800">
+      <div className="aspect-square bg-zinc-100 flex items-center justify-center p-4 relative overflow-hidden border-b border-gray-200">
         <img
           src={product.image}
           alt={product.name}
@@ -136,7 +136,7 @@ function ProductCard({
         {/* Badges */}
         <div className="absolute top-3 left-3 flex flex-col gap-1.5">
           {!product.inStock && (
-            <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-zinc-900 text-zinc-500 border border-zinc-800">
+            <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-zinc-900 text-zinc-500 border border-gray-200">
               OUT OF STOCK
             </span>
           )}
@@ -153,10 +153,10 @@ function ProductCard({
         </div>
         {/* Quick-add overlay */}
         {product.inStock && (
-          <div className="absolute inset-0 bg-zinc-900/80 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center">
+          <div className="absolute inset-0 bg-gray-50/80 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center">
             <button
               onClick={() => onAddToCart(product.sku)}
-              className="bg-zinc-900 text-white text-xs font-bold px-4 py-2 rounded-lg shadow hover:bg-zinc-900 transition-colors"
+              className="bg-zinc-900 text-zinc-900 text-xs font-bold px-4 py-2 rounded-lg shadow hover:bg-gray-50 transition-colors"
             >
               Quick add +
             </button>
@@ -165,18 +165,18 @@ function ProductCard({
       </div>
 
       <div className="p-5 flex flex-col flex-1">
-        <div className="text-zinc-400 font-mono text-[10px] mb-1">{product.sku}</div>
-        <h3 className="text-sm font-semibold text-white leading-snug mb-3 flex-1">
+        <div className="text-zinc-500 font-mono text-[10px] mb-1">{product.sku}</div>
+        <h3 className="text-sm font-semibold text-zinc-900 leading-snug mb-3 flex-1">
           {product.name}
         </h3>
         <div className="flex items-baseline gap-2 mt-auto">
           {product.price === 0 ? (
-            <span className="text-sm font-bold text-white">Price on request</span>
+            <span className="text-sm font-bold text-zinc-900">Price on request</span>
           ) : (
             <>
-              <span className="text-xl font-black text-white">${product.price.toLocaleString()}</span>
+              <span className="text-xl font-black text-zinc-900">${product.price.toLocaleString()}</span>
               {product.originalPrice && (
-                <span className="text-sm text-zinc-400 line-through">${product.originalPrice.toLocaleString()}</span>
+                <span className="text-sm text-zinc-500 line-through">${product.originalPrice.toLocaleString()}</span>
               )}
             </>
           )}
@@ -238,33 +238,33 @@ export default function ShopPage() {
     cat === "All Products" ? PRODUCTS.length : PRODUCTS.filter((p) => p.category === cat).length;
 
   return (
-    <main className="bg-zinc-950 text-white min-h-screen pb-28">
+    <main className="bg-white text-zinc-900 min-h-screen pb-28">
       {/* Nav */}
-      <nav className="sticky top-0 z-50 bg-zinc-950/90 backdrop-blur-md border-b border-zinc-700 shadow-sm">
+      <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-300 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <a href="/" className="text-white text-xl font-black tracking-tight">FORNIDA</a>
+          <a href="/" className="text-zinc-900 text-xl font-black tracking-tight">FORNIDA</a>
           <div className="hidden md:flex items-center gap-8">
-            <a href="/services" className="text-sm text-zinc-500 hover:text-white transition-colors">Services</a>
-            <a href="#" className="text-sm text-zinc-500 hover:text-white transition-colors">Case Studies</a>
-            <a href="/insights" className="text-sm text-zinc-500 hover:text-white transition-colors">Insights</a>
-            <a href="#" className="text-sm text-zinc-500 hover:text-white transition-colors">About</a>
-            <a href="/shop" className="text-sm text-white font-semibold border-b border-zinc-900 pb-0.5">Shop</a>
+            <a href="/services" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Services</a>
+            <a href="#" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Case Studies</a>
+            <a href="/insights" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Insights</a>
+            <a href="#" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">About</a>
+            <a href="/shop" className="text-sm text-zinc-900 font-semibold border-b border-zinc-900 pb-0.5">Shop</a>
           </div>
           <div className="flex items-center gap-3">
             {/* Cart badge */}
             <div className="relative">
-              <button className="text-zinc-500 hover:text-white transition-colors p-1">
+              <button className="text-zinc-500 hover:text-zinc-900 transition-colors p-1">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
                 {cartItemCount > 0 && (
-                  <span className="absolute -top-1 -right-1 w-4 h-4 bg-zinc-900 text-white text-[9px] font-bold rounded-full flex items-center justify-center">
+                  <span className="absolute -top-1 -right-1 w-4 h-4 bg-zinc-900 text-zinc-900 text-[9px] font-bold rounded-full flex items-center justify-center">
                     {cartItemCount}
                   </span>
                 )}
               </button>
             </div>
-            <a href="/#assessment" className="bg-zinc-900 text-white text-sm font-bold px-5 py-2.5 rounded-lg hover:bg-zinc-900 transition-colors">
+            <a href="/#assessment" className="bg-zinc-900 text-zinc-900 text-sm font-bold px-5 py-2.5 rounded-lg hover:bg-gray-50 transition-colors">
               Book Assessment →
             </a>
           </div>
@@ -272,11 +272,11 @@ export default function ShopPage() {
       </nav>
 
       {/* Hero Banner */}
-      <div className="bg-zinc-900 border-b border-zinc-800 py-6 px-6 text-center">
-        <h2 className="text-lg font-bold text-white mb-3">
+      <div className="bg-gray-50 border-b border-gray-200 py-6 px-6 text-center">
+        <h2 className="text-lg font-bold text-zinc-900 mb-3">
           🖥️ Enterprise Hardware &nbsp;·&nbsp; Certified Refurbished &nbsp;·&nbsp; Ships Nationwide
         </h2>
-        <div className="flex flex-wrap justify-center gap-4 text-sm text-zinc-400">
+        <div className="flex flex-wrap justify-center gap-4 text-sm text-zinc-500">
           <span className="flex items-center gap-1.5"><span className="text-zinc-700 font-bold">✓</span> Free Shipping $500+</span>
           <span className="flex items-center gap-1.5"><span className="text-zinc-700 font-bold">✓</span> 30-Day Returns</span>
           <span className="flex items-center gap-1.5"><span className="text-zinc-700 font-bold">✓</span> Secure Checkout</span>
@@ -285,23 +285,23 @@ export default function ShopPage() {
       </div>
 
       {/* Stats Strip */}
-      <div className="bg-zinc-900 border-y border-zinc-800 py-4">
+      <div className="bg-gray-50 border-y border-gray-200 py-4">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-wrap justify-around gap-4 text-center text-sm">
             <div>
-              <span className="font-bold text-white">57</span>
+              <span className="font-bold text-zinc-900">57</span>
               <span className="text-zinc-500 ml-1">Products Available</span>
             </div>
             <div>
-              <span className="font-bold text-white">Ships from</span>
+              <span className="font-bold text-zinc-900">Ships from</span>
               <span className="text-zinc-500 ml-1">Plano, TX</span>
             </div>
             <div>
-              <span className="font-bold text-white">Est.</span>
+              <span className="font-bold text-zinc-900">Est.</span>
               <span className="text-zinc-500 ml-1">2012</span>
             </div>
             <div>
-              <span className="font-bold text-white">MSP-Backed</span>
+              <span className="font-bold text-zinc-900">MSP-Backed</span>
               <span className="text-zinc-500 ml-1">Support</span>
             </div>
           </div>
@@ -314,7 +314,7 @@ export default function ShopPage() {
           {/* Search & Sort */}
           <div className="flex gap-3 mb-6 flex-wrap">
             <div className="relative flex-1 min-w-52">
-              <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
               <input
@@ -322,13 +322,13 @@ export default function ShopPage() {
                 placeholder="Search by name or SKU..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full bg-zinc-900 border border-zinc-700 text-white rounded-xl pl-9 pr-4 py-2.5 text-sm placeholder-zinc-400 focus:outline-none focus:border-zinc-400 transition-all"
+                className="w-full bg-gray-50 border border-gray-300 text-zinc-900 rounded-xl pl-9 pr-4 py-2.5 text-sm placeholder-zinc-400 focus:outline-none focus:border-zinc-400 transition-all"
               />
             </div>
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
-              className="bg-zinc-900 border border-zinc-700 text-white rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-zinc-400 transition-all appearance-none cursor-pointer"
+              className="bg-gray-50 border border-gray-300 text-zinc-900 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-zinc-400 transition-all appearance-none cursor-pointer"
             >
               <option value="default">Sort: Default</option>
               <option value="price-asc">Price: Low to High</option>
@@ -348,8 +348,8 @@ export default function ShopPage() {
                   onClick={() => setActiveCategory(cat)}
                   className={`text-xs font-semibold px-3 py-1.5 rounded-full border transition-all ${
                     isActive
-                      ? "bg-zinc-900 text-white border-zinc-900"
-                      : "bg-zinc-900 border-zinc-800 text-zinc-400 hover:border-zinc-600 hover:text-white"
+                      ? "bg-zinc-900 text-zinc-900 border-zinc-900"
+                      : "bg-gray-50 border-gray-200 text-zinc-500 hover:border-gray-400 hover:text-zinc-900"
                   }`}
                 >
                   {cat} ({count})
@@ -367,13 +367,13 @@ export default function ShopPage() {
           </div>
 
           {filtered.length === 0 ? (
-            <div className="text-center py-24 border border-zinc-800 rounded-2xl bg-zinc-900">
+            <div className="text-center py-24 border border-gray-200 rounded-2xl bg-gray-50">
               <div className="text-4xl mb-4">🔍</div>
               <div className="text-zinc-700 font-semibold mb-2">No products found</div>
               <div className="text-zinc-500 text-sm">Try a different search or category</div>
               <button
                 onClick={() => { setSearch(""); setActiveCategory("All Products"); }}
-                className="mt-4 text-white text-sm hover:text-white transition-colors"
+                className="mt-4 text-zinc-900 text-sm hover:text-zinc-900 transition-colors"
               >
                 Clear filters
               </button>
@@ -391,14 +391,14 @@ export default function ShopPage() {
             </div>
           )}
 
-          <div className="mt-12 border border-zinc-800 rounded-2xl p-8 bg-zinc-900 shadow-sm text-center">
-            <div className="text-lg font-bold text-white mb-2">Don&apos;t see what you need?</div>
+          <div className="mt-12 border border-gray-200 rounded-2xl p-8 bg-gray-50 shadow-sm text-center">
+            <div className="text-lg font-bold text-zinc-900 mb-2">Don&apos;t see what you need?</div>
             <p className="text-zinc-500 text-sm mb-5">
               We source Dell, HPE, Lenovo, and more. Tell us the SKU or spec and we&apos;ll quote it.
             </p>
             <a
               href="/quote"
-              className="inline-block bg-white text-zinc-950 font-bold text-sm px-6 py-3 rounded-xl hover:bg-zinc-900 transition-all"
+              className="inline-block bg-zinc-900 text-white font-bold text-sm px-6 py-3 rounded-xl hover:bg-gray-50 transition-all"
             >
               Request a Quote →
             </a>
@@ -407,31 +407,31 @@ export default function ShopPage() {
       </div>
 
       {/* Footer */}
-      <footer className="bg-zinc-900 border-t border-zinc-800 mt-10 py-8 px-6 text-center text-zinc-500 text-xs">
+      <footer className="bg-gray-50 border-t border-gray-200 mt-10 py-8 px-6 text-center text-zinc-500 text-xs">
         &copy; {new Date().getFullYear()} Fornida. All rights reserved. &nbsp;|&nbsp; Plano, TX &nbsp;|&nbsp;{" "}
-        <a href="mailto:info@fornida.com" className="hover:text-zinc-300 transition-colors">info@fornida.com</a>
+        <a href="mailto:info@fornida.com" className="hover:text-zinc-700 transition-colors">info@fornida.com</a>
       </footer>
 
       {/* Sticky cart bottom bar */}
       {cartItemCount > 0 && (
-        <div className="fixed bottom-0 left-0 right-0 z-40 bg-zinc-900 border-t border-zinc-800 shadow-lg px-6 py-4">
+        <div className="fixed bottom-0 left-0 right-0 z-40 bg-gray-50 border-t border-gray-200 shadow-lg px-6 py-4">
           <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-zinc-900 rounded-full flex items-center justify-center text-white text-sm font-bold">
+              <div className="w-8 h-8 bg-gray-50 rounded-full flex items-center justify-center text-zinc-900 text-sm font-bold">
                 {cartItemCount}
               </div>
               <div>
-                <div className="text-sm font-semibold text-white">
+                <div className="text-sm font-semibold text-zinc-900">
                   {cartItemCount} item{cartItemCount !== 1 ? "s" : ""} in cart
                 </div>
                 <div className="text-xs text-zinc-500">
-                  Subtotal: <span className="font-bold text-white">${cartTotal.toLocaleString()}</span>
+                  Subtotal: <span className="font-bold text-zinc-900">${cartTotal.toLocaleString()}</span>
                 </div>
               </div>
             </div>
             <a
               href="/cart"
-              className="bg-white text-zinc-950 font-bold text-sm px-6 py-2.5 rounded-xl hover:bg-zinc-900 transition-all"
+              className="bg-zinc-900 text-white font-bold text-sm px-6 py-2.5 rounded-xl hover:bg-gray-50 transition-all"
             >
               View Cart →
             </a>

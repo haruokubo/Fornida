@@ -197,11 +197,11 @@ function StatBlock({ stat, active }: { stat: StatItem; active: boolean }) {
       : `${stat.prefix ?? ""}${active ? count : "—"}${stat.suffix ?? ""}`;
 
   return (
-    <div className="flex-1 text-center border-r border-zinc-800 last:border-r-0 py-8 px-4">
-      <div className="text-3xl font-black text-white tabular-nums tracking-tight">
+    <div className="flex-1 text-center border-r border-gray-200 last:border-r-0 py-8 px-4">
+      <div className="text-3xl font-black text-zinc-900 tabular-nums tracking-tight">
         {display}
       </div>
-      <div className="text-xs text-zinc-400 uppercase tracking-widest mt-2">
+      <div className="text-xs text-zinc-500 uppercase tracking-widest mt-2">
         {stat.label}
       </div>
     </div>
@@ -236,7 +236,7 @@ function TestimonialsCarousel({ visible }: { visible: boolean }) {
       {/* Card */}
       <div className="relative overflow-hidden">
         <div
-          className={`relative bg-zinc-900 rounded-3xl shadow-xl border-t-4 ${accentColors[idx % accentColors.length]} p-10 transition-all duration-280`}
+          className={`relative bg-gray-50 rounded-3xl shadow-xl border-t-4 ${accentColors[idx % accentColors.length]} p-10 transition-all duration-280`}
           style={{
             opacity: animating ? 0 : 1,
             transform: animating
@@ -254,19 +254,19 @@ function TestimonialsCarousel({ visible }: { visible: boolean }) {
           <p className="text-zinc-200 text-lg leading-relaxed mb-8 font-medium">{t.quote}</p>
 
           {/* Divider */}
-          <div className="border-t border-zinc-800 mb-6" />
+          <div className="border-t border-gray-200 mb-6" />
 
           {/* Attribution */}
           <div className="flex items-center gap-4">
-            <div className={`w-12 h-12 rounded-full flex items-center justify-center text-white font-black text-base flex-shrink-0 shadow-md ${avatarColors[idx % avatarColors.length]}`}>
+            <div className={`w-12 h-12 rounded-full flex items-center justify-center text-zinc-900 font-black text-base flex-shrink-0 shadow-md ${avatarColors[idx % avatarColors.length]}`}>
               {initials}
             </div>
             <div>
-              <div className="font-black text-white">{t.name}</div>
-              <div className="text-zinc-400 text-xs mt-0.5">{t.role}</div>
-              <div className="text-zinc-400 text-[10px] uppercase tracking-widest mt-0.5">{TESTI_AGES[idx]}</div>
+              <div className="font-black text-zinc-900">{t.name}</div>
+              <div className="text-zinc-500 text-xs mt-0.5">{t.role}</div>
+              <div className="text-zinc-500 text-[10px] uppercase tracking-widest mt-0.5">{TESTI_AGES[idx]}</div>
             </div>
-            <div className="ml-auto flex items-center gap-1.5 bg-zinc-900 border border-zinc-800 rounded-full px-3 py-1.5">
+            <div className="ml-auto flex items-center gap-1.5 bg-gray-50 border border-gray-200 rounded-full px-3 py-1.5">
               <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none">
                 <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
                 <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
@@ -281,21 +281,21 @@ function TestimonialsCarousel({ visible }: { visible: boolean }) {
 
       {/* Counter + Controls */}
       <div className="flex items-center justify-between mt-8 px-1">
-        <span className="text-xs font-bold text-zinc-400 tabular-nums">{idx + 1} / {TESTIMONIALS.length}</span>
+        <span className="text-xs font-bold text-zinc-500 tabular-nums">{idx + 1} / {TESTIMONIALS.length}</span>
 
         <div className="flex gap-1.5">
           {TESTIMONIALS.map((_, i) => (
             <button
               key={i}
               onClick={() => go(i, i > idx ? "right" : "left")}
-              className={`rounded-full transition-all duration-300 ${i === idx ? "bg-zinc-900 w-6 h-2.5" : "bg-zinc-700 hover:bg-zinc-600 w-2.5 h-2.5"}`}
+              className={`rounded-full transition-all duration-300 ${i === idx ? "bg-gray-50 w-6 h-2.5" : "bg-zinc-700 hover:bg-zinc-600 w-2.5 h-2.5"}`}
             />
           ))}
         </div>
 
         <div className="flex gap-2">
-          <button onClick={prev} className="w-10 h-10 rounded-full border border-zinc-700 shadow-sm flex items-center justify-center text-white hover:bg-zinc-800 hover:border-zinc-600 transition-all font-bold">←</button>
-          <button onClick={next} className="w-10 h-10 rounded-full bg-zinc-900 flex items-center justify-center text-zinc-950 hover:bg-zinc-100 transition-all font-bold shadow-md">→</button>
+          <button onClick={prev} className="w-10 h-10 rounded-full border border-gray-300 shadow-sm flex items-center justify-center text-zinc-900 hover:bg-gray-100 hover:border-gray-400 transition-all font-bold">←</button>
+          <button onClick={next} className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-zinc-950 hover:bg-zinc-800 transition-all font-bold shadow-md">→</button>
         </div>
       </div>
     </div>
@@ -319,29 +319,29 @@ export default function HomePage() {
   }, []);
 
   return (
-    <main className="bg-zinc-950 text-white min-h-screen overflow-x-hidden" onClick={(e) => { if (!(e.target as HTMLElement).closest('button[class*="border-zinc"]') && !(e.target as HTMLElement).closest('button[class*="border-gray"]')) setActivePill(null); }}>
+    <main className="bg-white text-zinc-900 min-h-screen overflow-x-hidden" onClick={(e) => { if (!(e.target as HTMLElement).closest('button[class*="border-zinc"]') && !(e.target as HTMLElement).closest('button[class*="border-gray"]')) setActivePill(null); }}>
 
       {/* ── NAVIGATION ──────────────────────────────────── */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-zinc-950/90 backdrop-blur-md border-b border-zinc-800"
+            ? "bg-white/90 backdrop-blur-md border-b border-gray-200"
             : "bg-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <a href="/" className="flex items-center gap-2">
             <img src="/fornida-mark.png" alt="Fornida" className="h-8 w-auto" />
-            <span className="text-white text-xl font-black tracking-tight">FORNIDA</span>
+            <span className="text-zinc-900 text-xl font-black tracking-tight">FORNIDA</span>
           </a>
           <div className="hidden md:flex items-center gap-8">
-            <a href="/services" className="text-sm text-zinc-400 hover:text-white transition-colors">Services</a>
-            <a href="#" className="text-sm text-zinc-400 hover:text-white transition-colors">Case Studies</a>
-            <a href="/insights" className="text-sm text-zinc-400 hover:text-white transition-colors">Insights</a>
-            <a href="#" className="text-sm text-zinc-400 hover:text-white transition-colors">About</a>
-            <a href="/shop" className="text-sm text-zinc-400 hover:text-white transition-colors">Shop</a>
+            <a href="/services" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Services</a>
+            <a href="#" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Case Studies</a>
+            <a href="/insights" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Insights</a>
+            <a href="#" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">About</a>
+            <a href="/shop" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Shop</a>
           </div>
-          <a href="#assessment" className="bg-white text-zinc-950 text-sm font-bold px-5 py-2.5 rounded-lg hover:bg-zinc-100 transition-colors">
+          <a href="#assessment" className="bg-zinc-900 text-white text-sm font-bold px-5 py-2.5 rounded-lg hover:bg-zinc-800 transition-colors">
             Book Assessment →
           </a>
         </div>
@@ -359,28 +359,28 @@ export default function HomePage() {
         <div className="relative max-w-4xl mx-auto pt-20">
           <div className="flex items-center justify-center gap-4 mb-8">
             <div className="w-8 h-px bg-zinc-500" />
-            <span className="text-zinc-400 text-xs font-bold uppercase tracking-widest">The Fornida Thesis</span>
+            <span className="text-zinc-500 text-xs font-bold uppercase tracking-widest">The Fornida Thesis</span>
             <div className="w-8 h-px bg-zinc-500" />
           </div>
-          <h1 className="text-5xl md:text-7xl font-black tracking-tight leading-[1.05] mb-6 text-white">
+          <h1 className="text-5xl md:text-7xl font-black tracking-tight leading-[1.05] mb-6 text-zinc-900">
             Secure{" "}
             <span className="italic text-amber-400">AI adoption</span>
             <br />
             for growing businesses.
           </h1>
-          <p className="text-lg text-zinc-300 max-w-2xl mx-auto mb-10 leading-relaxed">
+          <p className="text-lg text-zinc-700 max-w-2xl mx-auto mb-10 leading-relaxed">
             Fornida helps small and mid-sized businesses manage IT, strengthen cybersecurity, and automate workflows safely — delivered by one team.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="#assessment"
-              className="border border-white text-white font-bold text-base px-8 py-4 rounded-xl hover:bg-white hover:text-zinc-950 transition-all"
+              className="border border-white text-zinc-900 font-bold text-base px-8 py-4 rounded-xl hover:bg-white hover:text-white transition-all"
             >
               Book AI Optimization Assessment →
             </a>
             <a
               href="#quick-win"
-              className="border border-zinc-600 text-zinc-300 font-semibold text-base px-8 py-4 rounded-xl hover:border-white hover:text-white transition-all"
+              className="border border-zinc-600 text-zinc-700 font-semibold text-base px-8 py-4 rounded-xl hover:border-white hover:text-zinc-900 transition-all"
             >
               See How It Works
             </a>
@@ -391,9 +391,9 @@ export default function HomePage() {
       {/* ── STATS BAR ───────────────────────────────────── */}
       <div
         ref={statsRef}
-        className="border-y border-zinc-800 bg-zinc-950"
+        className="border-y border-gray-200 bg-white"
       >
-        <div className="max-w-5xl mx-auto flex divide-x divide-zinc-800">
+        <div className="max-w-5xl mx-auto flex divide-x divide-gray-200">
           {STATS.map((s) => (
             <StatBlock key={s.label} stat={s} active={statsVisible} />
           ))}
@@ -403,41 +403,41 @@ export default function HomePage() {
       {/* ── PROBLEM ─────────────────────────────────────── */}
       <section
         ref={problemRef}
-        className="py-24 px-6 max-w-7xl mx-auto bg-zinc-950"
+        className="py-24 px-6 max-w-7xl mx-auto bg-white"
       >
         <div className="mb-12">
-          <p className="text-zinc-400 text-xs font-bold uppercase tracking-widest mb-3">
+          <p className="text-zinc-500 text-xs font-bold uppercase tracking-widest mb-3">
             The Problem
           </p>
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4 text-white">
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4 text-zinc-900">
             Four threats slowing
             <br />
             your business down
           </h2>
-          <p className="text-zinc-400 text-lg max-w-xl leading-relaxed">
+          <p className="text-zinc-500 text-lg max-w-xl leading-relaxed">
             Most SMBs face these invisible drags every day — and don't know
             where to start fixing them.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 border border-zinc-800 rounded-2xl overflow-hidden bg-zinc-900">
+        <div className="grid grid-cols-1 md:grid-cols-2 border border-gray-200 rounded-2xl overflow-hidden bg-gray-50">
           {PROBLEMS.map((p, i) => (
             <div
               key={p.title}
               className={`p-8 flex flex-col gap-4 ${
-                i < PROBLEMS.length - 2 ? "border-b border-zinc-800" : ""
-              } ${i % 2 === 0 ? "border-r border-zinc-800" : ""}`}
+                i < PROBLEMS.length - 2 ? "border-b border-gray-200" : ""
+              } ${i % 2 === 0 ? "border-r border-gray-200" : ""}`}
             >
-              <span className="text-xs font-mono text-zinc-600 tracking-widest">
+              <span className="text-xs font-mono text-zinc-500 tracking-widest">
                 0{i + 1} / 0{PROBLEMS.length}
               </span>
               <div>
-                <h3 className="text-xl font-black text-white mb-2">{p.title}.</h3>
-                <p className="text-zinc-400 text-sm leading-relaxed">{p.desc}</p>
+                <h3 className="text-xl font-black text-zinc-900 mb-2">{p.title}.</h3>
+                <p className="text-zinc-500 text-sm leading-relaxed">{p.desc}</p>
               </div>
-              <div className="mt-auto flex items-center gap-2 pt-4 border-t border-zinc-800">
+              <div className="mt-auto flex items-center gap-2 pt-4 border-t border-gray-200">
                 <span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0" />
-                <span className="text-xs text-zinc-600 font-mono">{p.icon} {p.title}</span>
+                <span className="text-xs text-zinc-500 font-mono">{p.icon} {p.title}</span>
               </div>
             </div>
           ))}
@@ -445,7 +445,7 @@ export default function HomePage() {
       </section>
 
       {/* ── SERVICES ────────────────────────────────────── */}
-      <section ref={serviceRef} className="relative py-24 px-6 overflow-hidden bg-zinc-950">
+      <section ref={serviceRef} className="relative py-24 px-6 overflow-hidden bg-white">
         <img
           src="https://fornida.com/assets/facility/noc-dashboard.jpg"
           alt=""
@@ -456,15 +456,15 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/70 via-transparent to-zinc-950/70" />
         <div className="relative z-10 max-w-7xl mx-auto">
           <div className="mb-12">
-            <p className="text-zinc-400 text-xs font-bold uppercase tracking-widest mb-3">
+            <p className="text-zinc-500 text-xs font-bold uppercase tracking-widest mb-3">
               What We Deliver
             </p>
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4 text-white">
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4 text-zinc-900">
               IT + Security + AI.
               <br />
               One team. No gaps.
             </h2>
-            <p className="text-zinc-400 text-lg max-w-xl leading-relaxed">
+            <p className="text-zinc-500 text-lg max-w-xl leading-relaxed">
               No juggling three vendors. One accountable partner covering all
               three layers — with full context on your environment.
             </p>
@@ -474,23 +474,23 @@ export default function HomePage() {
             {SERVICES.map((s, i) => (
               <div
                 key={s.num}
-                className={`relative rounded-2xl p-8 transition-all duration-500 bg-zinc-900 shadow-xl hover:-translate-y-1 border border-zinc-800 ${
+                className={`relative rounded-2xl p-8 transition-all duration-500 bg-gray-50 shadow-xl hover:-translate-y-1 border border-gray-200 ${
                   serviceVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-6"
                 }`}
                 style={{ transitionDelay: `${i * 120}ms` }}
               >
-                <div className="text-6xl font-black text-white/5 mb-4 select-none leading-none">
+                <div className="text-6xl font-black text-zinc-900/5 mb-4 select-none leading-none">
                   {s.num}
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-white">{s.title}</h3>
-                <p className="text-zinc-400 leading-relaxed text-sm mb-6">
+                <h3 className="text-xl font-bold mb-3 text-zinc-900">{s.title}</h3>
+                <p className="text-zinc-500 leading-relaxed text-sm mb-6">
                   {s.desc}
                 </p>
                 <a
                   href="#"
-                  className="text-white text-sm font-semibold hover:text-zinc-300 transition-colors"
+                  className="text-zinc-900 text-sm font-semibold hover:text-zinc-700 transition-colors"
                 >
                   Learn more →
                 </a>
@@ -501,7 +501,7 @@ export default function HomePage() {
       </section>
 
       {/* ── ABOUT / ORIGIN ──────────────────────────────── */}
-      <section id="about" className="py-24 px-6 bg-zinc-950 border-t border-zinc-800">
+      <section id="about" className="py-24 px-6 bg-white border-t border-gray-200">
         <div className="max-w-2xl mx-auto">
           {/* Label */}
           <div className="flex items-center gap-3 mb-10">
@@ -510,7 +510,7 @@ export default function HomePage() {
           </div>
 
           {/* Heading */}
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-2 text-white">
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-2 text-zinc-900">
             Three chapters.
           </h2>
           <p className="text-3xl md:text-4xl font-black italic text-amber-400 mb-14">
@@ -520,35 +520,35 @@ export default function HomePage() {
           {/* Timeline */}
           <div className="flex flex-col gap-10">
             {/* 2012 */}
-            <div className="border-t border-zinc-800 pt-8">
+            <div className="border-t border-gray-200 pt-8">
               <p className="text-amber-500 text-xs font-bold uppercase tracking-widest mb-3">2012 · Roots</p>
-              <p className="text-zinc-300 leading-relaxed">
+              <p className="text-zinc-700 leading-relaxed">
                 Fornida started building mission-critical infrastructure for major national telecoms, including T-Mobile — datacenters, network backbone, enterprise IT.
               </p>
             </div>
 
             {/* 2018 */}
-            <div className="border-t border-zinc-800 pt-8">
+            <div className="border-t border-gray-200 pt-8">
               <p className="text-amber-500 text-xs font-bold uppercase tracking-widest mb-3">2018 · The Wake-Up Call</p>
-              <p className="text-zinc-300 leading-relaxed mb-4">
+              <p className="text-zinc-700 leading-relaxed mb-4">
                 A sophisticated threat actor monitored our communications and slipped in a fraudulent wire change at the exact right moment. A vendor who picked up the phone to verify stopped it. Not a firewall — a phone call.
               </p>
-              <p className="text-zinc-300 leading-relaxed">
+              <p className="text-zinc-700 leading-relaxed">
                 If it could happen to us, it could happen to anyone. That's when Fornida became an MSP — enterprise-grade defense, repackaged for SMBs.
               </p>
             </div>
 
             {/* 2024 */}
-            <div className="border-t border-zinc-800 pt-8">
+            <div className="border-t border-gray-200 pt-8">
               <p className="text-amber-500 text-xs font-bold uppercase tracking-widest mb-3">2024 · AI, Proven on Ourselves</p>
-              <p className="text-zinc-300 leading-relaxed">
+              <p className="text-zinc-700 leading-relaxed">
                 We rebuilt Dash — our internal ops platform, originally three years and four developers — from the ground up in three months using AI tools. Better architecture. Lower cost. Mission-critical, still in production. That's how we know what AI can do for your business: we did it on ours first.
               </p>
             </div>
           </div>
 
           {/* Footer note */}
-          <div className="mt-12 pt-8 border-t border-zinc-800 flex flex-wrap gap-8 text-xs text-zinc-500 uppercase tracking-widest">
+          <div className="mt-12 pt-8 border-t border-gray-200 flex flex-wrap gap-8 text-xs text-zinc-500 uppercase tracking-widest">
             <span>Headquarters · Plano, Texas</span>
             <span>Founded · 2012</span>
             <span>Owner-Operated</span>
@@ -557,11 +557,11 @@ export default function HomePage() {
       </section>
 
       {/* ── SOCIAL PROOF ────────────────────────────────── */}
-      <section ref={testiRef} className="relative py-24 px-6 overflow-hidden bg-zinc-950">
+      <section ref={testiRef} className="relative py-24 px-6 overflow-hidden bg-white">
         <div className="relative z-10 max-w-3xl mx-auto">
           <div className="mb-12 text-center">
-            <p className="text-zinc-400 text-xs font-bold uppercase tracking-widest mb-4">⭐ Client Results · Google Reviews</p>
-            <h2 className="text-4xl md:text-6xl font-black tracking-tight text-white leading-tight">
+            <p className="text-zinc-500 text-xs font-bold uppercase tracking-widest mb-4">⭐ Client Results · Google Reviews</p>
+            <h2 className="text-4xl md:text-6xl font-black tracking-tight text-zinc-900 leading-tight">
               Reviews from operators
               <br />
               <span className="text-zinc-500 font-black">who run the business.</span>
@@ -574,48 +574,48 @@ export default function HomePage() {
       {/* ── FINAL CTA ───────────────────────────────────── */}
       <section
         id="assessment"
-        className="py-24 px-6 relative overflow-hidden bg-zinc-950"
+        className="py-24 px-6 relative overflow-hidden bg-white"
       >
         <div className="relative max-w-3xl mx-auto text-center">
-          <p className="text-zinc-400 text-xs font-bold uppercase tracking-widest mb-4">
+          <p className="text-zinc-500 text-xs font-bold uppercase tracking-widest mb-4">
             Free Assessment
           </p>
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4 text-white">
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4 text-zinc-900">
             Get your free AI optimization assessment
           </h2>
-          <p className="text-zinc-400 text-lg mb-10 leading-relaxed">
+          <p className="text-zinc-500 text-lg mb-10 leading-relaxed">
             No commitment. One conversation to find your biggest quick win — on
             us. Response within one business day.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="https://fornida.com/assessment"
-              className="bg-zinc-900 text-zinc-950 font-bold text-base px-8 py-4 rounded-xl hover:bg-zinc-100 transition-all hover:scale-[1.02] active:scale-[0.98]"
+              className="bg-zinc-900 text-zinc-950 font-bold text-base px-8 py-4 rounded-xl hover:bg-zinc-800 transition-all hover:scale-[1.02] active:scale-[0.98]"
             >
               Book in 60 seconds →
             </a>
             <a
               href="https://fornida.com/contact"
-              className="border border-zinc-700 text-zinc-400 font-semibold text-base px-8 py-4 rounded-xl hover:border-zinc-500 hover:text-white hover:bg-transparent transition-all"
+              className="border border-gray-300 text-zinc-500 font-semibold text-base px-8 py-4 rounded-xl hover:border-zinc-500 hover:text-zinc-900 hover:bg-transparent transition-all"
             >
               Talk to an engineer instead
             </a>
           </div>
-          <p className="text-zinc-600 text-xs mt-6">
+          <p className="text-zinc-500 text-xs mt-6">
             📍 2609 Technology Dr, Suite 300, Plano, TX 75074 · +1-949-722-1222
           </p>
         </div>
       </section>
 
       {/* ── PARTNER ECOSYSTEM BAR ───────────────────────── */}
-      <section className="relative border-t border-b border-zinc-800 py-12 overflow-hidden bg-zinc-950">
+      <section className="relative border-t border-b border-gray-200 py-12 overflow-hidden bg-white">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-1/4 w-64 h-32 bg-zinc-900/[0.02] rounded-full blur-3xl" />
-          <div className="absolute top-0 left-1/2 w-48 h-24 bg-zinc-900/[0.02] rounded-full blur-3xl" />
-          <div className="absolute top-0 right-1/4 w-64 h-32 bg-zinc-900/[0.02] rounded-full blur-3xl" />
+          <div className="absolute top-0 left-1/4 w-64 h-32 bg-gray-50/[0.02] rounded-full blur-3xl" />
+          <div className="absolute top-0 left-1/2 w-48 h-24 bg-gray-50/[0.02] rounded-full blur-3xl" />
+          <div className="absolute top-0 right-1/4 w-64 h-32 bg-gray-50/[0.02] rounded-full blur-3xl" />
         </div>
 
-        <p className="relative text-center text-[10px] font-bold uppercase tracking-widest text-zinc-400 mb-10">
+        <p className="relative text-center text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-10">
           Partner Ecosystem · Tools We Support · Vendors We Ship
         </p>
 
@@ -691,7 +691,7 @@ export default function HomePage() {
       </section>
 
       {/* ── FOOTER ──────────────────────────────────────── */}
-      <footer className="bg-zinc-950 border-t border-zinc-800 px-6 pt-14 pb-8">
+      <footer className="bg-white border-t border-gray-200 px-6 pt-14 pb-8">
         <div className="max-w-7xl mx-auto">
 
           {/* Top grid */}
@@ -699,8 +699,8 @@ export default function HomePage() {
 
             {/* Brand col */}
             <div className="col-span-2 md:col-span-3 lg:col-span-1">
-              <div className="text-white text-lg font-black mb-3 tracking-tight">Fornida</div>
-              <p className="text-zinc-400 text-sm leading-relaxed mb-5">
+              <div className="text-zinc-900 text-lg font-black mb-3 tracking-tight">Fornida</div>
+              <p className="text-zinc-500 text-sm leading-relaxed mb-5">
                 The managed-services partner for the AI era. Secure IT, practical automation, and operational support for growing businesses.
               </p>
               <div className="flex gap-3">
@@ -712,7 +712,7 @@ export default function HomePage() {
                   { label: "Facebook", href: "https://www.facebook.com/fornidallc", svg: <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /> },
                 ].map((s) => (
                   <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}
-                    className="w-8 h-8 flex items-center justify-center rounded-full border border-zinc-700 text-zinc-500 hover:text-white hover:border-zinc-500 transition-all">
+                    className="w-8 h-8 flex items-center justify-center rounded-full border border-gray-300 text-zinc-500 hover:text-zinc-900 hover:border-zinc-500 transition-all">
                     <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                       {s.svg}
                     </svg>
@@ -767,10 +767,10 @@ export default function HomePage() {
               },
             ].map((col) => (
               <div key={col.title}>
-                <div className="text-zinc-300 text-[10px] font-bold uppercase tracking-widest mb-4">{col.title}</div>
+                <div className="text-zinc-700 text-[10px] font-bold uppercase tracking-widest mb-4">{col.title}</div>
                 {col.links.map((l) => (
                   <a key={l.label} href={l.href}
-                    className="block text-zinc-500 text-sm mb-2.5 hover:text-zinc-300 transition-colors">
+                    className="block text-zinc-500 text-sm mb-2.5 hover:text-zinc-700 transition-colors">
                     {l.label}
                   </a>
                 ))}
@@ -779,11 +779,11 @@ export default function HomePage() {
           </div>
 
           {/* Bottom bar */}
-          <div className="border-t border-zinc-800 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-zinc-600">
+          <div className="border-t border-gray-200 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-zinc-500">
             <span>© 2026 FORNIDA, LLC · 2609 TECHNOLOGY DR · SUITE 300 · PLANO, TX 75074</span>
             <div className="flex gap-6">
-              <a href="tel:+19497221222" className="hover:text-zinc-400 transition-colors">+19497221222</a>
-              <a href="mailto:info@fornida.com" className="hover:text-zinc-400 transition-colors">info@fornida.com</a>
+              <a href="tel:+19497221222" className="hover:text-zinc-500 transition-colors">+19497221222</a>
+              <a href="mailto:info@fornida.com" className="hover:text-zinc-500 transition-colors">info@fornida.com</a>
               <span>v · 26.04</span>
             </div>
           </div>
