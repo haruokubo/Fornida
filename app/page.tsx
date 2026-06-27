@@ -10,13 +10,6 @@ interface StatItem {
   suffix?: string;
 }
 
-interface ServiceItem {
-  num: string;
-  title: string;
-  desc: string;
-  highlight?: boolean;
-}
-
 interface ProblemItem {
   icon: string;
   title: string;
@@ -60,22 +53,60 @@ const PROBLEMS: ProblemItem[] = [
   },
 ];
 
+interface ServiceItem {
+  num: string;
+  label: string;
+  title: string;
+  desc: string;
+  bullets: string[];
+  explore: string;
+  highlight?: boolean;
+}
+
 const SERVICES: ServiceItem[] = [
   {
     num: "01",
-    title: "Help Desk & IT Support",
-    desc: "User support, device management, on-site visits nationwide, patch management, and SLA-backed ticketing — all in one team.",
+    label: "SVC / 01",
+    title: "Help Desk",
+    desc: "Fast, human support for users, devices, systems, and everyday IT issues.",
+    bullets: [
+      "User & device support",
+      "On-site visits, nationwide",
+      "Ticketing & SLAs",
+      "Patch management",
+    ],
+    explore: "Explore Help Desk",
   },
   {
     num: "02",
-    title: "Cybersecurity & SOC",
-    desc: "Endpoint detection, email security, 24/7 SOC monitoring, backup & recovery, AI governance, and incident response.",
+    label: "SVC / 02",
+    title: "Cybersecurity",
+    desc: "Layered protection across endpoints, email, identity, networks, monitoring, backups, AI governance, and incident response.",
+    bullets: [
+      "Endpoint detection",
+      "Email & identity security",
+      "SOC monitoring",
+      "Backup & recovery",
+      "AI governance & security",
+      "Incident response & restoration",
+    ],
+    explore: "Explore Cybersecurity",
     highlight: true,
   },
   {
     num: "03",
+    label: "SVC / 03",
     title: "AI Advantage",
-    desc: "Data cleanup, multi-tool AI training (Copilot, Claude, ChatGPT, Grok), on-call support, and fast automation sprints with a 2-hour rule.",
+    desc: "We teach your team to use AI well — across Copilot, ChatGPT, Claude, Grok — answer the questions that come up every week, and build workflows on top of clean data. Under two hours we just do it; bigger gets a real SOW.",
+    bullets: [
+      "Data cleanup (single source of truth)",
+      "AI training for your team",
+      "Tool-agnostic (Copilot · ChatGPT · Claude · Grok)",
+      "On-call for questions",
+      "Two-hour rule for small work",
+      "SOWs for bigger projects",
+    ],
+    explore: "Explore AI Advantage",
   },
 ];
 
@@ -445,54 +476,51 @@ export default function HomePage() {
       </section>
 
       {/* ── SERVICES ────────────────────────────────────── */}
-      <section ref={serviceRef} className="relative py-24 px-6 overflow-hidden bg-white">
+      <section ref={serviceRef} className="relative py-24 px-6 overflow-hidden bg-white border-t border-gray-200">
         <img
           src="https://fornida.com/assets/facility/noc-dashboard.jpg"
           alt=""
           aria-hidden
-          className="absolute inset-0 w-full h-full object-cover object-center opacity-20"
+          className="absolute inset-0 w-full h-full object-cover object-center opacity-10"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-zinc-950 via-zinc-950/40 to-zinc-900" />
-        <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/70 via-transparent to-zinc-950/70" />
         <div className="relative z-10 max-w-7xl mx-auto">
-          <div className="mb-12">
-            <p className="text-zinc-500 text-xs font-bold uppercase tracking-widest mb-3">
-              What We Deliver
-            </p>
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4 text-zinc-900">
-              IT + Security + AI.
+          <div className="mb-14">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+              <span className="text-zinc-500 text-xs font-bold uppercase tracking-widest">04 / What We Deliver</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight text-zinc-900">
+              One team for IT, security,
               <br />
-              One team. No gaps.
+              and automation.
             </h2>
-            <p className="text-zinc-500 text-lg max-w-xl leading-relaxed">
-              No juggling three vendors. One accountable partner covering all
-              three layers — with full context on your environment.
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-200 border border-gray-200 rounded-2xl overflow-hidden bg-gray-50">
             {SERVICES.map((s, i) => (
               <div
                 key={s.num}
-                className={`relative rounded-2xl p-8 transition-all duration-500 bg-gray-50 shadow-xl hover:-translate-y-1 border border-gray-200 ${
-                  serviceVisible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-6"
+                className={`p-8 flex flex-col gap-0 transition-all duration-500 ${
+                  serviceVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
                 }`}
                 style={{ transitionDelay: `${i * 120}ms` }}
               >
-                <div className="text-6xl font-black text-zinc-900/5 mb-4 select-none leading-none">
-                  {s.num}
-                </div>
-                <h3 className="text-xl font-bold mb-3 text-zinc-900">{s.title}</h3>
-                <p className="text-zinc-500 leading-relaxed text-sm mb-6">
-                  {s.desc}
-                </p>
+                <p className="text-zinc-400 text-[10px] font-mono uppercase tracking-widest mb-4">{s.label}</p>
+                <h3 className="text-2xl font-black text-zinc-900 mb-3">{s.title}</h3>
+                <p className="text-zinc-500 text-sm leading-relaxed mb-6">{s.desc}</p>
+                <ul className="flex flex-col gap-2 mb-8 flex-1">
+                  {s.bullets.map((b) => (
+                    <li key={b} className="flex items-start gap-2 text-sm text-zinc-700">
+                      <span className="text-zinc-400 mt-0.5 font-mono leading-none">+</span>
+                      <span className="font-mono text-xs leading-relaxed">{b}</span>
+                    </li>
+                  ))}
+                </ul>
                 <a
-                  href="#"
-                  className="text-zinc-900 text-sm font-semibold hover:text-zinc-700 transition-colors"
+                  href="/services"
+                  className="text-zinc-900 text-sm font-semibold hover:text-amber-500 transition-colors mt-auto"
                 >
-                  Learn more →
+                  {s.explore} →
                 </a>
               </div>
             ))}
