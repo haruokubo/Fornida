@@ -60,6 +60,7 @@ interface ServiceItem {
   desc: string;
   bullets: string[];
   explore: string;
+  href: string;
   highlight?: boolean;
 }
 
@@ -76,6 +77,7 @@ const SERVICES: ServiceItem[] = [
       "Patch management",
     ],
     explore: "Explore Help Desk",
+    href: "/services/help-desk",
   },
   {
     num: "02",
@@ -91,6 +93,7 @@ const SERVICES: ServiceItem[] = [
       "Incident response & restoration",
     ],
     explore: "Explore Cybersecurity",
+    href: "/services/cybersecurity",
     highlight: true,
   },
   {
@@ -107,6 +110,7 @@ const SERVICES: ServiceItem[] = [
       "SOWs for bigger projects",
     ],
     explore: "Explore AI Advantage",
+    href: "/services/ai-advantage",
   },
 ];
 
@@ -517,8 +521,8 @@ export default function HomePage() {
                   ))}
                 </ul>
                 <a
-                  href="/services"
-                  className="text-zinc-900 text-sm font-semibold hover:text-amber-500 transition-colors mt-auto"
+                  href={s.href}
+                  className="text-zinc-900 text-sm font-semibold hover:text-teal-500 transition-colors mt-auto"
                 >
                   {s.explore} →
                 </a>

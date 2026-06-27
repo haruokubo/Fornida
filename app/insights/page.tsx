@@ -1,64 +1,13 @@
 "use client";
 
+import { ARTICLES } from "./articles-data";
+
 const FEATURED_VIDEO = {
   id: "s-dTmpLPDhE",
   title: "Welcome to Fornida | Cybersecurity & IT Solutions",
   description:
     "Narrated by CEO Farzad Vahid — an inside look at how Fornida delivers enterprise-grade IT support, cybersecurity, and AI automation to growing businesses across Texas and nationwide.",
   category: "Company Overview",
-};
-
-const INSIGHTS = [
-  {
-    type: "article",
-    tag: "Cybersecurity",
-    title: "Why Shadow AI is Your Biggest Security Risk in 2025",
-    desc: "Employees are using ChatGPT, Copilot, and Grok without IT oversight. Here's what that means for your data.",
-    readTime: "4 min read",
-  },
-  {
-    type: "article",
-    tag: "AI Automation",
-    title: "The 2-Hour Rule: One Free Automation That Pays For Itself",
-    desc: "We build one automation for every new client in under 2 hours — for free. Here's what we've learned from 50+ quick wins.",
-    readTime: "5 min read",
-  },
-  {
-    type: "article",
-    tag: "Incident Response",
-    title: "Wire Fraud Nearly Killed Our Business — Then It Made Us Better",
-    desc: "In 2018, Fornida experienced wire fraud firsthand. That incident shaped our entire security philosophy.",
-    readTime: "6 min read",
-  },
-  {
-    type: "article",
-    tag: "AI Strategy",
-    title: "We Rebuilt Our Entire Ops Platform in 90 Days Using AI",
-    desc: "In 2024, we replaced our internal operations software stack with AI-native tooling. This is what worked and what didn't.",
-    readTime: "7 min read",
-  },
-  {
-    type: "article",
-    tag: "IT Management",
-    title: "One Vendor vs. Three: The Hidden Cost of Fragmented IT",
-    desc: "Most SMBs juggle 3+ vendors for IT, security, and software. Here's what that actually costs — in dollars and risk.",
-    readTime: "4 min read",
-  },
-  {
-    type: "article",
-    tag: "Cybersecurity",
-    title: "CMMC 2.0 Explained: What Defense Contractors Need to Know",
-    desc: "CMMC 2.0 Level 1 compliance requirements, what they mean for your business, and how to get audit-ready.",
-    readTime: "8 min read",
-  },
-];
-
-const TAG_COLORS: Record<string, string> = {
-  Cybersecurity: "text-zinc-700 bg-gray-50 border-gray-300",
-  "AI Automation": "text-zinc-700 bg-gray-50 border-gray-300",
-  "Incident Response": "text-zinc-700 bg-gray-50 border-gray-300",
-  "AI Strategy": "text-zinc-700 bg-gray-50 border-gray-300",
-  "IT Management": "text-zinc-700 bg-gray-50 border-gray-300",
 };
 
 export default function InsightsPage() {
